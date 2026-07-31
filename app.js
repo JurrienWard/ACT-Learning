@@ -278,7 +278,7 @@ function navigate(view, section, category, topic) {
   window.scrollTo(0,0);
 }
 function render() {
-  if (currentTopic) return renderTopicDetail();
+  if (currentTopic !== null) return renderTopicDetail();
   if (currentCategory) return renderTopicList();
   if (currentView === 'section') return renderCategoryGrid();
   return renderHome();
