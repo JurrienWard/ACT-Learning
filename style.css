@@ -113,6 +113,7 @@ main{max-width:1100px; margin:0 auto; padding:2rem 1.5rem}
 }
 .topic-row:hover{background:#fafbfc; border-color:var(--accent)}
 .topic-row .tname{font-weight:600; font-size:.95rem}
+.topic-row .tdesc{display:block; color:var(--text2); font-size:.85rem; margin-top:.2rem; line-height:1.45; font-weight:400}
 .topic-row .tmeta{display:flex; gap:.75rem; align-items:center}
 .topic-row .difficulty{
   font-size:.75rem; padding:.2rem .6rem; border-radius:100px;
@@ -126,7 +127,9 @@ main{max-width:1100px; margin:0 auto; padding:2rem 1.5rem}
   background:var(--bg); border:1px solid var(--border); border-radius:var(--radius);
   padding:2rem; box-shadow:var(--shadow-md); margin-bottom:1.5rem;
 }
-.detail-panel h3{font-size:1.4rem; font-weight:700; margin-bottom:1rem}
+.detail-panel h3{font-size:1.4rem; font-weight:700; margin-bottom:.5rem}
+.detail-header{margin-bottom:1rem}
+.detail-header .difficulty{vertical-align:middle}
 .ai-explanation{
   background:linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
   border-left:4px solid var(--accent); border-radius:0 var(--radius) var(--radius) 0;
@@ -167,6 +170,39 @@ main{max-width:1100px; margin:0 auto; padding:2rem 1.5rem}
   .hero-section h1{font-size:1.5rem}
   .cat-grid{grid-template-columns:1fr}
 }
+/* ── DETAIL TABS ──────────── */
+.detail-tabs{display:flex; gap:.5rem; margin:1rem 0 .75rem; border-bottom:1px solid var(--border); padding-bottom:.5rem}
+.tab-btn{background:none; border:none; padding:.55rem 1rem; font-size:.9rem; font-weight:600; cursor:pointer; border-radius:8px; color:var(--text2)}
+.tab-btn.active{background:var(--accent); color:#fff}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+/* ── TEST UI ──────────────── */
+.test-container{background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; box-shadow:var(--shadow)}
+.test-header{display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem}
+.test-header h3{font-size:1.2rem; font-weight:700}
+.timer{background:#fee2e2; color:#991b1b; padding:.35rem .75rem; border-radius:100px; font-weight:700; font-size:.9rem; font-variant-numeric:tabular-nums}
+.test-config h4{margin-bottom:.75rem}
+.config-row{margin-bottom:.75rem}
+.config-row label{display:flex; align-items:center; gap:.5rem; font-weight:600}
+.config-row input{width:80px; padding:.35rem .5rem; border:1px solid var(--border); border-radius:6px}
+.start-test-btn,.submit-test-btn,.retry-btn{background:var(--accent); color:#fff; border:none; padding:.6rem 1.2rem; border-radius:8px; font-weight:700; cursor:pointer; margin-top:.75rem}
+.retry-btn{background:var(--green)}
+.question-card{border:1px solid var(--border); border-radius:8px; padding:1rem; margin-bottom:1rem; background:#fff}
+.question-card.answered{border-color:var(--accent)}
+.q-header{display:flex; align-items:center; justify-content:space-between; margin-bottom:.5rem}
+.q-num{font-weight:700; color:var(--accent)}
+.result-badge{padding:.2rem .6rem; border-radius:100px; font-size:.8rem; font-weight:700}
+.result-badge.correct{background:#d1fae5; color:#065f46}
+.result-badge.wrong{background:#fee2e2; color:#991b1b}
+.q-text{font-weight:600; margin-bottom:.75rem; line-height:1.5}
+.options{display:flex; flex-direction:column; gap:.5rem}
+.option{display:flex; align-items:center; gap:.5rem; padding:.6rem .75rem; border:1px solid var(--border); border-radius:8px; cursor:pointer; transition:all .12s}
+.option:hover{background:var(--bg2); border-color:var(--accent)}
+.option.correct-option{border-color:var(--green); background:#ecfdf5}
+.option.wrong-option{border-color:var(--rose); background:#fff1f2}
+.option input{margin:0}
+.q-explanation{margin-top:.75rem; padding:.75rem; background:#f0f9ff; border-left:3px solid var(--accent); border-radius:0 var(--radius) var(--radius) 0; font-size:.9rem; line-height:1.6}
+.score-panel{display:flex; align-items:center; justify-content:space-between; margin-top:1rem; padding:1rem; background:var(--bg2); border-radius:8px}
 /* ── MISC ──────────────────── */
 .no-results{
   text-align:center; padding:3rem; color:var(--text2);
