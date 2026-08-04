@@ -1557,6 +1557,12 @@ let currentSection = null;
 const main = document.getElementById('mainContent');
 const searchInput = document.getElementById('searchInput');
 const navButtons = document.querySelectorAll('.topbar nav button');
+const renderCache = new Map();
+let cacheVersion = 0;
+function invalidateCache() { cacheVersion++; }
+function cacheKey(view, section, category, topic) {
+  return `${view}|${section}|${category}|${topic}|${cacheVersion}`;
+}
 async function navigate(view, section, category, topic) {
   endTest();
   closeMobileMenu();
@@ -1572,11 +1578,11 @@ async function navigate(view, section, category, topic) {
     const alt = document.querySelector('[data-view="analytics"]');
     if (alt) alt.classList.add('active');
   }
-  // Lazy-load this section's data chunk (and question generators) on first visit.
   if (section && DATA_MANIFEST[section] && !data[section] && (section !== 'science' || isScienceEnabled())) {
     main.innerHTML = `<div class="loading-state">Loading ${(DATA_MANIFEST[section].title || section)}…</div>`;
     try {
       await loadSection(section);
+      invalidateCache();
     } catch (err) {
       main.innerHTML = `<div class="no-results"><h3>Could not load this section</h3><p>Please refresh the page and try again.</p></div>`;
       return;
@@ -1586,6 +1592,7 @@ async function navigate(view, section, category, topic) {
     const cat = data[section].categories[category];
     if (cat && cat.topics[topic]) {
       markTopicViewed(section, cat.name, cat.topics[topic].name);
+      invalidateCache();
     }
   }
   if (section && DATA_MANIFEST[section]) trackSectionTime(section);
@@ -1597,10 +1604,15 @@ function render() {
   if (currentView === 'analytics') return renderAnalytics();
   if (currentView === 'support') return renderSupport();
   if (currentSection === 'science' && !isScienceEnabled()) return renderScienceOptIn();
-  if (currentTopic != null) return renderTopicDetail();
-  if (currentCategory != null) return renderTopicList();
-  if (currentView === 'section') return renderCategoryGrid();
-  return renderHome();
+  const key = cacheKey(currentView, currentSection, currentCategory, currentTopic);
+  if (renderCache.has(key)) { main.innerHTML = renderCache.get(key); return; }
+  let html = '';
+  if (currentTopic != null) html = renderTopicDetailHTML();
+  else if (currentCategory != null) html = renderTopicListHTML();
+  else if (currentView === 'section') html = renderCategoryGridHTML();
+  else html = renderHomeHTML();
+  renderCache.set(key, html);
+  main.innerHTML = html;
 }
 // ── HOME ──────────────────────
 function isScienceEnabled() {
@@ -1611,13 +1623,14 @@ function setScienceEnabled(on) {
 }
 function toggleScienceOptIn(el) {
   setScienceEnabled(!!el && el.checked);
+  invalidateCache();
   if (currentSection === 'science' && currentView === 'section') {
     navigate('section', 'science');
   } else {
-    renderHome();
+    renderHomeHTML();
   }
 }
-function renderHome() {
+function renderHomeHTML() {
   const progress = getProgress();
   const viewedCount = progress.topicViews ? Object.keys(progress.topicViews).length : 0;
   const scienceOn = isScienceEnabled();
@@ -1641,7 +1654,7 @@ function renderHome() {
       <label class="science-toggle">
         <input type="checkbox" onchange="toggleScienceOptIn(this)" ${scienceOn ? 'checked' : ''}>
         <span class="toggle-track"><span class="toggle-thumb"></span></span>
-        <span class="toggle-label">Science — optional add-on (40 questions · 40 min)</span>
+        <span class="toggle-label">Science — optional add-on (40 questions · 35 min)</span>
       </label>
     </div>
     <div class="subject-grid">
@@ -1658,13 +1671,13 @@ function renderHome() {
       <div class="subject-card reading" onclick="navigate('section','reading')">
         <span class="icon">📖</span>
         <h3>Reading</h3>
-        <p>36 questions · 40 min · Literary, Social Studies, Humanities, Natural Science · ${countTopics('reading')} topics</p>
+        <p>36 questions · 35 min · Literary, Social Studies, Humanities, Natural Science · ${countTopics('reading')} topics</p>
       </div>
       ${scienceOn ? `
       <div class="subject-card science" onclick="navigate('section','science')">
         <span class="icon">🔬</span>
         <h3>Science</h3>
-        <p>40 questions · 40 min · Optional add-on · Data analysis & reasoning · ${countTopics('science')} topics</p>
+        <p>40 questions · 35 min · Optional add-on · Data analysis & reasoning · ${countTopics('science')} topics</p>
       </div>` : ''}
       <div class="subject-card past-tests" onclick="navigate('section','past tests')">
         <span class="icon">📚</span>
@@ -1677,7 +1690,7 @@ function renderHome() {
 // ── SCIENCE OPT-IN BLOCKER ───
 function renderScienceOptIn() {
   const scienceOn = isScienceEnabled();
-  if (scienceOn) { renderCategoryGrid(); return; }
+  if (scienceOn) { renderCategoryGridHTML(); return; }
   main.innerHTML = `
     <div class="breadcrumb">
       <button onclick="navigate('home')">← Home</button>
@@ -1695,7 +1708,7 @@ function renderScienceOptIn() {
   `;
 }
 // ── CATEGORY GRID ─────────────
-function renderCategoryGrid() {
+function renderCategoryGridHTML() {
   const sec = data[currentSection];
   let html = `
     <div class="breadcrumb">
@@ -1728,7 +1741,7 @@ function getExcerpt(html, maxLen = 130) {
   return text.length > maxLen ? text.slice(0, maxLen).trim() + '…' : text;
 }
 
-function renderTopicList() {
+function renderTopicListHTML() {
   const cat = data[currentSection].categories[currentCategory];
   let html = `
     <div class="breadcrumb">
@@ -1785,30 +1798,58 @@ function renderTopicList() {
 
   const progress = getProgress();
   html += `<div class="topic-list" id="topicListContainer">`;
-  cat.topics.forEach((t, i) => {
-    const excerpt = t.expl ? getExcerpt(t.expl) : '';
-    const diff = t.diff ? `<span class="difficulty ${t.diff === 'easy' ? 'easy' : t.diff === 'medium' ? 'medium' : 'hard'}">${t.diff}</span>` : '';
-    const viewKey = `${currentSection}::${cat.name}::${t.name}`;
-    const viewed = progress.topicViews && progress.topicViews[viewKey];
-    const viewedBadge = viewed ? `<span style="font-size:.72rem;font-weight:700;color:var(--primary);background:var(--emerald-soft);padding:.18rem .55rem;border-radius:10px;">✓ Viewed</span>` : '';
-    html += `
-      <div class="topic-row" data-searchable="${t.name.toLowerCase()} ${cat.name.toLowerCase()} ${excerpt.toLowerCase()}" onclick="navigate('section','${currentSection}',${currentCategory},${i})">
-        <div>
-          <span class="tname">${t.name} ${viewed ? '<span class="viewed-badge">✓ Viewed</span>' : ''}</span>
-          ${excerpt ? `<span class="tdesc">${excerpt}</span>` : ''}
+  const PAGE_SIZE = 20;
+  let pageStart = 0;
+  let currentPage = 0;
+  const totalPages = Math.max(1, Math.ceil(cat.topics.length / PAGE_SIZE));
+  function renderPage() {
+    const container = document.getElementById('topicListContainer');
+    if (!container) return;
+    const start = currentPage * PAGE_SIZE;
+    const slice = cat.topics.slice(start, start + PAGE_SIZE);
+    let pageHtml = '';
+    slice.forEach((t, i) => {
+      const excerpt = t.expl ? getExcerpt(t.expl) : '';
+      const diff = t.diff ? `<span class="difficulty ${t.diff === 'easy' ? 'easy' : t.diff === 'medium' ? 'medium' : 'hard'}">${t.diff}</span>` : '';
+      const viewKey = `${currentSection}::${cat.name}::${t.name}`;
+      const viewed = progress.topicViews && progress.topicViews[viewKey];
+      const viewedBadge = viewed ? '<span class="viewed-badge">✓ Viewed</span>' : '';
+      pageHtml += `
+        <div class="topic-row" data-searchable="${t.name.toLowerCase()} ${cat.name.toLowerCase()} ${excerpt.toLowerCase()}" onclick="navigate('section','${currentSection}',${currentCategory},${start + i})">
+          <div>
+            <span class="tname">${t.name} ${viewedBadge}</span>
+            ${excerpt ? `<span class="tdesc">${excerpt}</span>` : ''}
+          </div>
+          <div class="tmeta">
+            ${diff}
+            <span style="color:var(--text2);font-size:.8rem">→</span>
+          </div>
         </div>
-        <div class="tmeta">
-          ${diff}
-          <span style="color:var(--text2);font-size:.8rem">→</span>
-        </div>
+      `;
+    });
+    const hasPrev = currentPage > 0;
+    const hasNext = currentPage < totalPages - 1;
+    container.innerHTML = pageHtml + (hasPrev || hasNext ? `
+      <div class="pagination">
+        ${hasPrev ? '<button type="button" class="page-btn" data-page="prev">← Previous</button>' : ''}
+        <span class="page-info">Page ${currentPage + 1} of ${totalPages}</span>
+        ${hasNext ? '<button type="button" class="page-btn" data-page="next">Next →</button>' : ''}
       </div>
-    `;
-  });
+    ` : '');
+    container.querySelectorAll('.page-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.dataset.page === 'prev' && currentPage > 0) currentPage--;
+        if (btn.dataset.page === 'next' && currentPage < totalPages - 1) currentPage++;
+        renderPage();
+      });
+    });
+  }
+  renderPage();
   html += '</div>';
   main.innerHTML = html;
 }
 // ── TOPIC DETAIL ──────────────
-function renderTopicDetail() {
+function renderTopicDetailHTML() {
   const cat = data[currentSection].categories[currentCategory];
   const topic = cat.topics[currentTopic];
   let html = `
