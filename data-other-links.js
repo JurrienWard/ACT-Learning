@@ -1,0 +1,3 @@
+(function () {
+  'use strict';
+  data["other links"] = {"title":"Other Links","desc":"Helpful ACT resources and study links","categories":[{"name":"Resources","topics":[{"name":"ACT Official Site","url":"https://www.act.org"},{"name":"ACT Free Test Prep","url":"https://www.act.org/content/act/en/free-act-test-prep.html"},{"name":"MyMathsCloud ACT","url":"https://www.mymathscloud.com/modules/university/admissions-tests-sat-act/act"},{"name":"Khan Academy ACT","url":"https://www.khanacademy.org/test-prep/act"},{"name":"ACT Academy","url":"https://www.actacademy.org/"},{"name":"CrackACT Free Practice","url":"https://www.crackact.com/"}]}]};})();

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mini server for ACT Genie with served Manim videos."""
+"""Mini server for ACT Wizard with served Manim videos."""
 from pathlib import Path
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 import subprocess, os, urllib.parse
@@ -34,7 +34,7 @@ class Handler(SimpleHTTPRequestHandler):
 if __name__ == "__main__":
     os.chdir(Path(__file__).parent)
     server = HTTPServer(("127.0.0.1", PORT), Handler)
-    print(f"Serving ACT Genie on http://127.0.0.1:{PORT}")
+    print(f"Serving ACT Wizard on http://127.0.0.1:{PORT}")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

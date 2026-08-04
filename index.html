@@ -3,30 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ACT Genie — Free ACT Revision by Topic</title>
-
-  <link rel="stylesheet" href="style.css">
-
+<title>ACT Wizard — Free ACT Revision by Topic</title>
+<meta name="theme-color" content="#094e38">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d6b4e' stroke-width='2'><path d='M12 2L2 7l10 5 10-5-10-5z'/><path d='M2 17l10 5 10-5'/><path d='M2 12l10 5 10-5'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <!-- ═══════════ TOP BAR ═══════════ -->
 <div class="topbar">
-  <div class="logo">ACT<span>Genie</span></div>
-  <nav>
-    <button class="active" data-view="home">🏠 Home</button>
-    <button data-view="math">📐 Math</button>
-    <button data-view="english">📝 English</button>
-    <button data-view="reading">📖 Reading</button>
-    <button data-view="science">🔬 Science</button>
-    <button data-view="Past Tests">📚 Past Tests</button>
+  <div class="logo">ACT<span>Wizard</span></div>
+  <button class="hamburger" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainNav">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="mainNav" aria-label="Primary">
+    <button class="active" data-view="home">Home</button>
+    <button data-view="math">Math</button>
+    <button data-view="english">English</button>
+    <button data-view="reading">Reading</button>
+    <button data-view="science">Science</button>
+    <button data-view="past tests">Past Tests</button>
+    <button data-view="other links">Other Links</button>
+    <button data-view="support">Support</button>
+    <button data-view="analytics">Analytics</button>
   </nav>
   <div class="search-wrap">
+    <button class="search-toggle" id="searchToggle" aria-label="Toggle search" aria-expanded="false">🔍</button>
     <input type="text" id="searchInput" placeholder="Search topics…" oninput="doSearch()">
   </div>
 </div>
+<div class="nav-overlay" id="navOverlay" hidden></div>
 <!-- ═══════════ MAIN ═══════════ -->
-<main id="mainContent"></main>
+<main id="mainContent">
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+</main>
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="site-footer">
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h5>Explore</h5>
+      <a href="#" onclick="navigate('home');return false;">Home</a>
+      <a href="#" onclick="navigate('section','math');return false;">Math</a>
+      <a href="#" onclick="navigate('section','english');return false;">English</a>
+      <a href="#" onclick="navigate('section','reading');return false;">Reading</a>
+      <a href="#" onclick="navigate('section','science');return false;">Science</a>
+      <a href="#" onclick="navigate('section','past tests');return false;">Past Tests</a>
+      <a href="#" onclick="navigate('section','other links');return false;">Other Links</a>
+      <a href="#" onclick="navigate('support');return false;">💛 Support ACT Wizard</a>
+      <a href="#" onclick="navigate('analytics');return false;">📊 Analytics</a>
+    </div>
+    <div class="footer-col footer-about">
+      <h5>ACT Wizard</h5>
+      <p>Free ACT revision by topic — learn each topic with clear explanations, then test yourself ACT-style or use past papers.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Learn More</h5>
+      <p style="font-size:.85rem;color:rgba(255,255,255,.75)">ACT Wizard is an independent study tool and is not affiliated with ACT, Inc.</p>
+      <p style="font-size:.78rem;color:rgba(255,255,255,.55);margin-top:.5rem">© 2026 ACT Wizard</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>All content is free — forever.</span>
+  </div>
+</footer>
 
+<!-- ═══════════ SUPPORT MODAL ═══════════ -->
+<div class="modal-overlay" id="supportModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="supportModalTitle">
+    <button class="modal-close" id="supportModalClose" aria-label="Close">✕</button>
+    <h3 id="supportModalTitle">💛 Support ACT Wizard</h3>
+    <p>All content is free. Support keeps it free.</p>
+    <div class="support-links">
+      <a href="https://buymeacoffee.com/jurrienward" target="_blank" rel="noopener" class="support-link bmc">Buy Me a Coffee</a>
+      <a href="https://paypal.me/jurrienward" target="_blank" rel="noopener" class="support-link paypal">Donate via PayPal</a>
+    </div>
+    <p class="modal-note">No paywalls, no premium gating. Every explanation and test stays free — a little support just keeps the site running.</p>
+  </div>
+</div>
+
+  <script src="data-manifest.js"></script>
+  <script src="visuals.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

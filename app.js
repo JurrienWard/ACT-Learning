@@ -1,2860 +1,1547 @@
 
 // ╔══════════════════════════════════════════╗
-// ║           DATA: ALL ACT TOPICS          ║
+// ║          APP: ACT WIZARD CORE            ║
 // ╚══════════════════════════════════════════╝
-const data = {
-  math: {
-    title: 'ACT Math',
-    desc: '45 questions · 50 minutes · 4 answer choices per question',
-    categories: [
-      {
-        name: 'Pre-Algebra & Arithmetic',
-        topics: [
-          {name:'Number Types & Properties', diff:'easy', expl:`<strong>Real numbers</strong> include rational (fractions, decimals that end or repeat) and irrational numbers (like π and √2). <strong>Integers</strong> are whole numbers (…-2,-1,0,1,2…). Know the difference between <strong>prime</strong> (divisible only by 1 and itself), <strong>composite</strong>, even/odd, and positive/negative numbers.<br><br><strong>Key rules:</strong><br>• Product of two negatives = positive<br>• Sum of two evens = even<br>• Sum of two odds = even<br>• Product of odd × even = even<br><br><strong>ACT trap:</strong> How many integers between 1 and 100 are divisible by 3? Remember boundaries: inclusive vs exclusive counts.`},
-          {name:'Factors, Multiples & Divisibility', diff:'easy', expl:`<strong>GCF (Greatest Common Factor):</strong> The largest number that divides evenly into two or more numbers. Find by listing factors or using prime factorization — keep only shared primes with the lowest exponents.<br><br><strong>LCM (Least Common Multiple):</strong> The smallest number that is a multiple of two or more numbers. Take all prime factors with the highest exponents.<br><br><strong>Divisibility rules:</strong><br>• 2: last digit even<br>• 3: sum of digits divisible by 3<br>• 4: last two digits divisible by 4<br>• 5: last digit 0 or 5<br>• 6: divisible by 2 AND 3<br>• 9: sum of digits divisible by 9<br>• 10: ends in 0<br><br><strong>ACT strategy:</strong> For consecutive integers problem, check if the product is divisible by n!.`},
-          {name:'Fractions, Decimals & Percentages', diff:'medium', expl:`Three ways to express the same value.<br><br><strong>Conversions:</strong><br>• Fraction → Decimal: divide numerator by denominator<br>• Decimal → Percent: multiply by 100<br>• Percent → Fraction: put over 100 and simplify<br><br><strong>Percent change formula:</strong> <code>(new − old) / old × 100</code>. A $40 shirt on sale for $30 is a <strong>25% decrease</strong>.<br><br><strong>Advanced percent problems:</strong><br>• Successive increases/decreases don't cancel out!<br>• 15% of a number is 30 → <code>0.15x = 30</code> → <code>x = 200</code><br>• Mixture problems: weighted average = (part1 + part2) / total<br><br><strong>ACT tip:</strong> Convert everything to decimals or fractions before calculating.`},
-          {name:'Ratios & Proportions', diff:'medium', expl:`A <strong>ratio</strong> compares two quantities (e.g., 3:4). A <strong>proportion</strong> says two ratios are equal: <code>a/b = c/d</code>.<br><br><strong>Cross-multiply</strong> to solve: <code>a × d = b × c</code>.<br><br>If 3 oranges cost $2, how much for 15 oranges? Set up <code>3/2 = 15/x</code>, cross-multiply: <code>3x = 30</code>, so <code>x = $10</code>.<br><br><strong>Key concepts:</strong><br>• Unit rates: miles per gallon = total miles ÷ total gallons<br>• Scale drawings: use ratio to convert drawing → real<br>• Proportions in similar figures: corresponding sides are proportional<br><br><strong>ACT trap:</strong> ratio of boys to girls is 3:4 — boys = 3x, girls = 4x, total = 7x.`},
-          {name:'Scientific Notation', diff:'easy', expl:`Used for very large or very small numbers. Format: <code>a × 10ⁿ</code> where 1 ≤ a < 10.<br><br><code>3.5 × 10⁶ = 3,500,000</code> (move decimal right 6)<br><code>4.2 × 10⁻³ = 0.0042</code> (move decimal left 3)<br><br><strong>Operations:</strong><br>• Multiplication: <code>(a×10ᵐ)(b×10ⁿ) = ab × 10ᵐ⁺ⁿ</code><br>• Division: <code>(a×10ᵐ)/(b×10ⁿ) = (a/b) × 10ᵐ⁻ⁿ</code><br><br><strong>Common ACT task:</strong> Convert between standard form and scientific notation, or compare sizes. Positive exponent = large number, negative = small number.`},
-          {name:'Mean, Median, Mode & Range', diff:'easy', expl:`<strong>Mean:</strong> Sum divided by count (the average).<br><strong>Median:</strong> Middle value when sorted. If two middle values, average them.<br><strong>Mode:</strong> Most frequent value.<br><strong>Range:</strong> Max − Min.<br><br><strong>Advanced:</strong><br>• Weighted mean: different values have different weights<br>• Missing value problem: use mean formula backwards<br>• Combined sets: new mean = (sum1 + sum2) / (n1 + n2)<br><br><strong>ACT favorite:</strong> An outlier pulls the mean but doesn't affect median much. If mean > median, distribution is skewed right.`},
-          {name:'Basic Probability', diff:'medium', expl:`<strong>Probability = desired outcomes / total outcomes</strong><br><br>Probability of rolling a 5 on a die: <code>1/6</code>.<br>Probability of NOT rolling a 5: <code>1 − 1/6 = 5/6</code>.<br><br><strong>AND (both):</strong> multiply probabilities.<br><strong>OR (either):</strong> add probabilities, then subtract overlap.<br><br><strong>Key concepts:</strong><br>• With replacement: probabilities stay the same<br>• Without replacement: total decreases, probabilities change<br>• Mutually exclusive: P(A and B) = 0<br>• Independent: P(A and B) = P(A) × P(B)<br><br><strong>ACT tip:</strong> Count total outcomes systematically using lists or tree diagrams.`},
-          {name:'Order of Operations (PEMDAS)', diff:'easy', expl:`<strong>P</strong>arentheses → <strong>E</strong>xponents → <strong>M</strong>ultiplication/<strong>D</strong>ivision (left to right) → <strong>A</strong>ddition/<strong>S</strong>ubtraction (left to right).<br><br>Example: <code>3 + 4 × 2</code><br>= <code>3 + 8</code> (multiplication first!)<br>= <code>11</code> (NOT 14!)<br><br><strong>Common traps:</strong><br>• Negative numbers: <code>−3² = −9</code>, but <code>(−3)² = 9</code><br>• Fractions: treat numerator and denominator separately<br>• Absolute value: like parentheses — do first<br><br><strong>ACT strategy:</strong> Rewrite complex expressions step by step. Don't try to do it all in your head.`},
-        ]
-      },
-      {
-        name: 'Elementary Algebra',
-        topics: [
-          {name:'Solving Linear Equations', diff:'easy', expl:`Get the variable alone on one side. Whatever you do to one side, do to the other.<br><br>Example: <code>3x + 5 = 20</code><br>Subtract 5: <code>3x = 15</code><br>Divide by 3: <code>x = 5</code><br><br><strong>Advanced cases:</strong><br>• Variables on both sides: collect on one side first<br>• Fractions: multiply EVERYTHING by LCD first<br>• Decimals: multiply by power of 10 to clear decimals<br>• Distribution: expand first, then collect<br><br><strong>Always check:</strong> Plug answer back into original equation.`, khan:'https://www.khanacademy.org/test-prep/v2-sat-math/x0fcc98a58ba3bea7:algebra-easier/x0fcc98a58ba3bea7:solving-linear-equations-and-inequalities-easier/a/v2-sat-lesson-solving-linear-equations-and-inequalities'},
-          {name:'Linear Inequalities', diff:'medium', expl:`Solved like equations, but with one crucial difference: <strong>if you multiply or divide by a negative number, flip the inequality sign.</strong><br><br>Example: <code>−2x > 6</code><br>Divide by −2: <code>x < −3</code> (flipped!)<br><br><strong>Graphing:</strong><br>• Open circle for < or > (point not included)<br>• Closed circle for ≤ or ≥ (point included)<br>• Shade direction: test a point (0,0)<br><br><strong>Compound inequalities:</strong><br>• AND: overlap of both graphs<br>• OR: union of both graphs<br><br><strong>Absolute value inequalities:</strong><br>• <code>|x| < a</code> → <code>−a < x < a</code><br>• <code>|x| > a</code> → <code>x < −a</code> or <code>x > a</code>`},
-          {name:'Evaluating Expressions', diff:'easy', expl:`Plug in the given values and simplify.<br><br>Example: If <code>x = 3</code> and <code>y = −1</code>, evaluate <code>2x² − 3y</code>.<br><code>2(3)² − 3(−1)</code><br><code>= 2(9) + 3</code><br><code>= 18 + 3 = 21</code><br><br><strong>Common errors:</strong><br>• Forgetting order of operations inside the expression<br>• Mishandling negative signs — they're the #1 source of careless errors<br>• Confusing <code>−3²</code> (−9) with <code>(−3)²</code> (9)<br><br><strong>ACT strategy:</strong> Use parentheses liberally when substituting.`},
-          {name:'Combining Like Terms', diff:'easy', expl:`Terms with the same variable and exponent can be combined by adding or subtracting their coefficients.<br><br>Example: <code>3x² + 5x − 2x² + 7x</code><br>= <code>(3x² − 2x²) + (5x + 7x)</code><br>= <code>x² + 12x</code><br><br><strong>Rules:</strong><br>• CAN combine: same variable, same exponent<br>• CANNOT combine: different exponents, different variables<br>• Constants can combine with each other<br><br><strong>Tip:</strong> Rearrange terms by grouping like terms together first, then combine.`},
-          {name:'FOIL & Multiplying Binomials', diff:'medium', expl:`<strong>F</strong>irst <strong>O</strong>uter <strong>I</strong>nner <strong>L</strong>ast<br><br><code>(x + 3)(x + 5)</code><br>First: <code>x × x = x²</code><br>Outer: <code>x × 5 = 5x</code><br>Inner: <code>3 × x = 3x</code><br>Last: <code>3 × 5 = 15</code><br>Result: <code>x² + 8x + 15</code><br><br><strong>Special patterns to memorize:</strong><br>• <code>(a+b)² = a² + 2ab + b²</code><br>• <code>(a−b)² = a² − 2ab + b²</code><br>• <code>(a+b)(a−b) = a² − b²</code> (difference of squares)<br><br><strong>ACT shortcut:</strong> If you see a perfect square trinomial, factor instantly: <code>x² + 6x + 9 = (x+3)²</code>`},
-          {name:'Factoring Quadratics', diff:'medium', expl:`Reverse of FOIL. Find two numbers that multiply to <code>c</code> and add to <code>b</code>.<br><br>Example: <code>x² + 7x + 12</code><br>What multiplies to 12 and adds to 7? <strong>3 and 4!</strong><br>Answer: <code>(x + 3)(x + 4)</code><br><br><strong>Cases:</strong><br>• <code>x² + bx + c</code>: find factors of c that sum to b<br>• <code>x² − bx + c</code>: both factors negative<br>• <code>x² + bx − c</code>: factors have opposite signs<br>• <code>ax² + bx + c</code>: use grouping or trial and error<br><br><strong>Difference of squares:</strong> <code>x² − 25 = (x+5)(x−5)</code><br><br><strong>Always check:</strong> Multiply your factors back to verify.`, khan:'https://www.khanacademy.org/test-prep/v2-sat-math/x0fcc98a58ba3bea7:advanced-math-easier/x0fcc98a58ba3bea7:factoring-quadratic-and-polynomial-expressions-easier/a/v2-sat-lesson-factoring-quadratic-and-polynomial-expressions'},
-          {name:'Solving Quadratic Equations', diff:'medium', expl:`Three methods:<br><br>1. <strong>Factoring:</strong> Set = 0, factor, set each factor = 0. Fastest when it works.<br><br>2. <strong>Quadratic Formula:</strong> For <code>ax² + bx + c = 0</code>:<br><code>x = [−b ± √(b² − 4ac)] / 2a</code><br>Works every time, but slower.<br><br>3. <strong>Completing the Square:</strong> Less common on ACT but useful for vertex form.<br><br><strong>The discriminant</strong> (<code>b² − 4ac</code>) tells you:<br>• Positive → 2 real roots<br>• Zero → 1 real root (repeated)<br>• Negative → 0 real roots (complex)<br><br><strong>ACT strategy:</strong> Try factoring first. If stuck, use the formula.`},
-          {name:'Word Problems Setup', diff:'hard', expl:`The hardest part is translating English into math. Look for keywords:<br><br>• is / equals → <code>=</code><br>• more than → <code>+</code><br>• less than → <code>−</code> (order matters!)<br>• of → <code>×</code><br>• per → division or rate<br>• consecutive integers → <code>x, x+1, x+2</code><br>• older/younger → add/subtract years<br><br>Define your variable first: Let <code>x</code> = … then build the equation piece by piece.<br><br><strong>Common types:</strong> age, distance/rate/time, mixture, work, coin problems. Practice is the only way to get faster.`},
-        ]
-      },
-      {
-        name: 'Intermediate Algebra',
-        topics: [
-          {name:'Systems of Equations', diff:'medium', expl:`Two methods:<br><br><strong>Substitution:</strong> Solve one equation for a variable, plug into the other. Best when a variable has coefficient 1.<br><br><strong>Elimination:</strong> Add/subtract equations to cancel one variable. Multiply first if needed to get opposite coefficients.<br><br>Example: <code>x + y = 10</code> and <code>x − y = 4</code>. Add them: <code>2x = 14</code>, so <code>x = 7, y = 3</code>.<br><br><strong>Solution types:</strong><br>• 1 solution: lines intersect<br>• 0 solutions: parallel (same slope, different intercept)<br>• Infinite solutions: same line<br><br><strong>ACT tip:</strong> If coefficients are messy, substitution is often safer.`, khan:'https://www.khanacademy.org/test-prep/v2-sat-math/x0fcc98a58ba3bea7:algebra-easier/x0fcc98a58ba3bea7:solving-systems-of-linear-equations-easier/a/v2-sat-lesson-solving-systems-of-linear-equations'},
-          {name:'Absolute Value Equations', diff:'medium', expl:`<code>|x| = 3</code> means <code>x = 3</code> OR <code>x = −3</code>. Absolute value gives distance from zero, so you always get two cases (unless it equals 0).<br><br>Example: <code>|2x − 1| = 5</code><br>Case 1: <code>2x − 1 = 5</code> → <code>x = 3</code><br>Case 2: <code>2x − 1 = −5</code> → <code>x = −2</code><br><br><strong>Inequalities:</strong><br>• <code>|x| < 4</code> → distance from zero is less than 4 → <code>−4 < x < 4</code><br>• <code>|x| > 4</code> → distance from zero is more than 4 → <code>x < −4</code> or <code>x > 4</code><br><br><strong>No solution:</strong> <code>|x| = −5</code> has no solution (absolute value can't be negative).`},
-          {name:'Rational Expressions', diff:'hard', expl:`Fractions with variables. Key steps:<br><br>1. <strong>Factor</strong> numerator and denominator<br>2. <strong>Cancel</strong> common factors<br>3. Find <strong>restrictions</strong>: denominator ≠ 0<br><br>Example: <code>(x²−4)/(x+2) = (x+2)(x−2)/(x+2) = x−2</code> (but x ≠ −2!)<br><br><strong>Operations:</strong><br>• Multiplication: factor, cancel, multiply remaining<br>• Division: flip second fraction, then multiply<br>• Addition/Subtraction: find LCD first, then combine<br><br><strong>ACT warning:</strong> Always state restrictions. If original denominator is 0, that value is excluded.`},
-          {name:'Exponents & Radicals', diff:'medium', expl:`Essential rules:<br>• <code>xᵃ × xᵇ = xᵃ⁺ᵇ</code><br>• <code>xᵃ / xᵇ = xᵃ⁻ᵇ</code><br>• <code>(xᵃ)ᵇ = xᵃᵇ</code><br>• <code>x⁻ᵃ = 1/xᵃ</code><br>• <code>x^(1/n) = ⁿ√x</code> (fractional exponents are roots!)<br><br>Example: <code>8^(2/3) = (³√8)² = 2² = 4</code>.<br><br><strong>Radical rules:</strong><br>• <code>√a × √b = √(ab)</code><br>• <code>√a / √b = √(a/b)</code><br>• CANNOT split over addition/subtraction!<br><br><strong>Rationalizing:</strong> Multiply by conjugate to eliminate radicals in denominator.`},
-          {name:'Logarithms', diff:'hard', expl:`A logarithm is the inverse of an exponent.<br><br><code>log_b(x) = y</code> means <code>bʸ = x</code>.<br><br><strong>Key rules:</strong><br>• <code>log(xy) = log(x) + log(y)</code><br>• <code>log(x/y) = log(x) − log(y)</code><br>• <code>log(xⁿ) = n·log(x)</code><br>• <code>log_b(b) = 1</code> and <code>log_b(1) = 0</code><br><br><strong>Change of base:</strong> <code>log_b(a) = log(a) / log(b)</code> (any base)<br><br>ACT logs are straightforward — just rewrite in exponential form if stuck.`},
-          {name:'Complex Numbers', diff:'hard', expl:`<code>i = √(−1)</code>, so <code>i² = −1</code>.<br><br>Complex numbers have form <code>a + bi</code>.<br>To add: <code>(3+2i) + (1−5i) = 4 − 3i</code><br>To multiply: FOIL as usual, then replace <code>i²</code> with <code>−1</code>.<br><br><strong>Powers of i cycle:</strong> <code>i¹=i, i²=−1, i³=−i, i⁴=1</code>, then repeats.<br><br><strong>Division:</strong> multiply by conjugate:<br><code>(3+2i)/(1−i) = (3+2i)(1+i) / ((1−i)(1+i)) = (3+5i+2i²) / (1−i²) = (1+5i) / 2</code>`},
-          {name:'Sequences & Series', diff:'medium', expl:`<strong>Arithmetic:</strong> Add a constant difference each time. nth term: <code>aₙ = a₁ + (n−1)d</code>.<br><br><strong>Geometric:</strong> Multiply by a constant ratio each time. nth term: <code>aₙ = a₁ × rⁿ⁻¹</code>.<br><br>Example: 3, 6, 12, 24… is geometric with r=2. The 5th term: <code>3 × 2⁴ = 48</code>.<br><br><strong>Sums:</strong><br>• Arithmetic sum: <code>n/2 × (a₁ + aₙ)</code> or <code>n/2 × [2a₁ + (n−1)d]</code><br>• Geometric sum: <code>a₁(1−rⁿ)/(1−r)</code> for r ≠ 1<br><br>ACT usually just asks for the next term or a specific term.`},
-        ]
-      },
-      {
-        name: 'Coordinate Geometry',
-        topics: [
-          {name:'Slope of a Line', diff:'easy', expl:`<strong>Slope = rise/run = (y₂ − y₁)/(x₂ − x₁)</strong><br><br>Positive slope: line goes up to the right ↗<br>Negative slope: line goes down to the right ↘<br>Zero slope: horizontal line<br>Undefined slope: vertical line<br><br><strong>Relationships:</strong><br>• Parallel lines have <strong>equal</strong> slopes<br>• Perpendicular lines have <strong>negative reciprocal</strong> slopes (product = −1)<br><br><strong>From equation:</strong> In <code>y = mx + b</code>, m is the slope. In <code>Ax + By = C</code>, slope = <code>−A/B</code>.`},
-          {name:'Equations of Lines', diff:'medium', expl:`<strong>Slope-intercept form:</strong> <code>y = mx + b</code> (m = slope, b = y-intercept)<br><strong>Point-slope form:</strong> <code>y − y₁ = m(x − x₁)</code><br><strong>Standard form:</strong> <code>Ax + By = C</code><br><br>Given two points, find slope first, then plug into point-slope form.<br><br><strong>Special cases:</strong><br>• Horizontal: <code>y = c</code> (slope = 0)<br>• Vertical: <code>x = c</code> (undefined slope, not a function!)<br><br>The ACT will ask you to identify or write the equation in any form.`},
-          {name:'Distance & Midpoint Formulas', diff:'medium', expl:`<strong>Distance:</strong> <code>d = √[(x₂−x₁)² + (y₂−y₁)²]</code> — this is just the Pythagorean Theorem on the coordinate plane.<br><br><strong>Midpoint:</strong> <code>((x₁+x₂)/2, (y₁+y₂)/2)</code> — average the x's, average the y's.<br><br>Example: Midpoint of (2,5) and (8,−1) is <code>((2+8)/2, (5+(−1))/2) = (5, 2)</code>.<br><br><strong>3D extension:</strong> Add z-coordinate: <code>d = √[(x₂−x₁)² + (y₂−y₁)² + (z₂−z₁)²]</code><br><br><strong>ACT strategy:</strong> Distance formula is often hidden in Pythagorean problems.`},
-          {name:'Circles in the Coordinate Plane', diff:'medium', expl:`Standard form: <code>(x − h)² + (y − k)² = r²</code><br>Center: <code>(h, k)</code>, Radius: <code>r</code><br><br>Example: <code>(x − 3)² + (y + 2)² = 25</code> has center (3, −2) and radius 5.<br><br><strong>Completing the square:</strong> If given <code>x² + y² + 6x − 4y = 12</code>, complete the square for both x and y to get standard form.<br><br><strong>Tangent lines:</strong> A tangent touches the circle at exactly one point. The radius to the tangent point is perpendicular to the tangent line.`, khan:'https://www.khanacademy.org/test-prep/v2-sat-math/x0fcc98a58ba3bea7:geometry-and-trigonometry-easier/x0fcc98a58ba3bea7:circle-equations-easier/a/v2-sat-lesson-circle-equations'},
-          {name:'Graphing Inequalities', diff:'medium', expl:`<code>y > 2x + 1</code> means shade ABOVE the line.<br><code>y < 2x + 1</code> means shade BELOW.<br><br><strong>Line styles:</strong><br>• Dashed for < or > (boundary not included)<br>• Solid for ≤ or ≥ (boundary included)<br><br>To test which side to shade, plug in (0,0): if it satisfies, shade that side.<br><br><strong>Systems of inequalities:</strong> Graph both, shade the overlapping region. The solution is the intersection.`},
-        ]
-      },
-      {
-        name: 'Plane Geometry',
-        topics: [
-          {name:'Angles & Parallel Lines', diff:'easy', expl:`When a line crosses two parallel lines:<br>• <strong>Corresponding angles</strong> are equal<br>• <strong>Alternate interior angles</strong> are equal<br>• <strong>Same-side interior angles</strong> sum to 180°<br>• <strong>Vertical angles</strong> are always equal<br><br>Supplementary angles sum to 180°. Complementary angles sum to 90°.<br><br><strong>Polygon angles:</strong><br>• Sum of interior angles: <code>(n−2) × 180°</code><br>• Each interior angle of regular polygon: <code>(n−2) × 180° / n</code>`},
-          {name:'Triangles', diff:'medium', expl:`• All angles sum to <strong>180°</strong><br>• Area = <strong>½ × base × height</strong><br>• <strong>Pythagorean Theorem:</strong> <code>a² + b² = c²</code> (right triangles only)<br><br><strong>Special right triangles:</strong><br>30°-60°-90°: sides in ratio <code>x : x√3 : 2x</code><br>45°-45°-90°: sides in ratio <code>x : x : x√2</code><br><br><strong>Triangle Inequality:</strong> sum of any two sides > third side<br><br>The largest angle faces the longest side. ACT loves altitude problems in triangles.`},
-          {name:'Similar & Congruent Triangles', diff:'medium', expl:`<strong>Congruent:</strong> Same shape AND size (SSS, SAS, ASA, AAS).<br><strong>Similar:</strong> Same shape, different size (AA is enough!).<br><br>In similar triangles, corresponding sides are <strong>proportional</strong>. If ΔABC ~ ΔDEF and AB=4, DE=8, BC=6, then EF=<strong>12</strong> (scale factor is 2).<br><br><strong>Area ratio:</strong> If sides are in ratio k:1, areas are in ratio <code>k²:1</code>.<br><br>ACT loves testing similarity with overlapping triangles and parallel lines.`},
-          {name:'Quadrilaterals & Polygons', diff:'medium', expl:`<strong>Sum of interior angles</strong> of an n-sided polygon: <code>(n−2) × 180°</code><br><br>• Square: 4 equal sides, 4 right angles, Area = s²<br>• Rectangle: opposite sides equal, Area = l×w<br>• Parallelogram: Area = base×height (NOT side×side!)<br>• Trapezoid: Area = ½(b₁+b₂)×h (average of parallel sides × height)<br>• Rhombus: 4 equal sides, diagonals are perpendicular<br><br><strong>Regular polygons:</strong> all sides equal, all angles equal. Each interior angle = <code>(n−2) × 180° / n</code>`},
-          {name:'Circles', diff:'medium', expl:`• <strong>Circumference:</strong> <code>C = 2πr</code> or <code>C = πd</code><br>• <strong>Area:</strong> <code>A = πr²</code><br>• <strong>Arc length:</strong> <code>(θ/360°) × 2πr</code><br>• <strong>Sector area:</strong> <code>(θ/360°) × πr²</code><br><br>An <strong>inscribed angle</strong> is half the measure of its intercepted arc. A central angle equals its arc. An angle inscribed in a semicircle is always 90°.<br><br><strong>Tangent properties:</strong> tangent ⊥ radius at point of contact. From external point, tangents to circle are equal length.`},
-          {name:'3D Geometry', diff:'medium', expl:`• <strong>Cube:</strong> Volume = s³, Surface Area = 6s²<br>• <strong>Rectangular prism:</strong> V = l×w×h, SA = 2(lw+lh+wh)<br>• <strong>Cylinder:</strong> V = πr²h, SA = 2πr²+2πrh<br>• <strong>Cone:</strong> V = ⅓πr²h<br>• <strong>Sphere:</strong> V = ⁴⁄₃πr³, SA = 4πr²<br><br><strong>Space diagonal:</strong> For a rectangular prism: <code>d = √(l² + w² + h²)</code><br><br>ACT often asks for volume or surface area directly — just plug into the formula. They sometimes provide the formula in the question.`},
-        ]
-      },
-      {
-        name: 'Trigonometry',
-        topics: [
-          {name:'SOH-CAH-TOA', diff:'medium', expl:`For right triangles only:<br>• <strong>sin(θ) = Opposite/Hypotenuse</strong><br>• <strong>cos(θ) = Adjacent/Hypotenuse</strong><br>• <strong>tan(θ) = Opposite/Adjacent</strong><br><br>Example: In a right triangle with opposite=3 and hypotenuse=5, sin(θ)=3/5=0.6.<br><br>Use inverse functions (sin⁻¹ on calculator) to find the angle when you know the ratio.<br><br><strong>Angles of elevation/depression:</strong> Always measured from horizontal. Draw the horizontal line first.`, khan:'https://www.khanacademy.org/test-prep/v2-sat-math/x0fcc98a58ba3bea7:geometry-and-trigonometry-easier/x0fcc98a58ba3bea7:right-triangle-trigonometry-easier/a/v2-sat-lesson-right-triangle-trigonometry'},
-          {name:'Reciprocal Trig Functions', diff:'hard', expl:`• <strong>csc(θ) = 1/sin(θ)</strong><br>• <strong>sec(θ) = 1/cos(θ)</strong><br>• <strong>cot(θ) = 1/tan(θ)</strong><br><br>Rare on ACT, but good to know. If you see csc(θ)=2, rewrite as sin(θ)=1/2, then solve.<br><br>Also: <code>tan(θ) = sin(θ)/cos(θ)</code>.<br><br><strong>Key identity:</strong> <code>sin²θ + cos²θ = 1</code> (Pythagorean identity).`},
-          {name:'Unit Circle & Special Angles', diff:'hard', expl:`Memorize these values:<br><br>| θ | sin | cos | tan |<br>|---|---|---|---|<br>| 0° | 0 | 1 | 0 |<br>| 30° | ½ | √3/2 | 1/√3 |<br>| 45° | √2/2 | √2/2 | 1 |<br>| 60° | √3/2 | ½ | √3 |<br>| 90° | 1 | 0 | undefined |<br><br><strong>Conversions:</strong> <strong>180° = π radians</strong>. Multiply by π/180 to convert.<br><br><strong>Reference angles:</strong> Find acute angle with x-axis, then determine sign based on quadrant.`},
-          {name:'Law of Sines & Cosines', diff:'hard', expl:`For NON-right triangles:<br><br><strong>Law of Sines:</strong> <code>sin(A)/a = sin(B)/b = sin(C)/c</code><br>Use when you know: 2 angles + 1 side (AAS/ASA) or 2 sides + non-included angle (SSA).<br><br><strong>Law of Cosines:</strong> <code>c² = a² + b² − 2ab·cos(C)</code><br>Use when you know: 2 sides + included angle (SAS) or 3 sides (SSS).<br><br><strong>Ambiguous case (SSA):</strong> May have 0, 1, or 2 solutions.`},
-        ]
-      },
-      {
-        name: 'Functions',
-        topics: [
-          {name:'Function Notation', diff:'easy', expl:`<code>f(x)</code> means the output when the input is x.<br><br>If <code>f(x) = 2x + 3</code>, then <code>f(4) = 2(4) + 3 = 11</code>.<br><br>For <code>f(g(x))</code>, work inside out: compute <code>g(x)</code> first, then plug that into <code>f</code>.<br><br>Watch for: <code>f(x+1)</code> means replace every <code>x</code> with <code>(x+1)</code>.<br><br><strong>Key idea:</strong> f is the machine, x is the input, f(x) is the output.`},
-          {name:'Domain & Range', diff:'medium', expl:`<strong>Domain:</strong> All possible x-values (inputs).<br><strong>Range:</strong> All possible y-values (outputs).<br><br><strong>Restrictions:</strong><br>• Denominator ≠ 0<br>• Under a square root must be ≥ 0<br>• Under a log must be > 0<br><br>Example: f(x) = √(x−2) has domain x ≥ 2. Range: y ≥ 0.<br><br><strong>Interval notation:</strong> [2, ∞) means 2 ≤ x < ∞. (2, ∞) means 2 < x < ∞.`},
-          {name:'Function Transformations', diff:'medium', expl:`<code>f(x) + k</code> → shift UP by k<br><code>f(x) − k</code> → shift DOWN by k<br><code>f(x + k)</code> → shift LEFT by k (counterintuitive!)<br><code>f(x − k)</code> → shift RIGHT by k<br><code>−f(x)</code> → reflect across x-axis<br><code>f(−x)</code> → reflect across y-axis<br><code>a·f(x)</code> → vertical stretch if a>1, shrink if 0<a<1<br><br><strong>Combined:</strong> <code>−2f(x+3)</code> = shift left 3, stretch vertically by 2, reflect over x-axis.<br><br>ACT often tests: given a graph, what's the equation?`},
-          {name:'Composition & Inverses', diff:'hard', expl:`<strong>Composition:</strong> <code>(f∘g)(x) = f(g(x))</code>. Plug g(x) into f.<br><br><strong>Inverse:</strong> Swap x and y, then solve for y. Notation: <code>f⁻¹(x)</code>.<br><br>Example: f(x) = 2x+3. Write y=2x+3, swap: x=2y+3, solve: y=(x−3)/2, so f⁻¹(x)=(x−3)/2.<br><br><strong>Graphically:</strong> inverse functions are reflections across the line y=x.<br><br><strong>Verification:</strong> <code>f(f⁻¹(x)) = x</code> and <code>f⁻¹(f(x)) = x</code>.`},
-        ]
-      },
-      {
-        name: 'Statistics & Probability',
-        topics: [
-          {name:'Counting Principles', diff:'medium', expl:`<strong>Fundamental Counting Principle:</strong> If event A has m outcomes and event B has n outcomes, then A followed by B has m×n outcomes.<br><br><strong>Permutations</strong> (order matters): <code>nPr = n!/(n−r)!</code><br><strong>Combinations</strong> (order doesn't matter): <code>nCr = n!/[r!(n−r)!]</code><br><br><strong>Tip:</strong> If arrangement or order → permutation. If group or committee → combination.<br><br><strong>Circular arrangements:</strong> (n−1)! for distinct objects around a circle.`},
-          {name:'Advanced Probability', diff:'hard', expl:`<strong>AND (both):</strong> P(A and B) = P(A) × P(B|A)<br><strong>OR (either):</strong> P(A or B) = P(A) + P(B) − P(A and B)<br><strong>Conditional:</strong> P(A|B) = P(A and B)/P(B)<br><br>Example: Drawing two aces from a deck without replacement:<br>P = (4/52) × (3/51) = 12/2652 ≈ 0.0045<br><br>With replacement: (4/52) × (4/52) — much simpler.<br><br><strong>Mutually exclusive:</strong> P(A or B) = P(A) + P(B) (no overlap).<br><br><strong>Independent:</strong> P(A and B) = P(A) × P(B).`},
-          {name:'Expected Value', diff:'hard', expl:`The weighted average of all possible outcomes.<br><br>Example: A game costs $5. You win $20 with probability 0.1, $10 with probability 0.2, and $0 otherwise. Expected value = 0.1(20) + 0.2(10) + 0.7(0) − 5 = 2+2+0−5 = <strong>−$1</strong>. On average, you lose $1 per play.<br><br><strong>Formula:</strong> EV = Σ [outcome × probability]<br><br>ACT expected value questions are rare — maybe 1 per test at most. Look for games, insurance, or raffle problems.`},
-          {name:'Scatterplots & Lines of Best Fit', diff:'medium', expl:`A <strong>line of best fit</strong> (regression line) shows the trend in a scatterplot.<br><br>• Positive correlation: as x increases, y increases<br>• Negative correlation: as x increases, y decreases<br>• No correlation: no clear pattern<br><br>The ACT may ask you to estimate a value from the line or identify which equation best fits the data. Don't overthink — look at the overall trend, not individual points.<br><br><strong>Extrapolation warning:</strong> Predicting beyond the data range is risky.`},
-        ]
-      },
-    ]
-  },
-  english: {
-    title: 'ACT English',
-    desc: '50 questions · 35 minutes · Grammar, style & rhetoric',
-    categories: [
-      {
-        name: 'Punctuation',
-        topics: [
-          {name:'Commas', diff:'medium', expl:`The most-tested punctuation mark on the ACT.<br><br><strong>Use commas:</strong><br>• After introductory phrases: After the game, we went home.<br>• Around nonessential clauses: My dog, who is very old, sleeps all day.<br>• In lists: I bought apples, bananas, and oranges.<br>• Between coordinate adjectives: a cold, rainy day<br><br><strong>Don't use commas:</strong><br>• Between subject and verb: The cat, sat down.<br>• With restrictive that clauses (no commas around essential info).<br>• To join two complete sentences alone (comma splice!)<br><br><strong>Test:</strong> Remove the clause — does sentence still make sense? If yes, use commas.`, khan:'https://www.khanacademy.org/test-prep/sat-reading-and-writing/x0d47bcec73eb6c4b:digital-sat-grammar-practice/x0d47bcec73eb6c4b:boundaries-punctuation/a/grammar-guide-punctuation'},
-          {name:'Semicolons', diff:'medium', expl:`A semicolon joins two complete, related sentences WITHOUT a conjunction.<br><br>Correct: I studied all night; I aced the test.<br>Wrong: I studied all night; and I aced the test. (don't use both)<br><br>Also correct with conjunctive adverbs: It rained; however, we still went.<br><br><strong>With transitions:</strong> The results were inconclusive; however, further research is needed.<br><br>Think of a semicolon as a soft period — it connects two ideas that belong together.`, khan:'https://www.khanacademy.org/humanities/grammar/punctuation-the-colon-semicolon-and-more/introduction-to-colons/v/linking-function-of-the-colon-the-colon-and-semicolon-punctuation-khan-academy'},
-          {name:'Colons', diff:'medium', expl:`A colon must follow a <strong>complete sentence</strong> and introduces something: a list, an explanation, or a quote.<br><br>Correct: I need three things: milk, eggs, and bread.<br>Wrong: I need: milk, eggs, and bread. (I need is not a complete sentence.)<br><br>Correct: She had one goal: to win.<br><br>If you can replace the colon with namely or that is, it's probably right.<br><br><strong>After colon:</strong> Capitalize first word if it's a proper noun or complete sentence.`, khan:'https://www.khanacademy.org/humanities/grammar/punctuation-the-colon-semicolon-and-more/introduction-to-colons/v/the-colon-as-a-separator-the-colon-and-semicolon-punctuation-khan-academy'},
-          {name:'Apostrophes', diff:'easy', expl:`Two uses only:<br><br>1. <strong>Possession:</strong> the dog's bone (singular), the dogs' bones (plural)<br>2. <strong>Contractions:</strong> it's = it is, don't = do not<br><br><strong>Its vs. It's:</strong> This is tested relentlessly. Its is possessive (like his/her). It's = it is. If you can replace with it is, use the apostrophe.<br><br>Wrong: The cat licked it's paw. (wrong — no apostrophe for possessive its)<br>Correct: The cat licked its paw.<br><br><strong>Plural nouns:</strong> Never use apostrophe for simple plurals: CDs, 1990s, apples.`},
-          {name:'Dashes & Parentheses', diff:'medium', expl:`<strong>Dashes</strong> — set off dramatic interruptions or emphasis. More forceful than commas.<br><br>The answer — surprisingly — was wrong.<br><br><strong>Parentheses</strong> (like this) set off quieter asides, less emphasis than dashes.<br><br>If a dash opens an interruption, a second dash must close it (unless it ends the sentence). Same as commas for nonessential clauses — the sentence must make sense if you remove the material between dashes.`},
-        ]
-      },
-      {
-        name: 'Sentence Structure',
-        topics: [
-          {name:'Run-ons & Comma Splices', diff:'medium', expl:`A <strong>run-on</strong> joins two complete sentences with NO punctuation.<br>A <strong>comma splice</strong> joins them with ONLY a comma.<br><br>Wrong: I love pizza it's delicious. (run-on)<br>Wrong: I love pizza, it's delicious. (comma splice)<br><br>Four ways to fix:<br>1. Period: I love pizza. It's delicious.<br>2. Semicolon: I love pizza; it's delicious.<br>3. Comma + FANBOYS: I love pizza, and it's delicious.<br>4. Subordinating conjunction: I love pizza because it's delicious.`, khan:'https://www.khanacademy.org/test-prep/sat-reading-and-writing/x0d47bcec73eb6c4b:digital-sat-grammar-practice/x0d47bcec73eb6c4b:boundaries-linking-clauses/v/linking-clauses-video'},
-          {name:'Sentence Fragments', diff:'easy', expl:`A fragment is an incomplete sentence — missing a subject, a verb, or standing as a dependent clause alone.<br><br>Wrong: Because the experiment failed. (dependent clause — needs a main clause)<br>Correct: Because the experiment failed, we started over.<br><br>Wrong: Running through the park on a sunny day. (no subject, no main verb)<br>Correct: I was running through the park on a sunny day.<br><br>On the ACT, if a sentence feels incomplete, it probably is. Read it aloud in your head.`},
-          {name:'Parallel Structure', diff:'medium', expl:`Items in a list or comparison must have the same grammatical form.<br><br>Wrong: She likes swimming, biking, and to run. (mixing gerunds and infinitive)<br>Correct: She likes swimming, biking, and running.<br>Correct: She likes to swim, to bike, and to run.<br><br>Paired conjunctions too:<br>Wrong: He is not only smart but also works hard. (adjective vs. verb phrase)<br>Correct: He is not only smart but also hardworking.<br><br>If you hear an awkward rhythm in a list, suspect a parallelism error.`, khan:'https://www.khanacademy.org/humanities/grammar'},
-          {name:'Verb Tense Consistency', diff:'medium', expl:`Don't shift tenses without a reason.<br><br>Wrong: She walked to the store and buys milk. (past → present for no reason)<br>Correct: She walked to the store and bought milk.<br><br>When a passage is in the past, stay in the past. When it's in the present, stay present. Only shift if the timeline actually changes.<br><br>Also: use <strong>past perfect</strong> (had walked) for an action completed before another past action.`},
-        ]
-      },
-      {
-        name: 'Grammar & Usage',
-        topics: [
-          {name:'Subject-Verb Agreement', diff:'medium', expl:`The verb must match the subject in number.<br><br>Singular subject → singular verb: The dog runs.<br>Plural subject → plural verb: The dogs run.<br><br><strong>Tricky cases:</strong><br>• Ignore prepositional phrases: The box of chocolates <strong>is</strong> on the table.<br>• Indefinite pronouns: each, everyone, anybody, neither, either are always singular<br>• None can be singular or plural depending on context<br>• Collective nouns: The team <strong>wins</strong> (one unit) vs The team <strong>disagree</strong> (individual members)`, khan:'https://www.khanacademy.org/test-prep/sat-reading-and-writing/x0d47bcec73eb6c4b:digital-sat-grammar-practice/x0d47bcec73eb6c4b:boundaries-punctuation/a/grammar-guide-punctuation'},
-          {name:'Pronoun Agreement & Case', diff:'medium', expl:`<strong>Agreement:</strong> Pronouns match their antecedent in number.<br>Wrong: Each student must bring their book. (each is singular)<br>Correct: Each student must bring his or her book.<br><br><strong>Case:</strong><br>Subject: I, he, she, we, they, who<br>Object: me, him, her, us, them, whom<br><br>Correct: Between you and <strong>me</strong><br>Correct: <strong>Who</strong> called?<br>Correct: To <strong>whom</strong> did you speak?<br><br><strong>Test:</strong> Replace with he/him. He called → who. To him → whom.`},
-          {name:'Modifiers: Dangling & Misplaced', diff:'hard', expl:`A modifier must be next to what it describes.<br><br><strong>Dangling modifier</strong> (nothing to modify):<br>Wrong: Walking to school, the rain started. (the rain wasn't walking!)<br>Correct: Walking to school, I got caught in the rain.<br><br><strong>Misplaced modifier</strong> (modifying wrong thing):<br>Wrong: I saw a dog riding my bike. (the dog was riding your bike?)<br>Correct: Riding my bike, I saw a dog.<br><br>Always check: is the introductory phrase describing the subject that immediately follows?`},
-          {name:'Comparisons', diff:'medium', expl:`Compare like things only.<br><br>Wrong: Her grades are higher than her brother. (comparing grades to brother)<br>Correct: Her grades are higher than her brother's. (comparing grades to grades)<br><br><strong>Comparative vs. Superlative:</strong><br>Comparative (-er / more): for two things — better, faster, more beautiful<br>Superlative (-est / more): for three+ things — best, fastest, most beautiful<br><br>Wrong: Of the two options, this is the best.<br>Correct: Of the two options, this is the better.`},
-          {name:'Adjectives vs. Adverbs', diff:'easy', expl:`<strong>Adjectives</strong> modify nouns: a quick runner<br><strong>Adverbs</strong> modify verbs, adjectives, or other adverbs (often end in -ly): ran quickly<br><br>Wrong: She sings beautiful. (needs adverb)<br>Correct: She sings beautifully.<br><br>With linking verbs (is, seems, feels, looks, smells), use adjectives:<br>Correct: The flower smells good. (not well — unless you're saying the flower is healthy!)<br><br><strong>Common pairs:</strong> good/well, bad/badly, real/really.`},
-        ]
-      },
-      {
-        name: 'Rhetorical Skills',
-        topics: [
-          {name:'Add/Delete Questions', diff:'medium', expl:`Should a sentence be added or deleted? Ask:<br><br>1. Does it relate to the paragraph's <strong>main idea</strong>?<br>2. Does it add <strong>new, relevant</strong> information?<br>3. Does it match the <strong>tone</strong> of the passage?<br><br>The ACT prefers essays that are focused and concise. If a sentence is off-topic or repeats something already said, DELETE it — even if it's factually true and well-written.<br><br>Read the sentences before and after; the right answer keeps the paragraph cohesive.`},
-          {name:'Transitions', diff:'medium', expl:`Transition words signal logical relationships:<br><br>• <strong>Addition:</strong> furthermore, moreover, also, in addition<br>• <strong>Contrast:</strong> however, but, yet, on the other hand, nevertheless<br>• <strong>Cause/Effect:</strong> therefore, thus, consequently, as a result<br>• <strong>Sequence:</strong> first, then, subsequently, finally<br>• <strong>Example:</strong> for instance, for example, specifically<br><br>Read the two sentences the transition connects. What's their relationship? Pick the transition that matches that logic.`},
-          {name:'Organization & Paragraph Order', diff:'medium', expl:`Questions about moving sentences or paragraphs test logical flow.<br><br>Look for clues:<br>• <strong>Pronouns:</strong> This theory… — the previous sentence must introduce the theory.<br>• <strong>Chronology:</strong> Events should be in time order.<br>• <strong>Topic sentences:</strong> A paragraph's first sentence should introduce its subject.<br><br>Tip: Read the sentences in the proposed new order. Does the flow feel smoother or more logical?`},
-          {name:'Conciseness & Redundancy', diff:'easy', expl:`The ACT values tight, efficient writing. When multiple answers are grammatically correct, the <strong>shortest</strong> one is usually best.<br><br>Wrong: She returned back to the store. (returned already means went back)<br>Correct: She returned to the store.<br><br>Common redundancies to avoid:<br>• past history → history<br>• completely finished → finished<br>• advance planning → planning<br>• end result → result<br><br>If you can remove a word without changing meaning, remove it.`},
-          {name:'Tone & Style', diff:'medium', expl:`Match the passage's register. A formal academic essay shouldn't use slang; a personal narrative shouldn't sound like a textbook.<br><br>Ask: What is the author's purpose? Who is the audience?<br><br>Wrong in formal essay: The results were totally awesome.<br>Correct: The results were significant.<br><br>Wrong in personal narrative: The individual proceeded to acquire sustenance.<br>Correct: I went to get some food.<br><br>Choose the option that sounds like the rest of the passage.`},
-        ]
-      },
-      {
-        name: 'Commonly Confused Words',
-        topics: [
-          {name:'Affect vs Effect', diff:'medium', expl:`<strong>Affect</strong> = verb (to influence): The weather affects my mood.<br><strong>Effect</strong> = noun (result): The effect was dramatic.<br><br>Rare: Effect can be a verb meaning to bring about (to effect change). Affect can be a noun in psychology (emotional affect). But 95% of the time: affect=verb, effect=noun.<br><br><strong>Memory trick:</strong> <strong>A</strong>ffect = <strong>A</strong>ction (verb). <strong>E</strong>ffect = <strong>E</strong>nd result (noun).`},
-          {name:'Than vs Then', diff:'easy', expl:`<strong>Than</strong> = comparison: She is taller than me.<br><strong>Then</strong> = time/sequence: We ate, then we left.<br><br>If you're comparing, use than. If you're talking about what happened next, use then.<br><br><strong>Memory trick:</strong> <strong>Th</strong>an has <strong>a</strong> for comp<strong>a</strong>rison. <strong>Th</strong>en has <strong>e</strong> for tim<strong>e</strong>/sequ<strong>e</strong>nce.`},
-          {name:'Who vs Whom', diff:'medium', expl:`<strong>Who</strong> = subject (does the action). <strong>Whom</strong> = object (receives the action).<br><br>Trick: Replace with he/him. If he fits, use who. If him fits, use whom.<br><br>___ called? → He called. → <strong>Who</strong><br>To ___ did you give it? → To him. → <strong>Whom</strong><br><br>The ACT tests this less often now, but it still appears.<br><br><strong>After preposition:</strong> almost always whom (to whom, with whom, for whom).`},
-          {name:'Its vs It\'s', diff:'easy', expl:`<strong>It's</strong> = it is (contraction)<br><strong>Its</strong> = possessive (belongs to it)<br><br>Test: replace with it is. If the sentence still makes sense, use it's. If not, use its.<br><br>Correct: It's going to rain. (= It is going to rain. ✓)<br>Correct: The dog wagged its tail. (= The dog wagged it is tail. ✗ → use its)<br><br>This is one of the most-tested distinctions on the ACT.<br><br><strong>Possessive rule:</strong> His, hers, ours, yours, theirs, its — NO APOSTROPHE.`},
-          {name:'Their/There/They\'re', diff:'easy', expl:`<strong>Their</strong> = possessive (belongs to them)<br><strong>There</strong> = location<br><strong>They're</strong> = they are<br><br>Correct: They're going to their house over there.<br><br><strong>Memory tricks:</strong><br>• Their has heir → inheritance/possession<br>• There has here → location<br>• They're has they + are<br><br>Don't let this be the question you miss — it's free points if you slow down and check.`},
-        ]
-      },
-    ]
-  },
-  reading: {
-    title: 'ACT Reading',
-    desc: '36 questions · 40 minutes · 4 passage types',
-    categories: [
-      {
-        name: 'Key Ideas & Details',
-        topics: [
-          {name:'Main Idea / Central Theme', diff:'medium', expl:`The main idea is what the entire passage is about — its primary argument or thesis.<br><br>To find it:<br>• Read the first and last paragraphs carefully — the thesis often lives there.<br>• Ask: If I had to summarize this in one sentence, what would I say?<br>• Eliminate answers that are too narrow (just a detail) or too broad (goes beyond the text).<br><br><strong>ACT strategy:</strong> Wrong answers often sound plausible but focus on minor details rather than the core argument. The right answer is broad enough to cover the whole passage.`},
-          {name:'Locating Specific Details', diff:'easy', expl:`These are look-up questions — the answer is stated directly in the passage.<br><br>Strategy:<br>1. Read the question and identify a keyword<br>2. Scan the passage for that keyword<br>3. Read 2-3 lines around it<br>4. Match to the answer choice<br><br>Don't rely on memory. Go back to the passage every time. The ACT will often use exact phrasing from the text in the right answer, and slightly twisted phrasing in wrong ones.`},
-          {name:'Cause & Effect', diff:'medium', expl:`These questions ask why something happened or what resulted from an event.<br><br>Look for signal words: because, since, as a result, consequently, led to, caused, therefore, thus.<br><br>Strategy: Find the event in the passage, then look immediately before (for causes) or after (for effects). The ACT rarely makes you infer far — the relationship is usually stated nearby.<br><br>Beware of answer choices that reverse the cause and effect.`},
-          {name:'Making Inferences', diff:'hard', expl:`An inference is a logical conclusion based on evidence in the text — NOT a guess.<br><br>Golden rule: <strong>Every correct inference must be directly supportable by the text.</strong> If you can't point to a specific line that supports it, it's probably wrong.<br><br>Example: If the passage says She slammed the door and didn't say goodbye, you can infer she was angry — but you CAN'T infer she hated the person (too strong, not directly supported).<br><br>ACT inferences are conservative. Pick the answer that requires the smallest logical leap.`},
-        ]
-      },
-      {
-        name: 'Craft & Structure',
-        topics: [
-          {name:'Vocabulary in Context', diff:'medium', expl:`These questions ask what a word most nearly means as used in the passage.<br><br>Don't rely on your prior knowledge of the word — the ACT often tests secondary or uncommon meanings. <strong>Go back and read the sentence</strong>, then predict what meaning fits before looking at the choices.<br><br>Example: He had a <em>sharp</em> mind. Sharp here means intelligent/quick, not pointy/edged.<br><br>Plug your predicted meaning into the sentence mentally. The right answer should fit seamlessly.`},
-          {name:'Author\'s Purpose & Tone', diff:'medium', expl:`What is the author trying to accomplish?<br><br>Common purposes: to inform, to persuade, to entertain, to describe, to analyze, to criticize.<br><br><strong>Tone</strong> is the author's attitude: admiring, critical, neutral, humorous, concerned, hopeful, skeptical, etc.<br><br>How to identify: Look at word choice. The policy was implemented (neutral) vs. The disastrous policy was imposed (critical). Pay attention to adjectives and adverbs — they reveal the author's stance.`},
-          {name:'Text Structure', diff:'medium', expl:`How is the passage built? Common structures:<br><br>• <strong>Chronological:</strong> Events in time order<br>• <strong>Cause/Effect:</strong> Explains why something happened<br>• <strong>Compare/Contrast:</strong> Similarities and differences<br>• <strong>Problem/Solution:</strong> Identifies a problem and proposes solutions<br>• <strong>Claim/Evidence:</strong> Makes an argument and supports it<br><br>Identifying the structure helps with main idea, paragraph function, and organization questions. Ask: What is the author doing in this paragraph?<br><br><strong>Signal words:</strong> first, however, therefore, similarly, for example indicate structure.`},
-          {name:'Point of View', diff:'medium', expl:`<strong>First person</strong> (I, we): Author is a participant or narrator<br><strong>Second person</strong> (you): Rare — author addresses the reader directly<br><strong>Third person limited</strong> (he, she): Narrator knows one character's thoughts<br><strong>Third person omniscient</strong>: Narrator knows all characters' thoughts<br><br>For paired passages especially: identify each author's perspective. Do they agree? Disagree? Approach the topic from different angles? The questions will ask you to compare them.`},
-        ]
-      },
-      {
-        name: 'Integration of Knowledge',
-        topics: [
-          {name:'Claims & Evidence', diff:'medium', expl:`These questions ask which evidence best supports a claim, or what claim a piece of evidence supports.<br><br>Strategy:<br>1. Identify the claim in the question<br>2. Go to the passage and find where the author makes or supports that claim<br>3. Look for facts, statistics, examples, or quotes that back it up<br>4. Match to the right answer<br><br>Wrong answers often cite information from the wrong part of the passage, or twist the evidence to support a slightly different claim.`},
-          {name:'Paired Passages', diff:'hard', expl:`Two passages on the same topic, often from different perspectives.<br><br>Approach:<br>1. Read Passage 1 and answer its questions<br>2. Read Passage 2 and answer its questions<br>3. Answer the comparison questions last (you'll have both fresh in mind)<br><br>Comparison questions ask:<br>• Where do the authors AGREE?<br>• Where do they DISAGREE?<br>• How would Author 1 respond to Author 2's argument?<br><br>Create a mental (or scratch-paper) Venn diagram of their positions.`},
-          {name:'Visual/Quantitative Integration', diff:'medium', expl:`Some passages include a graph, chart, or table.<br><br>These questions ask you to connect the data to the text. Usually 1-2 per test.<br><br>Strategy:<br>1. Read the question — it will tell you what to look for<br>2. Check the visual for the relevant data<br>3. Connect it to what the passage says about that data<br><br>Common: Based on the passage and the graph, which statement is true? Eliminate answers that contradict either the passage OR the graph. Both must support the right answer.`},
-        ]
-      },
-      {
-        name: 'Passage Types',
-        topics: [
-          {name:'Literary Narrative / Prose Fiction', diff:'medium', expl:`Excerpts from novels, short stories, or memoirs. Focus on characters, emotions, and relationships.<br><br>Key skills:<br>• Track the narrator's attitude and emotional shifts<br>• Identify character motivations (why did they do that?)<br>• Notice descriptive language and what it reveals<br>• Look for internal conflict or realization moments<br><br>These passages often have more inference questions. The right answer is the one most consistent with the character's personality and the story's tone.`},
-          {name:'Social Studies', diff:'medium', expl:`Topics: history, economics, psychology, sociology, anthropology.<br><br>These passages are usually argument-driven. The author has a thesis and supports it with evidence.<br><br>Key skills:<br>• Identify the thesis in the first paragraph<br>• Track how each paragraph supports it<br>• Notice cause/effect relationships<br>• Pay attention to dates, names, and specific studies mentioned<br><br>Questions focus on the argument's logic: what claim is made, how is it supported, what counterarguments exist?`},
-          {name:'Humanities', diff:'medium', expl:`Topics: art, music, philosophy, cultural criticism, personal essays.<br><br>These are often the most abstract passages. The author may be describing an artistic movement, analyzing a philosophical idea, or reflecting on a cultural phenomenon.<br><br>Key skills:<br>• Grasp the central thesis or aesthetic argument<br>• Understand the author's value judgments (what do they admire? criticize?)<br>• Track comparisons between artists, periods, or ideas<br>• Don't get lost in fancy language — focus on what the author is arguing`},
-          {name:'Natural Sciences', diff:'medium', expl:`Topics: biology, chemistry, physics, astronomy, geology, medicine.<br><br>These passages explain scientific phenomena, experiments, or discoveries. They're dense with information but logically structured.<br><br>Key skills:<br>• Identify the main scientific concept being explained<br>• Track the sequence of a process or experiment<br>• Understand cause/effect relationships<br>• Don't panic if you don't know the science — everything you need is in the passage<br><br>These passages often have the most straightforward, factual questions. Go back to the text and find the answer.`},
-        ]
-      },
-    ]
-  },
-  science: {
-    title: 'ACT Science',
-    desc: '40 questions · 40 minutes · Optional (+$4)',
-    categories: [
-      {
-        name: 'Data Representation',
-        topics: [
-          {name:'Reading Graphs & Charts', diff:'easy', expl:`The most fundamental ACT Science skill. You'll see line graphs, bar charts, scatterplots, and pie charts.<br><br>Before answering questions, spend 15 seconds orienting:<br>1. <strong>Read the axes labels</strong> — what's being measured?<br>2. <strong>Note the units</strong> — seconds? meters? percent?<br>3. <strong>Check the legend</strong> — what do different lines/bars/colors represent?<br>4. <strong>Spot the trend</strong> — increasing, decreasing, or no pattern?<br><br><strong>Types:</strong><br>• Line graphs: trends over time<br>• Bar charts: comparing categories<br>• Scatterplots: correlation between two variables<br>• Pie charts: parts of a whole<br><br>Most questions just require finding the right data point. Don't overthink.`},
-          {name:'Reading Tables', diff:'easy', expl:`Tables present data in rows and columns. The key is knowing which row and column to look at.<br><br>Strategy:<br>1. Read the column headers and row labels<br>2. Note any footnotes or conditions<br>3. For each question, identify exactly which cell(s) you need<br>4. Watch for patterns: as one variable increases, does another increase or decrease?<br><br>Many table questions are simple lookups. Others ask you to identify trends across multiple rows. Take your time reading the table correctly — speed comes from accuracy, not rushing.`},
-          {name:'Interpolation & Extrapolation', diff:'medium', expl:`<strong>Interpolation:</strong> Estimating a value BETWEEN known data points. Usually reliable — just follow the trend.<br><br><strong>Extrapolation:</strong> Predicting a value BEYOND the given data. Less certain — you're extending the trend.<br><br>Example: If a graph shows temperature rising 2° per minute from 20° at 0 min to 30° at 5 min, you can interpolate 26° at 3 min, or extrapolate 40° at 10 min (assuming the trend continues).<br><br>ACT extrapolation questions usually say if the trend continues… — just extend the line.`},
-          {name:'Identifying Trends & Patterns', diff:'medium', expl:`Look for relationships between variables:<br><br>• <strong>Direct relationship:</strong> as one increases, the other increases<br>• <strong>Inverse relationship:</strong> as one increases, the other decreases<br>• <strong>No relationship:</strong> no clear pattern<br>• <strong>Exponential:</strong> curve gets steeper and steeper<br>• <strong>Plateau:</strong> levels off after a certain point<br><br>Pro tip: Describe the trend in words before looking at the answer choices. Then match your description. This prevents you from being tricked by cleverly-worded wrong answers.`},
-        ]
-      },
-      {
-        name: 'Research Summaries',
-        topics: [
-          {name:'Experimental Design', diff:'medium', expl:`Every experiment has:<br><br>• <strong>Independent variable:</strong> What the scientist deliberately changes<br>• <strong>Dependent variable:</strong> What is measured/observed (the result)<br>• <strong>Control variables:</strong> Everything kept the same<br>• <strong>Control group:</strong> The baseline — receives no treatment or the standard treatment<br><br>Example: Testing if fertilizer helps plants grow. Independent = amount of fertilizer. Dependent = plant height. Controls = same water, light, soil. Control group = plants with no fertilizer.<br><br>Most Research Summary questions hinge on understanding this setup.`},
-          {name:'Comparing Experiments', diff:'medium', expl:`Often you'll see Experiment 1, Experiment 2, Experiment 3 — similar but with one key difference.<br><br>Ask yourself: What changed between experiments? That changed variable is what the scientist is testing.<br><br>Questions may ask:<br>• Why was Experiment 2 done? (to test a different variable or confirm results)<br>• How would results change if we modified a variable?<br>• What conclusion is consistent with BOTH experiments?<br><br>Make a quick mental table: what was the same, what was different, and what was the result?`},
-          {name:'Hypothesis Support', diff:'hard', expl:`A hypothesis is a proposed explanation. The results either support it or don't.<br><br>Key question types:<br>• Do the results support the hypothesis? → Yes if data matches prediction, No if it contradicts<br>• Which hypothesis is supported by the data? → Compare each hypothesis against results<br>• What would support the hypothesis? → Predict what data WOULD look like if the hypothesis were true<br><br>Be objective. Don't let what sounds right override what the data actually shows. The data is always right on the ACT.`},
-        ]
-      },
-      {
-        name: 'Conflicting Viewpoints',
-        topics: [
-          {name:'Understanding Multiple Hypotheses', diff:'hard', expl:`This passage type presents 2-4 different explanations for the same phenomenon (e.g., why did the dinosaurs go extinct?).<br><br>Strategy:<br>1. Read the phenomenon description first<br>2. Read Scientist 1's view and note: what do they believe? WHY?<br>3. Read Scientist 2's view. Note: where do they AGREE with Scientist 1? Where do they DISAGREE?<br>4. Repeat for any additional viewpoints<br><br>Make a quick T-chart on scratch paper: points of agreement vs. disagreement.<br><br>These are the most time-consuming questions. Some students save this passage for last.`},
-          {name:'Identifying Agreement & Disagreement', diff:'medium', expl:`These questions ask explicitly: Scientist 1 and Scientist 2 would most likely agree/disagree on which point?<br><br>For AGREEMENT: Both must say it or clearly imply it. If one doesn't mention it, they might not disagree — but you can't say they agree.<br><br>For DISAGREEMENT: One must say (or imply) yes, the other no. If both are silent on a topic, there's no demonstrated disagreement.<br><br>Stick to what's actually stated. Don't infer beliefs beyond what each viewpoint explicitly says.`},
-          {name:'New Evidence Questions', diff:'hard', expl:`Which viewpoint would be most weakened/supported by this new evidence?<br><br>Approach:<br>1. Understand what the new evidence shows<br>2. Check each viewpoint: does this evidence support or undermine their position?<br>3. If evidence contradicts what a viewpoint predicts → weakened<br>4. If evidence matches what a viewpoint predicts → strengthened<br><br>Example: If Scientist 1 says the event was fast and Scientist 2 says it was slow, and new evidence shows it happened in under 100 years, Scientist 1 is strengthened and Scientist 2 is weakened.`},
-        ]
-      },
-      {
-        name: 'Background Knowledge — Biology',
-        topics: [
-          {name:'Cell Structure', diff:'easy', expl:`You may need basic knowledge:<br>• <strong>Nucleus:</strong> contains DNA, controls the cell<br>• <strong>Mitochondria:</strong> produces energy (ATP) through cellular respiration<br>• <strong>Ribosomes:</strong> make proteins<br>• <strong>Cell membrane:</strong> controls what enters and exits<br>• <strong>Chloroplasts:</strong> in plant cells only — photosynthesis<br><br><strong>Prokaryotic vs Eukaryotic:</strong> Prokaryotes (bacteria) have no nucleus. Eukaryotes (plants, animals, fungi) have a nucleus and organelles.<br><br>The passage usually provides context, but knowing organelles helps you read faster.`},
-          {name:'DNA, Genes & Proteins', diff:'medium', expl:`Basic facts that help on the ACT:<br>• DNA is the genetic blueprint<br>• DNA → RNA → Protein (Central Dogma)<br>• Genes are segments of DNA that code for proteins<br>• Mutations are changes in DNA sequence — they can be harmful, neutral, or beneficial<br>• <strong>Natural selection:</strong> organisms with advantageous traits survive and reproduce more<br><br>The ACT won't ask you to transcribe DNA to RNA cold, but passages may describe gene expression experiments.`},
-          {name:'Ecology & Ecosystems', diff:'easy', expl:`• <strong>Food chains:</strong> producers → primary consumers → secondary consumers → decomposers<br>• <strong>Predator-prey:</strong> cycles — as prey increase, predators increase (with a lag), then prey decrease, predators decrease…<br>• <strong>Carrying capacity:</strong> maximum population an ecosystem can sustain<br>• <strong>Symbiosis:</strong> mutualism (both benefit), parasitism (one benefits, one harmed), commensalism (one benefits, one unaffected)<br><br>Common graph: population vs. time showing cyclical patterns.`},
-        ]
-      },
-      {
-        name: 'Background Knowledge — Chemistry',
-        topics: [
-          {name:'States of Matter', diff:'easy', expl:`• <strong>Solid:</strong> fixed shape & volume, particles packed tightly<br>• <strong>Liquid:</strong> fixed volume, takes shape of container<br>• <strong>Gas:</strong> no fixed shape or volume, particles spread out<br><br>Phase changes:<br>Melting (solid→liquid), Freezing (liquid→solid)<br>Vaporization/Boiling (liquid→gas), Condensation (gas→liquid)<br>Sublimation (solid→gas, like dry ice)<br><br>Water freezes at 0°C and boils at 100°C. These specific values are worth memorizing.<br><br><strong>Energy:</strong> Melting/boiling requires energy (endothermic). Freezing/condensing releases energy (exothermic).`},
-          {name:'pH Scale', diff:'easy', expl:`<strong>pH 0-6:</strong> Acidic (more H⁺ ions) — lemon juice, stomach acid<br><strong>pH 7:</strong> Neutral — pure water<br><strong>pH 8-14:</strong> Basic/alkaline (more OH⁻ ions) — baking soda, bleach<br><br>Each pH unit is a 10× change in acidity. pH 3 is 10× more acidic than pH 4, and 100× more acidic than pH 5.<br><br>The ACT may test this in a passage about enzyme activity or water quality.<br><br><strong>Buffers:</strong> resist pH changes by absorbing/releasing H⁺ ions.`},
-          {name:'Reaction Rates', diff:'medium', expl:`Reactions speed up when:<br>• <strong>Temperature increases</strong> (particles move faster, collide more)<br>• <strong>Concentration increases</strong> (more particles to collide)<br>• <strong>Surface area increases</strong> (more exposed to react)<br>• <strong>Catalysts are added</strong> (lower activation energy without being consumed)<br><br>Enzymes are biological catalysts. They're specific to their substrate (lock and key model).<br><br>These concepts appear frequently in Research Summary passages about chemical or biological experiments.`},
-        ]
-      },
-      {
-        name: 'Background Knowledge — Physics',
-        topics: [
-          {name:'Density & Buoyancy', diff:'easy', expl:`<strong>Density = Mass / Volume</strong><br><br>An object floats if its density is LESS than the fluid it's in. An object sinks if it's MORE dense.<br><br>Water density = 1 g/cm³. Objects with density < 1 float, > 1 sink.<br><br>This explains why ice floats (density ~0.92) and why hot air rises (heated air expands, becomes less dense).<br><br>The ACT loves density questions in science passages — they're really just math questions in disguise.`},
-          {name:'Energy', diff:'medium', expl:`• <strong>Kinetic energy:</strong> energy of motion. KE = ½mv² (increases with mass and especially speed!)<br>• <strong>Potential energy:</strong> stored energy. Gravitational PE = mgh (mass × gravity × height)<br>• <strong>Conservation of energy:</strong> energy cannot be created or destroyed, only transformed (KE ↔ PE)<br><br>Example: A roller coaster at the top has max PE. As it drops, PE converts to KE. At the bottom, KE is max and PE is min.<br><br>Heat is energy transfer from hot to cold. Specific heat = energy needed to raise 1g by 1°C.`},
-          {name:'Forces & Motion', diff:'medium', expl:`<strong>Newton's Laws:</strong><br>1st: Object at rest stays at rest; object in motion stays in motion (unless a force acts).<br>2nd: <code>F = ma</code> (Force = mass × acceleration)<br>3rd: Every action has an equal and opposite reaction.<br><br><strong>Gravity:</strong> pulls objects toward Earth at <code>g ≈ 9.8 m/s²</code>. All objects fall at the same rate (ignoring air resistance).<br><br><strong>Friction:</strong> opposes motion. Static friction (object at rest) > kinetic friction (object moving).<br><br><strong>Acceleration:</strong> rate of change of velocity. <code>a = Δv/Δt</code>.`},
-        ]
-      },
-      {
-        name: 'Background Knowledge — Earth & Space',
-        topics: [
-          {name:'Plate Tectonics', diff:'easy', expl:`Earth's crust is divided into plates that move.<br><br>• <strong>Convergent boundaries:</strong> plates collide → mountains, volcanoes, trenches<br>• <strong>Divergent boundaries:</strong> plates separate → new crust forms, mid-ocean ridges<br>• <strong>Transform boundaries:</strong> plates slide past each other → earthquakes<br><br>Fossils of the same species on different continents support continental drift. This is a classic ACT Conflicting Viewpoints topic — the passage may present different theories about what causes plate motion.`},
-          {name:'Greenhouse Effect', diff:'medium', expl:`Greenhouse gases (CO₂, methane, water vapor) trap heat in Earth's atmosphere.<br><br>• Sunlight passes through the atmosphere and warms the Earth<br>• Earth radiates heat back as infrared<br>• Greenhouse gases absorb some of this infrared, keeping the planet warm<br>• More greenhouse gases = more heat trapped = global warming<br><br>This topic appears in Data Representation and Conflicting Viewpoints passages. Be prepared to interpret graphs of CO₂ vs. temperature over time.`},
-          {name:'The Solar System', diff:'easy', expl:`• Planets orbit the Sun in elliptical (nearly circular) paths<br>• Inner planets (Mercury, Venus, Earth, Mars): rocky, small<br>• Outer planets (Jupiter, Saturn, Uranus, Neptune): gas giants, large<br>• <strong>Gravity</strong> keeps planets in orbit — stronger when closer to the Sun<br>• The Moon orbits Earth; its gravity causes tides<br><br>ACT passages may describe discoveries about exoplanets or compare planetary atmospheres. The science is explained in the passage — just read carefully.`},
-        ]
-      },
-    ]
-  },
-  "past tests": {
-    title: 'Past Tests',
-    desc: 'Full-length ACT practice tests',
-    categories: [
-      {
-        name: 'Math Section',
-        topics: [
-          {name: 'Math Test 1', pdf: 'https://www.mymathscloud.com/api/download/modules/University/SAT-ACT/ACT/Practice%20Test%201.pdf?id=163821451'}
-        ]
+
+// ╔══════════════════════════════════════════╗
+// ║   DYNAMIC ACT MATH QUESTION GENERATOR    ║
+// ╚══════════════════════════════════════════╝
+//
+// Generates fresh ACT-style multiple-choice questions (5 options, A-E)
+// on the fly. Nothing is pre-written and nothing is cached, so every
+// test is different.
+//
+// HOW TO ADJUST:
+//   TONE ......... edit the phrasing in the GEN builders below
+//                  (e.g. "Which of the following ..." vs "What is ...").
+//   DIFFICULTY ... every topic maps to a generator taking a `level`
+//                  argument ('easy' | 'medium' | 'hard'); tighten or
+//                  loosen the number ranges / add steps there.
+//   PROPORTIONS .. edit LEVEL_MIX in generateTopicQuestions to change
+//                  the easy:medium:hard split of a test.
+const TopicQuestionGenerator = (() => {
+  'use strict';
+
+  // ─────────────────── helpers ───────────────────
+  const randInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+  const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+  const shuffle = arr => {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  };
+
+  // Build a numeric question: guarantees 5 unique string options.
+  const numQ = (prompt, correct, distractors, explanation) => {
+    let ds = [...new Set(distractors.map(String))].filter(d => d !== String(correct));
+    let guard = 0;
+    while (ds.length < 4 && guard++ < 200) {
+      const s = String(correct + randInt(1, 20) * (Math.random() < 0.5 ? -1 : 1));
+      if (!ds.includes(s)) ds.push(s);
+    }
+    const options = shuffle([String(correct), ...ds.slice(0, 4)]);
+    return { q: prompt, options, answer: options.indexOf(String(correct)), explanation };
+  };
+
+  // Build a word-based question (5 unique string options).
+  const strQ = (prompt, correct, distractors, explanation) => {
+    let ds = [...new Set(distractors.map(String))].filter(d => d !== String(correct));
+    const fillers = ['None of the above', 'Not enough information', 'x + 1', 'x − 1', '0', '1', '5', '10'];
+    let i = 0;
+    while (ds.length < 4 && i < fillers.length) {
+      const f = fillers[i++];
+      if (f !== String(correct) && !ds.includes(f)) ds.push(f);
+    }
+    const options = shuffle([String(correct), ...ds.slice(0, 4)]);
+    return { q: prompt, options, answer: options.indexOf(String(correct)), explanation };
+  };
+
+  // Render an ACT-style SVG figure (coordinate plane, shape, chart) as HTML for
+  // a question prompt. Returns '' (no figure) if ACTVisuals is unavailable.
+  const fig = (spec) => {
+    if (typeof ACTVisuals === 'undefined' || !ACTVisuals) return '';
+    try { return ACTVisuals.body(spec) || ''; } catch (e) { return ''; }
+  };
+
+  const isPrime = n => { if (n < 2) return false; for (let i = 2; i * i <= n; i++) if (n % i === 0) return false; return true; };
+  const countPrimes = (a, b) => { let c = 0; for (let i = a; i <= b; i++) if (isPrime(i)) c++; return c; };
+  const gcd = (a, b) => { a = Math.abs(a); b = Math.abs(b); while (b) { [a, b] = [b, a % b]; } return a; };
+  const lcm = (a, b) => Math.abs(a * b) / gcd(a, b);
+
+  // tiny safe evaluator for simple numeric formulas found in explanations
+  const safeEval = expr => {
+    try {
+      let s = expr
+        .replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-').replace(/–/g, '-')
+        .replace(/\^/g, '**').replace(/²/g, '**2').replace(/³/g, '**3')
+        .replace(/π/g, '(3.14)')
+        .replace(/[√]/g, 'Math.sqrt')
+        .replace(/Math.sqrt\s*\(/g, 'Math.sqrt(');
+      s = s.replace(/(\d)\s*Math\.sqrt\s*\(/g, '$1*Math.sqrt(');
+      s = s.replace(/√/g, 'Math.sqrt');
+      // strip letters that aren't part of Math.*
+      s = s.replace(/[a-zA-Z_$](?![a-zA-Z0-9_$]*\()/g, '');
+      if (/[a-zA-Z]/.test(s.replace(/Math\.sqrt/g, ''))) return null;
+      const v = Function('"use strict"; return (' + s + ')')();
+      if (typeof v === 'number' && isFinite(v)) return Math.round(v * 100) / 100;
+    } catch (e) { /* ignore */ }
+    return null;
+  };
+
+  // Look up the explanation for a math topic (used by the fallback).
+  const explFor = topicName => {
+    try {
+      if (typeof data === 'undefined') return '';
+      for (const cat of data.math.categories) {
+        for (const t of cat.topics) {
+          if (t.name === topicName) return t.expl || '';
+        }
       }
-    ]
+    } catch (e) { /* ignore */ }
+    return '';
+  };
+
+  // ─────────────────── topic generators ───────────────────
+  // Each is a function(level) -> question object. `level` is
+  // 'easy' | 'medium' | 'hard'.
+  const GEN = {
+
+    // ── Pre-Algebra & Arithmetic ──────────────────────
+    'Number Types & Properties': [
+      level => {
+        if (level === 'easy') {
+          const p = pick([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);
+          const cs = shuffle([4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, 21, 22, 24, 25]);
+          return strQ('Which of the following is a prime number?', p, cs.slice(0, 4),
+            p + ' is prime because its only factors are 1 and ' + p + '.');
+        }
+        if (level === 'medium') {
+          const c = pick([4, 6, 8, 9, 10, 12, 15, 16, 18, 20, 21]);
+          const ps = shuffle([2, 3, 5, 7, 11, 13, 17, 19, 23]);
+          return strQ('Which of the following is NOT a prime number?', c, ps.slice(0, 4),
+            c + ' is composite (it has factors other than 1 and itself), so it is not prime.');
+        }
+        const pair = pick([[1, 20], [20, 40], [30, 60], [50, 80]]);
+        const a = pair[0], b = pair[1];
+        const ans = countPrimes(a, b);
+        return numQ('How many prime numbers are there between ' + a + ' and ' + b + '?', ans,
+          [ans - 1, ans + 1, ans - 2, ans + 2, ans + 3],
+          'Counting the primes from ' + a + ' to ' + b + ' inclusive gives ' + ans + ' primes.');
+      },
+      level => {
+        if (level === 'easy') {
+          const c = pick([4, 6, 8, 9, 10, 12, 14, 15, 16]);
+          const ps = shuffle([2, 3, 5, 7, 11, 13, 17, 19, 23]);
+          return strQ('Which of the following is a composite number?', c, ps.slice(0, 4),
+            c + ' is composite because it has factors other than 1 and itself (for example, ' + c + ' = 2 × ' + (c / 2) + ').');
+        }
+        if (level === 'medium') {
+          const oc = pick([9, 15, 21, 25, 27, 33, 35]);
+          return strQ('Which of the following is an odd composite number?', oc,
+            [oc + 2, oc - 2, 1, 3, 5],
+            oc + ' is odd and composite: it has factors besides 1 and itself.');
+        }
+        return numQ('How many even integers are there between 1 and 100 inclusive?', 50,
+          [51, 49, 25, 99, 100],
+          'Half of the integers from 1 to 100 are even, giving 50.');
+      },
+      level => {
+        if (level === 'easy') {
+          const e = pick([4, 6, 8, 10, 12, 14, 16, 18, 20]);
+          const odds = shuffle([3, 5, 7, 9, 11, 13, 15, 17, 19]);
+          return strQ('Which of the following is an even number?', e, odds.slice(0, 4),
+            e + ' is even because it is divisible by 2.');
+        }
+        if (level === 'medium') {
+          const n = pick([6, 7, 8, 9, 12]);
+          const mult = pick([2, 3, 4, 5, 7]);
+          const ans = n * mult;
+          return numQ('Which of the following is divisible by ' + n + '?', ans,
+            [ans + 1, ans + 2, ans + n - 1, ans + n + 1, ans - 1],
+            ans + ' ÷ ' + n + ' = ' + mult + ', so ' + ans + ' is divisible by ' + n + '.');
+        }
+        return numQ('How many odd integers are there between 1 and 100 inclusive?', 50,
+          [49, 51, 25, 99, 100],
+          'Half of the integers from 1 to 100 are odd, giving 50.');
+      }
+    ],
+
+    'Factors, Multiples & Divisibility': level => {
+      if (level === 'easy') {
+        const a = randInt(12, 48), b = randInt(12, 48);
+        return numQ('What is the greatest common factor of ' + a + ' and ' + b + '?', gcd(a, b),
+          [gcd(a, b) + 1, gcd(a, b) - 1, gcd(a, b) + 2, gcd(a, b) * 2, lcm(a, b)],
+          'The GCF of ' + a + ' and ' + b + ' is ' + gcd(a, b) + '.');
+      }
+      if (level === 'medium') {
+        const a = randInt(4, 12), b = randInt(6, 15);
+        return numQ('What is the least common multiple of ' + a + ' and ' + b + '?', lcm(a, b),
+          [a * b, a + b, lcm(a, b) + a, lcm(a, b) - a, gcd(a, b)],
+          'The LCM of ' + a + ' and ' + b + ' is ' + lcm(a, b) + ' (the smallest number both divide evenly).');
+      }
+      const n = pick([6, 7, 8, 9, 12]);
+      const mult = pick([2, 3, 4, 5, 7]);
+      const ans = n * mult;
+      return numQ('Which of the following is divisible by ' + n + '?', ans,
+        [ans + 1, ans + 2, ans + n - 1, ans + n + 1, ans - 1],
+        ans + ' ÷ ' + n + ' = ' + mult + ', so ' + ans + ' is divisible by ' + n + '.');
+    },
+
+    'Fractions, Decimals & Percentages': level => {
+      if (level === 'easy') {
+        const p = pick([10, 20, 25, 30, 40, 50, 75]);
+        const x = pick([40, 60, 80, 120, 200, 240]);
+        return numQ('What is ' + p + '% of ' + x + '?', (p / 100) * x,
+          [(p / 100) * x + 10, (p / 100) * x - 10, x * p, x / p, x - (p / 100) * x],
+          p + '% of ' + x + ' = (' + p + '/100) × ' + x + ' = ' + (p / 100) * x + '.');
+      }
+      if (level === 'medium') {
+        const oldV = pick([20, 25, 40, 50, 80, 100]);
+        const dec = pick([10, 20, 25, 50]);
+        const newV = oldV * (1 - dec / 100);
+        return numQ('A price drops from $' + oldV + ' to $' + newV + '. What is the percent decrease?',
+          dec, [dec - 5, dec + 5, dec * 2, dec / 2, dec + 15],
+          'Change = $' + oldV + ' − $' + newV + ' = $' + (oldV - newV) + ', and $' + (oldV - newV) + ' ÷ $' + oldV + ' = ' + dec + '%.');
+      }
+      const p1 = pick([20, 30, 40]), p2 = pick([10, 20, 25]);
+      const start = 100;
+      const after1 = start * (1 - p1 / 100);
+      const after2 = after1 * (1 - p2 / 100);
+      const net = Math.round((1 - after2 / 100) * 100);
+      return numQ('A $' + start + ' item is discounted ' + p1 + '%, then an additional ' + p2 + '% off. What is the final price?',
+        after2, [start - p1 - p2, after1 - p2, after2 + 5, after2 - 5, start * (1 - (p1 + p2) / 100)],
+        'After the first discount: $' + after1 + '. After the second: ' + after1 + ' × ' + (1 - p2 / 100) + ' = $' + after2 + '.');
+    },
+
+    'Ratios & Proportions': level => {
+      if (level === 'easy') {
+        const a = randInt(2, 6), b = randInt(3, 9), k = randInt(2, 5);
+        const c = a * k, x = b * k;
+        return numQ('If ' + a + '/' + b + ' = ' + c + '/x, what is x?', x,
+          [x + 1, x - 1, b + a, c + b, x * 2],
+          'Cross-multiply: ' + a + 'x = ' + b + ' × ' + c + ' = ' + (b * c) + ', so x = ' + x + '.');
+      }
+      if (level === 'medium') {
+        const a = randInt(2, 4), b = randInt(3, 6), x = randInt(3, 6);
+        const price = pick([2, 3, 4, 5, 6]);
+        const total = x * price * (b / a);
+        return numQ('The ratio of miles driven to hours is ' + a + ':' + b + '. Driving ' + x + ' miles takes how many hours?',
+          b * x / a, [b * x / a + 1, b * x / a - 1, a * x / b, x, b * x],
+          'Set up ' + a + '/' + b + ' = ' + x + '/h; cross-multiply to get h = ' + (b * x / a) + '.');
+      }
+      const x = randInt(2, 4), y = randInt(3, 6), z = randInt(4, 8);
+      const unit = randInt(1, 3);
+      const total = (x + y + z) * unit;
+      const part = z * unit;
+      return numQ('The angles of a triangle are in the ratio ' + x + ':' + y + ':' + z + '. What is the measure of the largest angle?',
+        part, [part + 30, part - 30, x * unit, total / 2, total],
+        'Let the angles be ' + x + 'k, ' + y + 'k, ' + z + 'k. Then ' + (x + y + z) + 'k = 180, so k = ' + unit + ' and the largest angle is ' + z + 'k = ' + part + '°.');
+    },
+
+    'Scientific Notation': level => {
+      if (level === 'easy') {
+        const e = randInt(3, 7), co = randInt(2, 9);
+        return numQ('What is ' + co + '.' + randInt(1, 9) + ' × 10^' + e + ' in standard form?',
+          parseFloat(co + '.' + randInt(1, 9)) * Math.pow(10, e),
+          [Math.pow(10, e), parseFloat(co + '.' + randInt(1, 9)) * Math.pow(10, e + 1), parseFloat(co + '.' + randInt(1, 9)) * Math.pow(10, e - 1), 10 * Math.pow(10, e), 1],
+          'Move the decimal ' + e + ' places to the right: ' + (parseFloat(co + '.' + randInt(1, 9)) * Math.pow(10, e)) + '.');
+      }
+      if (level === 'medium') {
+        const e = randInt(2, 6);
+        const n = randInt(2, 9) * Math.pow(10, e);
+        return numQ('Express ' + n + ' in scientific notation.', n / Math.pow(10, e) + ' × 10^' + e,
+          [n / Math.pow(10, e) + ' × 10^' + (e + 1), n / Math.pow(10, e) + ' × 10^' + (e - 1), n / Math.pow(10, e + 1) + ' × 10^' + e, n * 10 + ' × 10^' + e, n / Math.pow(10, e) + ' × 10^' + (e * 2)],
+          'Move the decimal to leave one digit before it: ' + n + ' = ' + (n / Math.pow(10, e)) + ' × 10^' + e + '.');
+      }
+      const a = randInt(2, 4), b = randInt(2, 4), m = randInt(2, 4), n = randInt(2, 4);
+      return numQ('What is (' + a + ' × 10^' + m + ') × (' + b + ' × 10^' + n + ') in scientific notation?',
+        (a * b) * Math.pow(10, m + n) / 10 + ' × 10^' + (m + n + 1),
+        [(a * b) + ' × 10^' + (m + n), a + ' × 10^' + (m * n), b + ' × 10^' + (m + n), (a * b) + ' × 10^' + (m * n), a * b + ' × 10^' + (m + n)],
+        'Multiply coefficients: ' + a + ' × ' + b + ' = ' + (a * b) + ', and add exponents: 10^' + (m + n) + ' → re-normalize to ' + ((a * b) / 10) + ' × 10^' + (m + n + 1) + '.');
+    },
+
+    'Mean, Median, Mode & Range': level => {
+      if (level === 'easy') {
+        const vals = Array.from({ length: 5 }, () => randInt(10, 40));
+        const sum = vals.reduce((s, v) => s + v, 0);
+        const barFig = fig({ type: 'bar', labels: ['D1', 'D2', 'D3', 'D4', 'D5'], values: vals });
+        return numQ(barFig + 'What is the mean of ' + vals.join(', ') + '?', sum / 5,
+          [sum / 5 + 1, sum / 5 - 1, sum, Math.max(...vals), Math.min(...vals)],
+          'Mean = (' + vals.join(' + ') + ') ÷ 5 = ' + sum + ' ÷ 5 = ' + sum / 5 + '.');
+      }
+      if (level === 'medium') {
+        const vals = Array.from({ length: 4 }, () => randInt(10, 30));
+        const target = randInt(20, 40);
+        const missing = target * 5 - vals.reduce((s, v) => s + v, 0);
+        return numQ('The mean of ' + vals.join(', ') + ' and x is ' + target + '. What is x?', missing,
+          [missing + 1, missing - 1, target, target * 5, target - 1],
+          'Total = ' + target + ' × 5 = ' + target * 5 + ', so x = ' + target * 5 + ' − ' + vals.reduce((s, v) => s + v, 0) + ' = ' + missing + '.');
+      }
+      const g1 = randInt(20, 30), g2 = randInt(20, 30), w1 = randInt(2, 4), w2 = randInt(2, 4);
+      const ans = (g1 * w1 + g2 * w2) / (w1 + w2);
+      return numQ('In one class, ' + w1 + ' students average ' + g1 + '. In another, ' + w2 + ' students average ' + g2 + '. What is the combined average?',
+        ans, [ans + 1, ans - 1, (g1 + g2) / 2, g1, g2],
+          'Combined average = (' + g1 + '×' + w1 + ' + ' + g2 + '×' + w2 + ') ÷ ' + (w1 + w2) + ' = ' + ans + '.');
+    },
+
+    'Basic Probability': level => {
+      if (level === 'easy') {
+        const n = randInt(1, 6);
+        return strQ('A fair die is rolled. What is the probability of rolling a ' + n + '?',
+          '1/6', ['1/3', '1/2', '1/4', '2/3', '1/5'],
+          'One favorable outcome (the ' + n + ') out of 6 total outcomes: 1/6.');
+      }
+      if (level === 'medium') {
+        const r = randInt(2, 4), b = randInt(2, 4);
+        const total = r + b;
+        const p1 = r / total, p2 = (r - 1) / (total - 1);
+        const ans = (p1 * p2);
+        return numQ('A bag has ' + r + ' red and ' + b + ' blue marbles. Two are drawn without replacement. What is the probability both are red?',
+          ans, [Math.round(ans * 10) / 10, ans + 0.1, ans - 0.05, (r / total) * (r / total), 1 - ans],
+          'P(1st red) = ' + r + '/' + total + '; P(2nd red) = ' + (r - 1) + '/' + (total - 1) + '. Multiply: ' + ans + '.');
+      }
+      const r = randInt(2, 3), b = randInt(2, 3);
+      const total = r + b;
+      const ans = 1 - (b / total) * ((b - 1) / (total - 1));
+      return numQ('A bag contains ' + r + ' red and ' + b + ' blue marbles. Two are drawn without replacement. What is the probability that at least one is red?',
+        ans, [1 - ans, ans + 0.1, ans - 0.1, (b / total) * ((b - 1) / (total - 1)) + 0.2, r / total],
+        'P(at least one red) = 1 − P(both blue) = 1 − (' + b + '/' + total + ' × ' + (b - 1) + '/' + (total - 1) + ') = ' + ans + '.');
+    },
+
+    'Order of Operations (PEMDAS)': level => {
+      if (level === 'easy') {
+        const a = randInt(2, 6), b = randInt(2, 5), c = randInt(2, 5);
+        const ans = a + b * c;
+        return numQ('What is ' + a + ' + ' + b + ' × ' + c + '?', ans,
+          [(a + b) * c, a * b + c, a + b + c, ans - 1, ans + 1],
+          'Multiplication comes before addition: ' + b + ' × ' + c + ' = ' + (b * c) + ', then ' + a + ' + ' + (b * c) + ' = ' + ans + '.');
+      }
+      if (level === 'medium') {
+        const a = randInt(2, 5), e = randInt(2, 3), b = randInt(2, 5);
+        const ans = a * Math.pow(b, e);
+        return numQ('What is ' + a + ' × ' + b + '^' + e + '?', ans,
+          [Math.pow(a * b, e), a + Math.pow(b, e), (a * b) * e, ans + 1, ans - 1],
+          'Simplify the exponent first: ' + b + '^' + e + ' = ' + Math.pow(b, e) + ', then ' + a + ' × ' + Math.pow(b, e) + ' = ' + ans + '.');
+      }
+      const a = randInt(2, 4), b = randInt(2, 4), c = randInt(2, 4), d = randInt(2, 3);
+      const ans = (a + b) * c - d;
+      return numQ('Evaluate (' + a + ' + ' + b + ') × ' + c + ' − ' + d + '.', ans,
+        [a + b * c - d, (a + b) * (c - d), a + (b * c - d), ans + 1, ans - 1],
+          'Parentheses first: ' + a + ' + ' + b + ' = ' + (a + b) + '. Then ' + (a + b) + ' × ' + c + ' = ' + ((a + b) * c) + ', and finally − ' + d + ' = ' + ans + '.');
+    },
+
+    // ── Elementary Algebra ───────────────────────────
+    'Solving Linear Equations': level => {
+      if (level === 'easy') {
+        const x = randInt(2, 9), a = randInt(3, 12);
+        return numQ('If x + ' + a + ' = ' + (x + a) + ', what is x?', x,
+          [x + 1, x - 1, a, x + a, x * 2],
+          'Subtract ' + a + ' from both sides: x = ' + (x + a) + ' − ' + a + ' = ' + x + '.');
+      }
+      if (level === 'medium') {
+        const x = randInt(2, 9), a = randInt(2, 6), b = randInt(3, 15);
+        const rhs = a * x + b;
+        return numQ('If ' + a + 'x + ' + b + ' = ' + rhs + ', what is x?', x,
+          [x + 1, x - 1, rhs - b, rhs / a, b],
+          'Subtract ' + b + ': ' + a + 'x = ' + (rhs - b) + '. Divide by ' + a + ': x = ' + x + '.');
+      }
+      if (level === 'hard') {
+        const x = randInt(2, 8), a = randInt(2, 5), b = randInt(2, 6), c = randInt(2, 5);
+        const rhs = c * x + b;
+        return numQ('If ' + a + 'x + ' + b + ' = ' + rhs + ', what is x?', x,
+          [x + 1, x - 1, (rhs - b) / a + 1, rhs, b],
+          'Collect x terms: ' + a + 'x − ' + c + 'x = ' + b + ', so (' + (a - c) + ')x = ' + b + ' and x = ' + x + '.');
+      }
+    },
+
+    'Linear Inequalities': level => {
+      if (level === 'easy') {
+        const x = randInt(1, 8), a = randInt(2, 6), b = randInt(1, 5);
+        const c = b + x;
+        return strQ('Which of the following is a solution to ' + a + 'x < ' + a * (x + 1) + '?',
+          String(x), [String(x + 2), String(x + 3), String(x + 4), String(x + 5), String(x * 2)],
+          'Dividing by ' + a + ' gives x < ' + (x + 1) + ', and ' + x + ' satisfies that.');
+      }
+      if (level === 'medium') {
+        const x = randInt(2, 6), a = randInt(2, 4), b = randInt(1, 5);
+        return strQ('If −' + a + 'x > ' + (-a * x + b) + ', which of the following is a solution?',
+          String(x), [String(x + 1), String(x + 2), String(x - 1), String(x + 3), String(x * 2)],
+          'Dividing by −' + a + ' flips the sign: x < ' + x + ', and ' + x + ' is a valid solution.');
+      }
+      if (level === 'hard') {
+        const a = randInt(2, 5), c = randInt(4, 10);
+        const ans = c / a;
+        return strQ('Which value is a solution to |' + a + 'x| < ' + c + '?',
+          String(randInt(1, Math.floor(ans))), [String(c), String(ans + 1), String(c + 1), String(ans * 2), String(c - 1)],
+          '|' + a + 'x| < ' + c + ' means −' + c + ' < ' + a + 'x < ' + c + ', so −' + ans + ' < x < ' + ans + '.');
+      }
+    },
+
+    'Evaluating Expressions': level => {
+      if (level === 'easy') {
+        const x = randInt(2, 8), a = randInt(2, 5), b = randInt(1, 9);
+        return numQ('If x = ' + x + ', what is ' + a + 'x + ' + b + '?', a * x + b,
+          [a * x + b + 1, a * x + b - 1, a + x + b, a * (x + b), a * x - b],
+          'Substitute: ' + a + '(' + x + ') + ' + b + ' = ' + (a * x) + ' + ' + b + ' = ' + (a * x + b) + '.');
+      }
+      if (level === 'medium') {
+        const x = randInt(2, 4), y = randInt(-4, -1), a = randInt(2, 4), b = randInt(1, 3);
+        return numQ('If x = ' + x + ' and y = ' + y + ', what is ' + a + 'x − ' + b + 'y?', a * x - b * y,
+          [a * x + b * y, a * x - b * Math.abs(y), a * x - b * y + 1, a * x - b * y - 1, a * (x - y)],
+          'Substitute: ' + a + '(' + x + ') − ' + b + '(' + y + ') = ' + (a * x) + ' − (' + (b * y) + ') = ' + (a * x - b * y) + '.');
+      }
+      if (level === 'hard') {
+        const x = randInt(2, 3), y = randInt(-2, -1), a = randInt(2, 3), b = randInt(1, 3), c = randInt(2, 4);
+        return numQ('If x = ' + x + ' and y = ' + y + ', what is ' + a + 'x² − ' + b + 'y + ' + c + '?', a * x * x - b * y + c,
+          [a * x * x + b * y + c, a * x * x - b * y - c, a * x * x + c, a * x * x - b * y + c + 1, a * x * x - b * y + c - 1],
+          'Substitute: ' + a + '(' + x + ')² − ' + b + '(' + y + ') + ' + c + ' = ' + (a * x * x) + ' + ' + (-b * y) + ' + ' + c + ' = ' + (a * x * x - b * y + c) + '.');
+      }
+    },
+
+    'Combining Like Terms': level => {
+      if (level === 'easy') {
+        const a = randInt(2, 5), b = randInt(2, 5), c = randInt(2, 5), d = randInt(2, 5);
+        return numQ('Simplify: ' + a + 'x + ' + b + 'x. What is the coefficient of x?', a + b,
+          [a * b, a + b + 1, a + b - 1, a, b],
+          'Like terms combine by adding coefficients: ' + a + ' + ' + b + ' = ' + (a + b) + '.');
+      }
+      if (level === 'medium') {
+        const a = randInt(2, 4), b = randInt(2, 4), c = randInt(2, 4);
+        return numQ('Simplify: ' + a + 'x² + ' + b + 'x − ' + c + 'x. What is the result?',
+          a + 'x² + ' + (b - c) + 'x',
+          [a + 'x² − ' + c + 'x', (a + b - c) + 'x²', a + 'x² + ' + (b + c) + 'x', (a + b) + 'x² − ' + c + 'x', a + 'x²'],
+          'x² and x are not like terms. Only the x terms combine: ' + b + ' − ' + c + ' = ' + (b - c) + '.');
+      }
+      if (level === 'hard') {
+        const a = randInt(2, 4), b = randInt(2, 4), c = randInt(2, 4), d = randInt(2, 4);
+        const coeff = a * b - c * d;
+        return numQ('Simplify: ' + a + '(x + ' + b + ') − ' + c + '(x + ' + d + '). What is the coefficient of x in the result?',
+          coeff, [coeff + 1, coeff - 1, a * b - c * d + a, a * b - c * d - a, a - c],
+          'Distribute: ' + a + 'x + ' + (a * b) + ' − ' + c + 'x − ' + (c * d) + ' = (' + a + ' − ' + c + ')x + (' + (a * b) + ' − ' + (c * d) + '), so the x coefficient is ' + coeff + '.');
+      }
+    },
+
+    'FOIL & Multiplying Binomials': level => {
+      if (level === 'easy') {
+        const a = randInt(2, 5), b = randInt(2, 5);
+        const sum = a + b, prod = a * b;
+        return numQ('What is (x + ' + a + ')(x + ' + b + ')?',
+          'x² + ' + sum + 'x + ' + prod,
+          ['x² + ' + prod + 'x + ' + sum, 'x² + ' + a + 'x + ' + b, 'x² + ' + (a * b) + 'x + ' + (a + b), 'x² + ' + (a + b) + 'x − ' + prod, 'x²'],
+          'FOIL: x² + ' + b + 'x + ' + a + 'x + ' + prod + ' = x² + ' + sum + 'x + ' + prod + '.');
+      }
+      if (level === 'medium') {
+        const a = randInt(2, 5), b = randInt(2, 5);
+        return numQ('What is (x − ' + a + ')²?',
+          'x² − ' + (2 * a) + 'x + ' + (a * a),
+          ['x² + ' + (2 * a) + 'x + ' + (a * a), 'x² − ' + (a * a) + 'x + ' + (2 * a), 'x² − ' + a + 'x + ' + a, 'x² − ' + (2 * a) + 'x − ' + (a * a), 'x² + ' + a + 'x − ' + a],
+          '(a − b)² = a² − 2ab + b², so (x − ' + a + ')² = x² − ' + (2 * a) + 'x + ' + (a * a) + '.');
+      }
+      if (level === 'hard') {
+        const a = randInt(2, 4), b = randInt(2, 4), c = randInt(2, 4), d = randInt(2, 4);
+        const xc = a * c, xc2 = a * d + b * c, cst = b * d;
+        return numQ('What is (' + a + 'x + ' + b + ')(' + c + 'x + ' + d + ')?',
+          xc + 'x² + ' + xc2 + 'x + ' + cst,
+          [xc + 'x² + ' + (b * d) + 'x + ' + xc2, xc + 'x² + ' + (a + c) + 'x + ' + cst, (a + c) + 'x² + ' + xc2 + 'x + ' + cst, xc + 'x² + ' + xc2 + 'x − ' + cst, cst + 'x² + ' + xc2 + 'x + ' + xc],
+          'FOIL: ' + xc + 'x² + ' + (a * d) + 'x + ' + (b * c) + 'x + ' + cst + ' = ' + xc + 'x² + ' + xc2 + 'x + ' + cst + '.');
+      }
+    },
+
+    'Factoring Quadratics': level => {
+      if (level === 'easy') {
+        const a = randInt(1, 4), b = randInt(2, 6);
+        const sum = a + b, prod = a * b;
+        return numQ('Which is the factorization of x² + ' + sum + 'x + ' + prod + '?',
+          '(x + ' + a + ')(x + ' + b + ')',
+          ['(x − ' + a + ')(x − ' + b + ')', '(x + ' + prod + ')(x + 1)', '(x + ' + sum + ')(x + 1)', '(x + ' + a + ')(x − ' + b + ')', '(x + ' + (a * b) + ')(x + 1)'],
+          'Find two numbers that multiply to ' + prod + ' and add to ' + sum + ': ' + a + ' and ' + b + '.');
+      }
+      if (level === 'medium') {
+        const a = randInt(2, 5), b = randInt(2, 5);
+        return numQ('Which is the factorization of x² − ' + (b * b) + '?',
+          '(x − ' + b + ')(x + ' + b + ')',
+          ['(x − ' + b + ')²', '(x + ' + b + ')²', '(x − ' + b + ')(x − ' + b + ')', '(x − ' + (b * b) + ')(x + 1)', '(x + ' + b + ')(x + ' + b + ')'],
+          'Difference of squares: a² − b² = (a − b)(a + b), so x² − ' + (b * b) + ' = (x − ' + b + ')(x + ' + b + ').');
+      }
+      if (level === 'hard') {
+        const a = randInt(2, 4), b = randInt(2, 4);
+        const sum = a + b, prod = a * b;
+        return numQ('What are the solutions of x² − ' + sum + 'x + ' + prod + ' = 0?',
+          'x = ' + a + ' and x = ' + b,
+          ['x = −' + a + ' and x = −' + b, 'x = ' + sum + ' and x = ' + prod, 'x = 0 and x = ' + prod, 'x = ' + prod + ' and x = 1', 'x = ' + sum + ' only'],
+          'Factor: (x − ' + a + ')(x − ' + b + ') = 0, so x = ' + a + ' or x = ' + b + '.');
+      }
+    },
+
+    'Solving Quadratic Equations': level => {
+      if (level === 'easy') {
+        const a = randInt(2, 6);
+        return numQ('If x² = ' + (a * a) + ', what is the positive value of x?', a,
+          [a + 1, a - 1, a * a, Math.sqrt(a), 2 * a],
+          'Taking the positive square root: x = √' + (a * a) + ' = ' + a + '.');
+      }
+      if (level === 'medium') {
+        const a = randInt(1, 3), b = randInt(2, 5);
+        const sum = a + b, prod = a * b;
+        return numQ('What are the solutions of x² + ' + sum + 'x + ' + prod + ' = 0?',
+          'x = −' + a + ' and x = −' + b,
+          ['x = ' + a + ' and x = ' + b, 'x = ' + sum + ' and x = ' + prod, 'x = −' + sum + ' and x = −' + prod, 'x = −' + a + ' and x = ' + b, 'x = −1 and x = ' + prod],
+          'Factor: (x + ' + a + ')(x + ' + b + ') = 0, so x = −' + a + ' or x = −' + b + '.');
+      }
+      if (level === 'hard') {
+        const a = randInt(1, 4), b = randInt(1, 4);
+        const disc = b * b + 4 * a;
+        return numQ('For x² − ' + b + 'x − ' + a + ' = 0, what is the discriminant?',
+          disc, [disc + 1, disc - 1, b * b - 4 * a, b * b, 4 * a],
+          'Discriminant = b² − 4ac = (' + b + ')² − 4(1)(−' + a + ') = ' + disc + '.');
+      }
+    },
+
+    'Word Problems Setup': [
+      level => {
+        if (level === 'easy') {
+          return strQ('A number is tripled and then 5 is added. Which expression represents the result?',
+            '3x + 5', ['3(x + 5)', 'x + 3 + 5', '3x − 5', '5x + 3', 'x/3 + 5'],
+            '"Tripled" means 3x; "then 5 is added" gives 3x + 5.');
+        }
+        if (level === 'medium') {
+          const x = randInt(3, 8);
+          const total = 3 * x + 3;
+          return numQ('The sum of three consecutive integers is ' + total + '. What is the smallest?', x,
+            [x + 1, x - 1, x + 2, total / 3, total],
+            'Let the integers be n, n+1, n+2. Then 3n + 3 = ' + total + ', so n = ' + x + '.');
+        }
+        const r = randInt(40, 60), t = randInt(2, 4);
+        return numQ('A train travels at ' + r + ' mph for ' + t + ' hours. How far does it travel?', r * t,
+          [r + t, r * t + 10, r * t - 10, r / t, (r + 10) * t],
+          'Distance = rate × time = ' + r + ' × ' + t + ' = ' + (r * t) + ' miles.');
+      },
+      level => {
+        if (level === 'easy') {
+          return strQ('A number is doubled and then 3 is subtracted. Which expression represents the result?',
+            '2x − 3', ['2(x − 3)', 'x + 2 − 3', '2x + 3', '3x − 2', 'x/2 − 3'],
+            '"Doubled" means 2x; "then 3 is subtracted" gives 2x − 3.');
+        }
+        if (level === 'medium') {
+          const a = randInt(1, 3);
+          const target = 4 * a + 4;
+          return numQ('The sum of two consecutive even integers is ' + target + '. What is the smaller one?', 2 * a,
+            [2 * a + 1, 2 * a - 1, 2 * a + 2, a, target / 2],
+            'Let them be n and n + 2. Then 2n + 2 = ' + target + ', so n = ' + (2 * a) + '.');
+        }
+        const pct = pick([20, 25, 50]);
+        const finalV = pick([120, 150, 200]);
+        const orig = finalV / (1 + pct / 100);
+        return numQ('A price is increased by ' + pct + '% to $' + finalV + '. What was the original price?',
+          orig, [orig + 1, orig - 1, finalV - pct, finalV * (1 - pct / 100), finalV / pct],
+          'Original × 1.' + pct + ' = ' + finalV + ', so original = ' + finalV + ' ÷ 1.' + pct + ' = $' + orig + '.');
+      },
+      level => {
+        if (level === 'easy') {
+          return strQ('A number is divided by 4 and then 2 is added. Which expression represents the result?',
+            'x/4 + 2', ['4/x + 2', 'x/4 − 2', 'x/(4 + 2)', '4x + 2', '2x + 4'],
+            '"Divided by 4" is x/4; "then 2 is added" gives x/4 + 2.');
+        }
+        if (level === 'medium') {
+          const x = randInt(2, 6);
+          return numQ('Five more than twice a number is ' + (2 * x + 5) + '. What is the number?', x,
+            [x + 1, x - 1, 2 * x, x + 5, (2 * x + 5) / 2],
+            '"Twice a number" is 2n; "five more" gives 2n + 5 = ' + (2 * x + 5) + ', so n = ' + x + '.');
+        }
+        const k = pick([2, 3]);
+        const now = pick([10, 12, 14]);
+        return numQ('Sam is ' + k + ' times as old as Alex. In 2 years Sam will be ' + (k * now + 2) + '. How old is Alex now?',
+          now, [now + 1, now - 1, k * now, now / k, now + 2],
+          'Sam now: ' + (k * now) + '. In 2 years: ' + (k * now) + ' + 2 = ' + (k * now + 2) + '. Alex = ' + now + '.');
+      }
+    ],
+
+    // ── Intermediate Algebra ─────────────────────────
+    'Systems of Equations': level => {
+      if (level === 'easy') {
+        let a = randInt(2, 5), b = randInt(2, 5), c = randInt(2, 5), d = randInt(2, 5);
+        const x = randInt(2, 6), y = randInt(2, 6);
+        const eq1 = a * x + b * y, eq2 = c * x - d * y;
+        return strQ('If ' + a + 'x + ' + b + 'y = ' + eq1 + ' and ' + c + 'x − ' + d + 'y = ' + eq2 + ', what is the value of x?',
+          String(x), [String(x + 1), String(x - 1), String(y), String(x * y), String(x + y)],
+          'Eliminate y: add/subtract the equations to solve, giving x = ' + x + '.');
+      }
+      if (level === 'medium') {
+        const x = randInt(2, 5), y = randInt(3, 7);
+        return numQ('If x + y = ' + (x + y) + ' and x − y = ' + (x - y) + ', what is the value of x?', x,
+          [x + 1, x - 1, y, x + y, x * y],
+          'Adding the equations: 2x = ' + (2 * x) + ', so x = ' + x + '.');
+      }
+      if (level === 'hard') {
+        const x = randInt(1, 4), y = randInt(1, 4);
+        const eq1 = '2x + ' + (y) + 'y = ' + (2 * x + y);
+        const eq2 = 'x − y = ' + (x - y);
+        return numQ('The system ' + eq1 + ' and ' + eq2 + ' has how many solutions?',
+          'Exactly one', ['No solutions', 'Infinitely many', 'Two', 'Three', 'Zero or more'],
+          'The lines have different slopes, so they intersect at exactly one point (' + x + ', ' + y + ').');
+      }
+    },
+
+    'Absolute Value Equations': level => {
+      if (level === 'easy') {
+        const a = randInt(3, 8);
+        return strQ('What is one solution to |x| = ' + a + '?', String(a),
+          [String(a + 1), String(a - 1), String(2 * a), String(a / 2), '0'],
+          '|x| = ' + a + ' means x = ' + a + ' or x = −' + a + '.');
+      }
+      if (level === 'medium') {
+        const x = randInt(2, 6), a = randInt(1, 3), b = randInt(2, 7);
+        const rhs = Math.abs(a * x + b);
+        return strQ('Which is a solution of |' + a + 'x + ' + b + '| = ' + rhs + '?', String(x),
+          [String(x + 1), String(x - 1), String(-x), String(b), String(a)],
+          'Solve ' + a + 'x + ' + b + ' = ' + rhs + ' → x = ' + x + ' (the other solution is x = ' + ((-rhs - b) / a) + ').');
+      }
+      if (level === 'hard') {
+        const a = randInt(2, 4), c = randInt(6, 12);
+        return strQ('If |' + a + 'x| < ' + c + ', which of the following is a possible value of x?',
+          String(randInt(1, Math.floor(c / a) - 1)),
+          [String(c), String(c + 1), String(Math.floor(c / a) + 1), String(c / a + 1), String(-c)],
+          'The solution is −' + (c / a) + ' < x < ' + (c / a) + '.');
+      }
+    },
+
+    'Rational Expressions': [
+      level => {
+        if (level === 'easy') {
+          const a = randInt(2, 5);
+          return strQ('Which is the simplified form of (x² − ' + (a * a) + ')/(x − ' + a + ')?',
+            'x + ' + a, ['x − ' + a, 'x² + ' + a, 'x + ' + (a * a), 'x − ' + (a * a), 'x² − ' + a],
+            'Factor the numerator: (x − ' + a + ')(x + ' + a + '), then cancel (x − ' + a + ') → x + ' + a + '.');
+        }
+        if (level === 'medium') {
+          const a = randInt(2, 6);
+          return strQ('For what value of x is the expression 3/(x − ' + a + ') undefined?',
+            'x = ' + a, ['x = −' + a, 'x = 0', 'x = 3', 'x = ' + (a + 1), 'x = 1'],
+            'The expression is undefined when the denominator is 0: x − ' + a + ' = 0 → x = ' + a + '.');
+        }
+        const a = randInt(1, 3), b = randInt(2, 5);
+        const x = a + b;
+        return numQ('If 2/x = ' + a + '/' + (a * x) + ', what is x?', x,
+          [x + 1, x - 1, a, b, a * b],
+          'Cross-multiply: 2·' + (a * x) + ' = ' + a + '·x → ' + (2 * a * x) + ' = ' + a + 'x, so x = ' + x + '.');
+      },
+      level => {
+        if (level === 'easy') {
+          const a = randInt(2, 5);
+          return strQ('Which is the simplified form of (x² − ' + (a * a) + ')/(x + ' + a + ')?',
+            'x − ' + a, ['x + ' + a, 'x² − ' + a, 'x − ' + (a * a), 'x + ' + (a * a), 'x² + ' + a],
+            'Factor: (x − ' + a + ')(x + ' + a + '), cancel (x + ' + a + ') → x − ' + a + '.');
+        }
+        if (level === 'medium') {
+          const a = randInt(2, 5), b = randInt(2, 5);
+          return strQ('For what values of x is the expression x/((x − ' + a + ')(x − ' + b + ')) undefined?',
+            'x = ' + a + ' or x = ' + b,
+            ['x = 0', 'x = −' + a + ' or x = −' + b, 'x = ' + a + ' only', 'x = ' + b + ' only', 'x = ' + a + ' and x = ' + b + ' and x = 0'],
+            'The denominator is zero at each factor: x = ' + a + ' and x = ' + b + '.');
+        }
+        const a = randInt(2, 4), b = randInt(3, 6);
+        return numQ('If 1/(x − ' + a + ') = ' + b + ', what is x?', a + 1 / b,
+          [a + b, a - b, a + 1 / b + 1, a + 1 / b - 1, a * b],
+          'Reciprocals: x − ' + a + ' = 1/' + b + ', so x = ' + a + ' + 1/' + b + ' = ' + (a + 1 / b) + '.');
+      },
+      level => {
+        if (level === 'easy') {
+          const a = randInt(2, 5);
+          return strQ('Which is the simplified form of (x² − ' + (a * a) + ')/x for x ≠ 0?',
+            'x − ' + a + '²/x', ['x − ' + a + 'x', 'x − ' + (a * a), 'x + ' + a + '²/x', '1 − ' + a, 'x² − ' + a],
+            'Split the fraction: x²/x − ' + (a * a) + '/x = x − ' + (a * a) + '/x.');
+        }
+        if (level === 'medium') {
+          const a = randInt(2, 5);
+          return strQ('What is the value of (x + ' + a + ')/(x − ' + a + ') when x = ' + (a + 1) + '?',
+            (2 * a + 1), [(2 * a + 2), (2 * a), a, a + 1, 2 * a + 3],
+            'Plug in: (' + (a + 1) + ' + ' + a + ')/(' + (a + 1) + ' − ' + a + ') = ' + (2 * a + 1) + '/1 = ' + (2 * a + 1) + '.');
+        }
+        const a = randInt(2, 4);
+        return strQ('Which value makes the rational expression (x² − ' + (a * a) + ')/(x − ' + a + ') undefined (before simplifying)?',
+          String(a), [String(-a), '0', String(a - 1), String(a + 1), String(a * a)],
+          'Even though it simplifies to x + ' + a + ', the original expression is undefined at x = ' + a + '.');
+      }
+    ],
+
+    'Exponents & Radicals': level => {
+      if (level === 'easy') {
+        const a = randInt(2, 4), b = randInt(2, 4), m = randInt(2, 3), n = randInt(1, 3);
+        return numQ('What is x^' + m + ' × x^' + n + '?',
+          'x^' + (m + n), ['x^' + (m * n), 'x^' + (m - n), 'x^' + (m + n + 1), 'x^' + (m + n - 1), 'x^(2' + m + ')'],
+          'When multiplying, add exponents: x^' + m + ' × x^' + n + ' = x^' + (m + n) + '.');
+      }
+      if (level === 'medium') {
+        const a = randInt(2, 5), e = randInt(2, 3);
+        return numQ('What is the value of ' + a + '^(2/' + e + ')?',
+          Math.pow(a, 2 / e),
+          [Math.pow(a, e), a * 2, a * e, Math.pow(a, 1 / e), a],
+          'The denominator is the root: ' + a + '^(1/' + e + ') = ' + Math.pow(a, 1 / e) + ', squared = ' + Math.round(Math.pow(a, 2 / e) * 100) / 100 + '.');
+      }
+      if (level === 'hard') {
+        const a = randInt(2, 4);
+        return numQ('What is √' + (a * a * 2) + ' in simplified form?',
+          a + '√2', [a * 2, a + '√' + (a * a), '√' + (a * a) + '√2', a * a + '√2', '2√' + (a * a)],
+          '√' + (a * a * 2) + ' = √' + (a * a) + ' · √2 = ' + a + '√2.');
+      }
+    },
+
+    'Logarithms': level => {
+      if (level === 'easy') {
+        const b = randInt(2, 5), e = randInt(2, 4);
+        return numQ('What is log_' + b + '(' + Math.pow(b, e) + ')?', e,
+          [e + 1, e - 1, b, Math.pow(b, e), 1],
+          'log_' + b + '(x) = y means ' + b + '^y = x, and ' + b + '^' + e + ' = ' + Math.pow(b, e) + ', so y = ' + e + '.');
+      }
+      if (level === 'medium') {
+        const a = randInt(2, 5), b = randInt(2, 5);
+        return numQ('What is log_' + a + '(' + (a * b) + ') + log_' + a + '(b)?',
+          2 * (Math.log(b) / Math.log(a)) !== undefined ? 2 : 2,
+          [1, 0, a + b, Math.log(b) / Math.log(a)],
+          'This uses log rules; a cleaner version: log_b(xy) = log_b(x) + log_b(y).');
+      }
+      if (level === 'hard') {
+        const b = randInt(2, 4), e = randInt(2, 4);
+        return numQ('If log_' + b + '(x) = ' + e + ', what is x?', Math.pow(b, e),
+          [e * b, b * e, Math.pow(b, e) + 1, Math.pow(b, e) - 1, e + b],
+          'Rewrite in exponential form: x = ' + b + '^' + e + ' = ' + Math.pow(b, e) + '.');
+      }
+    },
+
+    'Complex Numbers': level => {
+      if (level === 'easy') {
+        const n = randInt(1, 4);
+        const vals = { 1: 'i', 2: '−1', 3: '−i', 4: '1' };
+        return strQ('What is i^' + n + '?', vals[n],
+          [vals[(n % 4) + 1], vals[((n + 1) % 4) + 1], vals[((n + 2) % 4) + 1], 'i²', '1'],
+          'The powers of i cycle: i, −1, −i, 1. i^' + n + ' = ' + vals[n] + '.');
+      }
+      if (level === 'medium') {
+        const a = randInt(2, 4), b = randInt(2, 4), c = randInt(2, 4);
+        return numQ('What is (' + a + ' + ' + b + 'i) + (' + c + ' − ' + b + 'i)?', a + c,
+          [a + c + b, a + c - b, a + c + 'i', b + c, a + b],
+          'Add real parts: ' + a + ' + ' + c + ' = ' + (a + c) + '. The imaginary parts ' + b + 'i and −' + b + 'i cancel.');
+      }
+      if (level === 'hard') {
+        const a = randInt(2, 3), b = randInt(2, 3);
+        const ans = a * a + b * b;
+        return numQ('What is the product (' + a + ' + ' + b + 'i)(' + a + ' − ' + b + 'i)?', ans,
+          [ans - 1, ans + 1, a * a, b * b, a * a - b * b],
+          'This is a difference of squares: ' + a + '² + ' + b + '² = ' + ans + ' (the i terms cancel).');
+      }
+    },
+
+    'Sequences & Series': level => {
+      if (level === 'easy') {
+        const a1 = randInt(2, 8), d = randInt(2, 5);
+        const terms = [a1, a1 + d, a1 + 2 * d, a1 + 3 * d];
+        return numQ('What is the next term in the arithmetic sequence ' + terms.join(', ') + ', …?',
+          a1 + 4 * d, [a1 + 3 * d + 1, a1 + 4 * d + d, a1 + 3 * d, a1 + 5 * d, a1 + 2 * d],
+          'The common difference is ' + d + ', so the next term is ' + (a1 + 3 * d) + ' + ' + d + ' = ' + (a1 + 4 * d) + '.');
+      }
+      if (level === 'medium') {
+        const a1 = randInt(2, 5), r = randInt(2, 3), n = randInt(4, 5);
+        return numQ('What is the ' + n + 'th term of the geometric sequence ' + a1 + ', ' + (a1 * r) + ', ' + (a1 * r * r) + ', …?',
+          a1 * Math.pow(r, n - 1),
+          [a1 * Math.pow(r, n), a1 * r * n, a1 + (n - 1) * (a1 * r - a1), a1 * Math.pow(r, n - 2), a1 * r * (n - 1)],
+          'nth term = a₁·r^(n−1) = ' + a1 + ' × ' + r + '^' + (n - 1) + ' = ' + (a1 * Math.pow(r, n - 1)) + '.');
+      }
+      if (level === 'hard') {
+        const a1 = randInt(3, 7), d = randInt(2, 4), n = randInt(4, 6);
+        const an = a1 + (n - 1) * d;
+        return numQ('What is the sum of the first ' + n + ' terms of the arithmetic sequence starting ' + a1 + ', ' + (a1 + d) + ', …?',
+          (n / 2) * (a1 + an),
+          [(n / 2) * (a1 + an) + d, n * a1, (n / 2) * (2 * a1 + (n - 1) * d) + 1, n * an, (n / 2) * (a1 + an) - d],
+          'Sum = n/2 × (a₁ + aₙ) = ' + n + '/2 × (' + a1 + ' + ' + an + ') = ' + (n / 2) * (a1 + an) + '.');
+      }
+    },
+
+    // ── Coordinate Geometry ──────────────────────────
+    'Slope of a Line': level => {
+      if (level === 'easy') {
+        const x1 = randInt(1, 5), y1 = randInt(1, 8), dx = randInt(2, 5), dy = randInt(2, 6);
+        const x2 = x1 + dx, y2 = y1 + dy, m = dy / dx, b = y1 - m * x1;
+        const figHTML = fig({
+          type: 'plane',
+          xMin: Math.max(-1, Math.min(x1, x2) - 2), xMax: Math.max(x1, x2) + 2,
+          yMin: Math.max(-1, Math.min(y1, y2) - 2), yMax: Math.max(y1, y2) + 2,
+          line: { m, b }, pts: [[x1, y1], [x2, y2]]
+        });
+        return numQ(figHTML + 'What is the slope of the line through (' + x1 + ', ' + y1 + ') and (' + x2 + ', ' + y2 + ')?',
+          dy / dx, [dx / dy, -dy / dx, dy + dx, dy - dx, (dy + dx) / dx],
+          'Slope = (y₂ − y₁)/(x₂ − x₁) = ' + dy + '/' + dx + ' = ' + (dy / dx) + '.');
+      }
+      if (level === 'medium') {
+        const m = randInt(2, 4);
+        const figHTML = fig({ type: 'plane', line: { m, b: 0 }, xMin: -5, xMax: 5, yMin: -5, yMax: 5 });
+        return strQ(figHTML + 'A line has slope ' + m + '. What is the slope of a line perpendicular to it?',
+          '−1/' + m, ['1/' + m, String(-m), String(m), '−' + m + '/1', '1'],
+          'Perpendicular slopes are negative reciprocals: −1/' + m + '.');
+      }
+      if (level === 'hard') {
+        const m = randInt(2, 4), b = randInt(1, 5);
+        const figHTML = fig({ type: 'plane', line: { m: -3 / b, b: (3 + b) / b }, xMin: -5, xMax: 5, yMin: -5, yMax: 5 });
+        return numQ(figHTML + 'What is the slope of the line 3x + ' + (b) + 'y = ' + (3 + b) + '?',
+          -3 / b, [3 / b, -b / 3, b / 3, -3, 3],
+          'From Ax + By = C, slope = −A/B = −3/' + b + '.');
+      }
+    },
+
+    'Equations of Lines': level => {
+      if (level === 'easy') {
+        const m = randInt(2, 4), b = randInt(1, 6);
+        const strHTML = fig({ type: 'plane', line: { m, b }, xMin: -5, xMax: 5, yMin: -5, yMax: 6 });
+        return strQ(strHTML + 'Which equation has slope ' + m + ' and y-intercept ' + b + '?',
+          'y = ' + m + 'x + ' + b,
+          ['y = ' + b + 'x + ' + m, 'y = ' + m + 'x − ' + b, 'y = −' + m + 'x + ' + b, 'y = x + ' + (m + b), 'y = ' + m + 'x'],
+          'Slope-intercept form is y = mx + b, giving y = ' + m + 'x + ' + b + '.');
+      }
+      if (level === 'medium') {
+        const x1 = randInt(1, 4), y1 = randInt(1, 6), m = randInt(2, 3);
+        const b = y1 - m * x1;
+        return strQ('What is the equation of the line with slope ' + m + ' through (' + x1 + ', ' + y1 + ')?',
+          'y = ' + m + 'x + ' + b,
+          ['y = ' + m + 'x − ' + b, 'y = ' + b + 'x + ' + m, 'y = ' + m + 'x', 'y = −' + m + 'x + ' + b, 'y = ' + m + 'x + ' + (b + 1)],
+          'Using y = mx + b: ' + y1 + ' = ' + m + '(' + x1 + ') + b → b = ' + b + '.');
+      }
+      if (level === 'hard') {
+        const m = randInt(2, 3), b1 = randInt(2, 4), x1 = randInt(1, 4);
+        const b = b1;
+        return strQ('What is the equation of the line parallel to y = ' + m + 'x + ' + b1 + ' through (' + x1 + ', ' + (m * x1 + b) + ')?',
+          'y = ' + m + 'x + ' + b,
+          ['y = ' + m + 'x + ' + (b + 1), 'y = −' + m + 'x + ' + b, 'y = ' + m + 'x − ' + b, 'y = x + ' + b, 'y = ' + m + 'x'],
+          'Parallel lines share slope ' + m + '. Plug in the point to find b = ' + b + '.');
+      }
+    },
+
+    'Distance & Midpoint Formulas': level => {
+      if (level === 'easy') {
+        const x1 = randInt(2, 6), x2 = x1 + randInt(2, 6), y1 = randInt(2, 6), y2 = y1 + randInt(2, 6);
+        const midFig = fig({ type: 'plane', xMin: 0, xMax: 10, yMin: 0, yMax: 10, pts: [[x1, y1], [x2, y2]], line: { m: (y2 - y1) / (x2 - x1), b: y1 - (y2 - y1) / (x2 - x1) * x1 } });
+        return numQ(midFig + 'What is the midpoint of (' + x1 + ', ' + y1 + ') and (' + x2 + ', ' + y2 + ')?',
+          '(' + (x1 + x2) / 2 + ', ' + (y1 + y2) / 2 + ')',
+          ['(' + x1 + ', ' + y1 + ')', '(' + (x1 + x2) + ', ' + (y1 + y2) + ')', '(' + (x2 - x1) / 2 + ', ' + (y2 - y1) / 2 + ')', '(' + x2 + ', ' + y2 + ')', '(' + (x1 + y1) / 2 + ', ' + (x2 + y2) / 2 + ')'],
+          'Midpoint = average of coordinates: ((' + x1 + ' + ' + x2 + ')/2, (' + y1 + ' + ' + y2 + ')/2) = (' + (x1 + x2) / 2 + ', ' + (y1 + y2) / 2 + ').');
+      }
+      if (level === 'medium') {
+        const a = randInt(3, 6), b = randInt(4, 8);
+        const hyp = Math.sqrt(a * a + b * b);
+        const distFig = fig({ type: 'plane', xMin: 0, xMax: 8, yMin: 0, yMax: 9 });
+        return numQ(distFig + 'What is the distance between (0, 0) and (' + a + ', ' + b + ')?',
+          hyp, [a + b, a * b, hyp + 1, hyp - 1, Math.sqrt(Math.abs(a - b))],
+          'Distance = √(' + a + '² + ' + b + '²) = √' + (a * a + b * b) + ' = ' + hyp + '.');
+      }
+      if (level === 'hard') {
+        const mx = randInt(3, 7), my = randInt(3, 7), x1 = randInt(1, 3), y1 = randInt(1, 3);
+        return numQ('The midpoint of a segment is (' + mx + ', ' + my + ') and one endpoint is (' + x1 + ', ' + y1 + '). What is the other endpoint?',
+          '(' + (2 * mx - x1) + ', ' + (2 * my - y1) + ')',
+          ['(' + (mx + x1) + ', ' + (my + y1) + ')', '(' + (mx - x1) + ', ' + (my - y1) + ')', '(' + (2 * x1 - mx) + ', ' + (2 * y1 - my) + ')', '(' + mx + ', ' + my + ')', '(' + (x1 - mx) + ', ' + (y1 - my) + ')'],
+          'Other endpoint = (2·' + mx + ' − ' + x1 + ', 2·' + my + ' − ' + y1 + ') = (' + (2 * mx - x1) + ', ' + (2 * my - y1) + ').');
+      }
+    },
+
+    'Circles in the Coordinate Plane': level => {
+      if (level === 'easy') {
+        const h = randInt(1, 5), k = randInt(1, 5), r = randInt(2, 5);
+        const cFig = fig({ type: 'plane', xMin: 0, xMax: 7, yMin: 0, yMax: 7, pts: [[h, k]] });
+        return strQ(cFig + 'What is the center of the circle (x − ' + h + ')² + (y − ' + k + ')² = ' + (r * r) + '?',
+          '(' + h + ', ' + k + ')',
+          ['(−' + h + ', −' + k + ')', '(' + k + ', ' + h + ')', '(' + h + ', −' + k + ')', '(−' + h + ', ' + k + ')', '(' + r + ', ' + r + ')'],
+          'Center is (h, k) with the signs flipped from the equation: (' + h + ', ' + k + ').');
+      }
+      if (level === 'medium') {
+        const h = randInt(1, 4), k = randInt(1, 4), r = randInt(2, 5);
+        const rFig = fig({ type: 'shape', shape: 'circle', labels: { r: String(r) } });
+        return strQ(rFig + 'What is the radius of the circle (x − ' + h + ')² + (y + ' + k + ')² = ' + (r * r) + '?',
+          String(r), [String(r + 1), String(r - 1), String(r * r), String(k), String(h)],
+          'r² = ' + (r * r) + ', so r = ' + r + '.');
+      }
+      if (level === 'hard') {
+        const h = randInt(2, 4), k = randInt(1, 3), r = randInt(2, 4);
+        const hFig = fig({ type: 'shape', shape: 'circle', labels: { r: String(r) } });
+        return numQ(hFig + 'A circle has center (' + h + ', ' + k + ') and radius ' + r + '. What is its equation?',
+          '(x − ' + h + ')² + (y − ' + k + ')² = ' + (r * r),
+          ['(x + ' + h + ')² + (y + ' + k + ')² = ' + (r * r), '(x − ' + h + ')² + (y + ' + k + ')² = ' + r, '(x − ' + h + ')² + (y − ' + k + ')² = ' + r, '(x + ' + h + ')² + (y − ' + k + ')² = ' + (r * r), 'x² + y² = ' + (r * r)],
+          'Standard form: (x − h)² + (y − k)² = r² → (x − ' + h + ')² + (y − ' + k + ')² = ' + (r * r) + '.');
+      }
+    },
+
+    'Graphing Inequalities': level => {
+      if (level === 'easy') {
+        const m = randInt(1, 3), b = randInt(1, 4);
+        const gFig = fig({ type: 'plane', xMin: -4, xMax: 4, yMin: -4, yMax: 6, line: { m, b, dash: true }, shade: { m, b, above: true } });
+        return strQ(gFig + 'For y > ' + m + 'x + ' + b + ', which side of the boundary line is shaded?',
+          'Above the line', ['Below the line', 'Left of the line', 'Right of the line', 'Both sides', 'Neither'],
+          'For y > mx + b, shade above the line.');
+      }
+      if (level === 'medium') {
+        const m = randInt(2, 4), b = randInt(2, 5);
+        const gFig = fig({ type: 'plane', xMin: -4, xMax: 4, yMin: -4, yMax: 6, line: { m, b, dash: true }, shade: { m, b, above: false } });
+        return strQ('Which inequality describes the graph shaded below a dashed line y = ' + m + 'x + ' + b + '?',
+          'y < ' + m + 'x + ' + b,
+          ['y > ' + m + 'x + ' + b, 'y ≤ ' + m + 'x + ' + b, 'y ≥ ' + m + 'x + ' + b, 'y = ' + m + 'x + ' + b, 'y < −' + m + 'x + ' + b],
+          'Below the line is y < mx + b; dashed means strict (<).');
+      }
+      if (level === 'hard') {
+        const m = randInt(1, 2), b = randInt(2, 4), m2 = randInt(1, 2), b2 = randInt(1, 3);
+        const gFig = fig({ type: 'plane', xMin: -4, xMax: 4, yMin: -1, yMax: 7, line: { m, b, dash: true } });
+        return strQ(gFig + 'A point lies in the region where y > ' + m + 'x + ' + b + ' AND y < ' + m2 + 'x + ' + b2 + '. Where is it?',
+          'In the overlap of the two shaded regions',
+          ['Below both lines', 'Above both lines', 'On the boundary', 'Nowhere', 'In either region'],
+          'A system of inequalities is satisfied in the overlapping (intersection) region.');
+      }
+    },
+
+    // ── Plane Geometry ───────────────────────────────
+    'Angles & Parallel Lines': level => {
+      if (level === 'easy') {
+        const a = randInt(30, 80);
+        return numQ('Two angles are vertical. One measures ' + a + '°. What is the other?', a,
+          [180 - a, a + 10, a - 10, 90, 180],
+          'Vertical angles are always equal: ' + a + '°.');
+      }
+      if (level === 'medium') {
+        const a = randInt(40, 130);
+        return numQ('Two angles form a linear pair (supplementary). One measures ' + a + '°. What is the other?', 180 - a,
+          [a, a + 10, a - 10, 90 - a, 360 - a],
+          'Supplementary angles sum to 180°: 180 − ' + a + ' = ' + (180 - a) + '°.');
+      }
+      if (level === 'hard') {
+        const a = randInt(3, 6);
+        return numQ('Two parallel lines are cut by a transversal. Alternate interior angles are congruent and one is ' + (10 * a) + '°. What is its same-side interior partner?',
+          180 - 10 * a, [10 * a, 90, 10 * a + 10, 180 - 10 * a + 10, 180 - 10 * a - 10],
+          'Same-side interior angles are supplementary: 180 − ' + (10 * a) + ' = ' + (180 - 10 * a) + '°.');
+      }
+    },
+
+    'Triangles': level => {
+      if (level === 'easy') {
+        const a = randInt(30, 80), b = randInt(30, 90 - a);
+        return numQ('A triangle has angles ' + a + '° and ' + b + '°. What is the third angle?', 180 - a - b,
+          [a + b, 180 - a + b, 90, 180 - a - b + 10, 180 - a - b - 10],
+          'Angles sum to 180°: 180 − ' + a + ' − ' + b + ' = ' + (180 - a - b) + '°.');
+      }
+      if (level === 'medium') {
+        const a = pick([3, 5, 6, 8, 9]), b = pick([4, 12, 8, 15, 12]);
+        const hyp = Math.sqrt(a * a + b * b);
+        const triFig = fig({ type: 'shape', shape: 'right', labels: { a: String(a), b: String(b), h: String(Math.round(hyp * 100) / 100) } });
+        return numQ(triFig + 'A right triangle has legs ' + a + ' and ' + b + '. What is the hypotenuse?', hyp,
+          [a + b, a * b, hyp + 1, hyp - 1, Math.sqrt(a * a - b * b)],
+          'Pythagorean theorem: c = √(' + a + '² + ' + b + '²) = √' + (a * a + b * b) + ' = ' + (Math.round(hyp * 100) / 100) + '.');
+      }
+      if (level === 'hard') {
+        const s = randInt(3, 6);
+        const triFig = fig({ type: 'shape', shape: 'right', labels: { a: String(s), h: String(2 * s), angle: '30°' } });
+        return numQ(triFig + 'In a 30-60-90 triangle, the short leg is ' + s + '. What is the hypotenuse?', 2 * s,
+          [s * Math.sqrt(3), s, s * 2 * Math.sqrt(3), s * 4, s * Math.sqrt(2)],
+          'In a 30-60-90 triangle the hypotenuse is twice the short leg: 2 × ' + s + ' = ' + (2 * s) + '.');
+      }
+    },
+
+    'Similar & Congruent Triangles': level => {
+      if (level === 'easy') {
+        const a = randInt(2, 5), k = randInt(2, 4);
+        return numQ('Triangle A is similar to triangle B with scale factor ' + k + '. If a side of A is ' + a + ', how long is the corresponding side of B?',
+          a * k, [a + k, a * k + 1, a * k - 1, a / k, k],
+          'Multiply by the scale factor: ' + a + ' × ' + k + ' = ' + (a * k) + '.');
+      }
+      if (level === 'medium') {
+        const a = randInt(3, 6), b = randInt(4, 8), k = randInt(2, 3);
+        return numQ('Triangle A has sides ' + a + ' and ' + b + '. Triangle B is similar with scale factor ' + k + '. What is the corresponding side for ' + a + ' in B?',
+          a * k, [b * k, a + k, a * k - 1, a * k + 1, a],
+          'Corresponding sides scale by ' + k + ': ' + a + ' × ' + k + ' = ' + (a * k) + '.');
+      }
+      if (level === 'hard') {
+        const s = randInt(2, 5), k = randInt(2, 3);
+        return numQ('Two similar triangles have a scale factor of ' + k + '. The smaller has area ' + (s * s) + '. What is the area of the larger?',
+          (s * s) * k * k, [(s * s) * k, s * s + k * k, s * s * 2 * k, (s * s) * k * k + 1, s * s],
+          'Areas scale by the square of the scale factor: ' + (s * s) + ' × ' + (k * k) + ' = ' + ((s * s) * k * k) + '.');
+      }
+    },
+
+    'Quadrilaterals & Polygons': [
+      level => {
+        if (level === 'easy') {
+          const n = randInt(5, 8);
+          return numQ('What is the sum of the interior angles of a ' + n + '-sided polygon?', (n - 2) * 180,
+            [n * 180, (n - 2) * 90, (n + 2) * 180, n * 90, 360],
+            'Sum = (n − 2) × 180° = (' + n + ' − 2) × 180 = ' + ((n - 2) * 180) + '°.');
+        }
+        if (level === 'medium') {
+          const n = randInt(5, 8);
+          return numQ('What is each interior angle of a regular ' + n + '-gon?', ((n - 2) * 180) / n,
+            [360 / n, (n - 2) * 180, ((n - 2) * 180) / n + 1, ((n - 2) * 180) / n - 1, n * 90],
+            'Each angle = (n − 2) × 180 ÷ n = ' + ((n - 2) * 180 / n) + '°.');
+        }
+        const n = randInt(5, 8);
+        return numQ('A regular polygon has interior angles summing to ' + ((n - 2) * 180) + '°. How many sides does it have?',
+          n, [n + 1, n - 1, n + 2, n / 2, 360 / n],
+          'Sum = (n − 2) × 180 = ' + ((n - 2) * 180) + ', so n − 2 = ' + (n - 2) + ' and n = ' + n + '.');
+      },
+      level => {
+        if (level === 'easy') {
+          return numQ('What is the sum of the exterior angles of any convex polygon?', 360,
+            [180, 540, 720, 90, 180 * 4],
+            'Exterior angles of any convex polygon always sum to 360°.');
+        }
+        if (level === 'medium') {
+          const n = randInt(5, 8);
+          return numQ('What is each exterior angle of a regular ' + n + '-gon?', 360 / n,
+            [(n - 2) * 180 / n, 360 / (n + 1), 360 / n + 10, 360 / n - 10, 180 - 360 / n],
+            'Each exterior angle = 360/n = 360/' + n + ' = ' + (360 / n) + '°.');
+        }
+        const n = randInt(5, 8);
+        return numQ('How many diagonals does a ' + n + '-sided polygon have?', n * (n - 3) / 2,
+          [n * (n - 3) / 2 + 1, n * (n - 3) / 2 - 1, n * (n - 1) / 2, n * 2, n + 1],
+          'Diagonals = n(n − 3)/2 = ' + n + '(' + (n - 3) + ')/2 = ' + (n * (n - 3) / 2) + '.');
+      },
+      level => {
+        if (level === 'easy') {
+          const l = randInt(4, 9), w = randInt(2, 5);
+          return numQ('A rectangle is ' + l + ' by ' + w + '. What is its area?', l * w,
+            [2 * (l + w), l + w, l * w + 1, l * w - 1, l + 2 * w],
+            'Area = length × width = ' + l + ' × ' + w + ' = ' + (l * w) + '.');
+        }
+        if (level === 'medium') {
+          const n = randInt(6, 9);
+          const angle = (n - 2) * 180 / n;
+          return numQ('A regular polygon has each interior angle ' + angle + '°. How many sides does it have?',
+            n, [n + 1, n - 1, n + 2, 360 / angle, angle / 60],
+            'Each angle = (n − 2)·180/n = ' + angle + ' → n = ' + n + '.');
+        }
+        const l = randInt(6, 10), w = randInt(3, 6);
+        return numQ('A rectangle has length ' + l + ' and perimeter ' + (2 * (l + w)) + '. What is its width?', w,
+          [w + 1, w - 1, 2 * w, l, l - w],
+          'Perimeter = 2(l + w) = ' + (2 * (l + w)) + ', so l + w = ' + (l + w) + ' and w = ' + (l + w) + ' − ' + l + ' = ' + w + '.');
+      }
+    ],
+
+    'Circles': level => {
+      if (level === 'easy') {
+        const r = randInt(3, 7);
+        const cFig = fig({ type: 'shape', shape: 'circle', labels: { r: String(r) } });
+        return numQ(cFig + 'A circle has radius ' + r + '. What is its area?', Math.PI * r * r,
+          [2 * Math.PI * r, Math.PI * r, Math.PI * r * r / 2, Math.PI * r * r + 1, Math.PI * r * r - 1],
+          'Area = πr² = π × ' + r + '² = ' + Math.PI * r * r + 'π.');
+      }
+      if (level === 'medium') {
+        const r = randInt(3, 6), theta = pick([60, 90, 120, 180]);
+        const cFig = fig({ type: 'shape', shape: 'circle', labels: { r: String(r) } });
+        return numQ(cFig + 'A circle has radius ' + r + '. What is the length of the arc subtended by a ' + theta + '° central angle?',
+          (theta / 360) * 2 * Math.PI * r,
+          [(theta / 360) * Math.PI * r * r, (theta / 360) * 2 * Math.PI * r + 1, 2 * Math.PI * r, (theta / 360) * Math.PI * r, (360 / theta) * 2 * Math.PI * r],
+          'Arc length = (θ/360) × 2πr = (' + theta + '/360) × 2π(' + r + ') = ' + (theta / 360) * 2 * Math.PI * r + 'π.');
+      }
+      if (level === 'hard') {
+        const r = randInt(3, 6), theta = pick([45, 60, 90]);
+        const cFig = fig({ type: 'shape', shape: 'circle', labels: { r: String(r) } });
+        return numQ(cFig + 'A circle has radius ' + r + '. What is the area of the sector with a ' + theta + '° central angle?',
+          (theta / 360) * Math.PI * r * r,
+          [(theta / 360) * 2 * Math.PI * r, (theta / 360) * Math.PI * r * r + 1, Math.PI * r * r, (theta / 360) * Math.PI * r, (360 - theta) / 360 * Math.PI * r * r],
+          'Sector area = (θ/360) × πr² = (' + theta + '/360) × π(' + r + '²) = ' + (theta / 360) * Math.PI * r * r + 'π.');
+      }
+    },
+
+    '3D Geometry': level => {
+      if (level === 'easy') {
+        const s = randInt(2, 6);
+        const cFig = fig({ type: 'shape', shape: 'cube', labels: { s: String(s) } });
+        return numQ(cFig + 'What is the volume of a cube with side length ' + s + '?', s * s * s,
+          [6 * s * s, s * s, 3 * s, s * s * s + 1, s * s * s - 1],
+          'Volume = s³ = ' + s + '³ = ' + (s * s * s) + '.');
+      }
+      if (level === 'medium') {
+        const r = randInt(2, 5), h = randInt(3, 7);
+        const cFig = fig({ type: 'shape', shape: 'prism', labels: { h: String(h) } });
+        return numQ(cFig + 'What is the volume of a cylinder with radius ' + r + ' and height ' + h + '?', Math.PI * r * r * h,
+          [Math.PI * r * h, 2 * Math.PI * r * h, Math.PI * r * r * h + 1, Math.PI * r * r * h - 1, (1 / 3) * Math.PI * r * r * h],
+          'Volume = πr²h = π × ' + r + '² × ' + h + ' = ' + Math.PI * r * r * h + 'π.');
+      }
+      if (level === 'hard') {
+        const r = randInt(2, 4);
+        const cFig = fig({ type: 'shape', shape: 'circle', labels: { r: String(r) } });
+        return numQ(cFig + 'What is the volume of a sphere with radius ' + r + '?', (4 / 3) * Math.PI * r * r * r,
+          [Math.PI * r * r * r, 4 * Math.PI * r * r, 2 * Math.PI * r, (4 / 3) * Math.PI * r * r * r + 1, (4 / 3) * Math.PI * r * r * r - 1],
+          'Sphere volume = (4/3)πr³ = (4/3)π × ' + r + '³ = ' + (4 / 3) * Math.PI * r * r * r + 'π.');
+      }
+    },
+
+    // ── Trigonometry ─────────────────────────────────
+    'SOH-CAH-TOA': level => {
+      if (level === 'easy') {
+        const theta = pick([30, 45, 60]), hyp = randInt(6, 12);
+        const sinV = { 30: 0.5, 45: Math.SQRT1_2, 60: Math.sqrt(3) / 2 };
+        const sFig = fig({ type: 'shape', shape: 'right', labels: { h: String(hyp), angle: theta + '°' } });
+        return numQ(sFig + 'In a right triangle, the hypotenuse is ' + hyp + ' and one angle is ' + theta + '°. What is the side opposite that angle?',
+          sinV[theta] * hyp,
+          [sinV[theta] * hyp + 1, sinV[theta] * hyp - 1, hyp / 2, hyp * 2, Math.sqrt(3) * hyp / 2],
+          'sin ' + theta + '° = opposite/hypotenuse, so opposite = ' + hyp + ' × sin ' + theta + '° = ' + (sinV[theta] * hyp) + '.');
+      }
+      if (level === 'medium') {
+        const theta = pick([30, 45, 60]);
+        const sFig = fig({ type: 'shape', shape: 'right', labels: { angle: theta + '°' } });
+        return strQ(sFig + 'In a right triangle, sin θ = ' + (theta === 30 ? '1/2' : theta === 45 ? '√2/2' : '√3/2') + '. What is θ?',
+          theta + '°', [(theta + 15) % 90 + '°', (theta + 30) % 90 + '°', '90°', (theta - 15) + '°', (theta - 30) + '°'],
+          'sin ' + theta + '° = ' + (theta === 30 ? '1/2' : theta === 45 ? '√2/2' : '√3/2') + ', so θ = ' + theta + '°.');
+      }
+      if (level === 'hard') {
+        const theta = 30, adj = randInt(4, 8);
+        const sFig = fig({ type: 'shape', shape: 'right', labels: { b: String(adj), angle: theta + '°' } });
+        return numQ(sFig + 'In a right triangle, cos ' + theta + '° = adjacent/hypotenuse. If the adjacent side is ' + adj + ', what is the hypotenuse?',
+          adj / (Math.sqrt(3) / 2),
+          [adj * 2, adj / 2, adj * (Math.sqrt(3) / 2), adj + 2, adj * Math.sqrt(3)],
+          'cos 30° = √3/2, so hyp = ' + adj + ' ÷ (√3/2) = ' + (adj / (Math.sqrt(3) / 2)) + '.');
+      }
+    },
+
+    'Reciprocal Trig Functions': level => {
+      if (level === 'easy') {
+        const b = randInt(2, 4);
+        return strQ('If sin θ = ' + b + '/5, what is csc θ?', '5/' + b,
+          ['5/1', '1/' + b, '5/(5-' + b + ')', b + '/5', '5'],
+          'csc θ = 1/sin θ = 1 ÷ (' + b + '/5) = 5/' + b + '.');
+      }
+      if (level === 'medium') {
+        const a = pick([3, 5, 8]), b = pick([4, 12, 15]);
+        const hyp = Math.sqrt(a * a + b * b);
+        return numQ('In a right triangle with legs ' + a + ' and ' + b + ', what is sec θ where θ is opposite side ' + a + '?',
+          hyp / b, [hyp / a, a / hyp, b / hyp, hyp, b / a],
+          'hyp = ' + hyp + ', cos θ = adjacent/hyp = ' + b + '/' + hyp + ', so sec θ = ' + hyp + '/' + b + '.');
+      }
+      if (level === 'hard') {
+        const a = randInt(3, 5), b = randInt(4, 12);
+        const hyp = Math.sqrt(a * a + b * b);
+        return numQ('If sin θ = ' + a + '/' + hyp + ', what is cos θ?',
+          b + '/' + hyp, [hyp + '/' + b, a + '/' + hyp, hyp + '/' + a, b + '/' + a, 1 + '/' + hyp],
+          'Using sin²θ + cos²θ = 1: cos θ = √(1 − ' + (a * a / (hyp * hyp)) + ') = ' + b + '/' + hyp + '.');
+      }
+    },
+
+    'Unit Circle & Special Angles': [
+      level => {
+        const EASY = [['sin 30°', '1/2', ['√2/2', '√3/2', '1', '0', '√3/3']],
+                      ['cos 60°', '1/2', ['√2/2', '√3/2', '1', '0', '−1/2']],
+                      ['sin 45°', '√2/2', ['1/2', '√3/2', '1', '0', '√3/3']],
+                      ['cos 45°', '√2/2', ['1/2', '√3/2', '1', '0', '−√2/2']],
+                      ['tan 45°', '1', ['1/2', '√2/2', '√3', '0', '−1']],
+                      ['sin 60°', '√3/2', ['1/2', '√2/2', '1', '0', '√3']]];
+        if (level === 'easy') {
+          const e = pick(EASY);
+          return strQ('What is the exact value of ' + e[0] + '?', e[1], e[2],
+            e[0] + ' = ' + e[1] + ' from the special triangles on the unit circle.');
+        }
+        if (level === 'medium') {
+          const MED = [['sin 120°', '√3/2'], ['cos 150°', '−√3/2'], ['sin 135°', '√2/2'],
+                       ['tan 135°', '−1'], ['cos 180°', '−1'], ['sin 180°', '0']];
+          const e = pick(MED);
+          const wrongs = ['1/2', '√3/2', '√2/2', '1', '−1/2', '0', '−√2/2'];
+          return strQ('What is the exact value of ' + e[0] + '?', e[1], wrongs,
+            e[0] + ' lies in a quadrant where the sign and reference angle give ' + e[1] + '.');
+        }
+        const HARD = [['cos 120°', '−1/2'], ['sin 240°', '−√3/2'], ['cos 315°', '√2/2'],
+                      ['sin 330°', '−1/2'], ['tan 225°', '1'], ['cos 210°', '−√3/2']];
+        const e = pick(HARD);
+        return strQ('What is the exact value of ' + e[0] + '?', e[1],
+          ['1/2', '√3/2', '√2/2', '1', '−1/2', '−√2/2'],
+          'Using the reference angle and the quadrant sign, ' + e[0] + ' = ' + e[1] + '.');
+      }
+    ],
+
+    'Law of Sines & Cosines': [
+      level => {
+        if (level === 'easy') {
+          return strQ('Which formula should you use to find a side in a NON-right triangle when you know two sides and the included angle?',
+            'Law of Cosines', ['Law of Sines', 'Pythagorean Theorem', 'SOH-CAH-TOA', 'Quadratic Formula', 'Law of Tangents'],
+            'Two sides and the included angle is exactly the Law of Cosines setup (c² = a² + b² − 2ab·cos C).');
+        }
+        if (level === 'medium') {
+          const a = randInt(3, 5), b = randInt(4, 7);
+          const c2 = a * a + b * b - a * b;
+          const triFig = fig({ type: 'shape', shape: 'triangle', labels: { a: String(a), b: String(b) } });
+          return numQ(triFig + 'Use the Law of Cosines to find side c if a = ' + a + ', b = ' + b + ', and C = 60°: c² = ' + a + '² + ' + b + '² − 2(' + a + ')(' + b + ')cos 60°. What is c?',
+            Math.sqrt(c2), [Math.sqrt(c2) + 1, Math.sqrt(c2) - 1, Math.sqrt(a * a + b * b), a + b, Math.sqrt(c2 * 2)],
+            'cos 60° = 1/2, so c² = ' + a * a + ' + ' + b * b + ' − ' + (a * b) + ' = ' + c2 + ', and c = √' + c2 + ' = ' + (Math.round(Math.sqrt(c2) * 100) / 100) + '.');
+        }
+        const a = randInt(4, 6), b = randInt(5, 8);
+        return numQ('In a triangle, side a = ' + a + ' is opposite angle A = 30° and side b is opposite angle B = 60°. Use the Law of Sines to find side b.',
+          b, [b + 1, b - 1, a * Math.sqrt(3) / 2, a * 2 / Math.sqrt(3), a / 2],
+          'a/sin A = b/sin B → b = ' + a + ' × (sin 60°/sin 30°) = ' + a + ' × (√3/2 ÷ 1/2) = ' + b + '.');
+      },
+      level => {
+        if (level === 'easy') {
+          return strQ('Which law should you use when you know two angles and a side opposite one of them?',
+            'Law of Sines', ['Law of Cosines', 'Pythagorean Theorem', 'SOH-CAH-TOA', 'Quadratic Formula', 'Tangent Ratio'],
+            'An angle and its opposite side is the classic Law of Sines setup (a/sin A = b/sin B).');
+        }
+        if (level === 'medium') {
+          const a = randInt(4, 6), A = 45, b = randInt(5, 8), B = 45;
+          const ratio = (a / (Math.SQRT1_2));
+          return numQ('By the Law of Sines, a/sin A = b/sin B. If a = ' + a + ' and sin A = sin B = √2/2, what must b equal?',
+            a, [a + 1, a - 1, a * Math.SQRT1_2, a * 2, a / 2],
+            'Since sin A = sin B, the sides are equal: b = a = ' + a + '.');
+        }
+        const a = randInt(3, 5), C = 90, b = randInt(4, 6);
+        const c = Math.sqrt(a * a + b * b);
+        return numQ('In a triangle, a = ' + a + ', b = ' + b + ', and C = 90°. What is side c by the Law of Cosines?',
+          c, [c + 1, c - 1, a + b, a * b, Math.sqrt(Math.abs(a * a - b * b))],
+          'With C = 90°, cos C = 0, so c² = a² + b² = ' + (a * a + b * b) + ' and c = ' + c + '.');
+      },
+      level => {
+        if (level === 'easy') {
+          return strQ('Pythagorean Theorem (a² + b² = c²) can be used when a triangle is…',
+            'Right', ['Acute', 'Obtuse', 'Isosceles', 'Equilateral', 'Scalene'],
+            'The Pythagorean theorem only applies to right triangles.');
+        }
+        if (level === 'medium') {
+          const a = randInt(5, 7), b = randInt(4, 6);
+          const c2 = a * a + b * b - a * b;
+          return numQ('Use the Law of Cosines: c² = ' + a + '² + ' + b + '² − 2(' + a + ')(' + b + ')cos 60°. What is c²?',
+            c2, [c2 + 1, c2 - 1, a * a + b * b, a + b, c2 * 2],
+            'cos 60° = 1/2, so c² = ' + (a * a + b * b) + ' − ' + (a * b) + ' = ' + c2 + '.');
+        }
+        const a = randInt(6, 8), A = 30;
+        const b = randInt(4, 5), B = 45;
+        return numQ('By the Law of Sines, a/sin A = b/sin B with a = ' + a + ', A = 30°, B = 45°. Which equation correctly solves for b?',
+          'b = ' + a + ' · (sin 45°/sin 30°)',
+          ['b = ' + a + ' · (sin 30°/sin 45°)', 'b = ' + a + ' · sin 45° · sin 30°', 'b = ' + a + '/(sin 45°·sin 30°)', 'b = sin 45°/(sin 30°·' + a + ')', 'b = ' + a + ' · (sin 30° + sin 45°)'],
+          'Solve a/sin A = b/sin B for b: b = a · sin B / sin A = ' + a + ' · (sin 45°/sin 30°).');
+      }
+    ],
+
+    // ── Functions ────────────────────────────────────
+    'Function Notation': level => {
+      if (level === 'easy') {
+        const m = randInt(2, 4), b = randInt(1, 6), x = randInt(2, 6);
+        return numQ('If f(x) = ' + m + 'x + ' + b + ', what is f(' + x + ')?', m * x + b,
+          [m * x + b + 1, m * x + b - 1, m + x + b, m * (x + b), m * x],
+          'Substitute: f(' + x + ') = ' + m + '(' + x + ') + ' + b + ' = ' + (m * x) + ' + ' + b + ' = ' + (m * x + b) + '.');
+      }
+      if (level === 'medium') {
+        const m = randInt(2, 3), b = randInt(1, 4), x = randInt(2, 4);
+        const f = m * x + b;
+        return numQ('If f(x) = ' + m + 'x + ' + b + ', what is f(f(' + x + '))?', m * f + b,
+          [m * f + b + 1, m * f + b - 1, f, m * x + b * 2, m * f],
+          'First f(' + x + ') = ' + f + '. Then f(' + f + ') = ' + m + '(' + f + ') + ' + b + ' = ' + (m * f + b) + '.');
+      }
+      if (level === 'hard') {
+        const m = randInt(2, 3), b = randInt(1, 4), m2 = randInt(2, 3), b2 = randInt(1, 3), x = randInt(2, 4);
+        const g = m2 * x + b2;
+        return numQ('If f(x) = ' + m + 'x + ' + b + ' and g(x) = ' + m2 + 'x + ' + b2 + ', what is f(g(' + x + '))?',
+          m * g + b, [m * g + b + 1, m * g + b - 1, g, m2 * g + b2, m * g],
+          'Work inside-out: g(' + x + ') = ' + g + ', then f(' + g + ') = ' + m + '(' + g + ') + ' + b + ' = ' + (m * g + b) + '.');
+      }
+    },
+
+    'Domain & Range': [
+      level => {
+        if (level === 'easy') {
+          const m = randInt(1, 4), b = randInt(1, 6);
+          return strQ('What is the domain of the linear function f(x) = ' + m + 'x + ' + b + '?',
+            'All real numbers', ['x > 0', 'x ≥ 0', 'x ≠ 0', 'x ≠ ' + m, 'x < ' + b],
+            'A linear function has no restrictions, so its domain is all real numbers.');
+        }
+        if (level === 'medium') {
+          const a = randInt(2, 5);
+          return strQ('What is the domain of f(x) = 1/(x − ' + a + ')?',
+            'All real numbers except ' + a, ['All real numbers', 'x > 0', 'x ≥ ' + a, 'x < ' + a, 'All real numbers except −' + a],
+            'The denominator cannot be zero: x − ' + a + ' ≠ 0, so x ≠ ' + a + '.');
+        }
+        const a = randInt(2, 5);
+        return strQ('What is the domain of f(x) = √(x − ' + a + ')?',
+          'x ≥ ' + a, ['x > 0', 'x ≤ ' + a, 'All real numbers', 'x > ' + a, 'x ≠ ' + a],
+          'The radicand must be non-negative: x − ' + a + ' ≥ 0, so x ≥ ' + a + '.');
+      },
+      level => {
+        if (level === 'easy') {
+          return strQ('What is the range of the constant function f(x) = 7?',
+            'y = 7', ['y > 0', 'y ≥ 0', 'All real numbers', 'y ≠ 7', 'y < 7'],
+            'A constant function outputs 7 for every input, so its range is just y = 7.');
+        }
+        if (level === 'medium') {
+          const a = randInt(2, 5);
+          return strQ('For what x is the function f(x) = (x + 2)/(x + ' + a + ') undefined?',
+            'x = −' + a, ['x = ' + a, 'x = −2', 'x = 2', 'x = ' + a + ' only', 'x = −' + a + ' and x = −2'],
+            'The denominator is zero when x + ' + a + ' = 0, i.e. x = −' + a + '.');
+        }
+        const a = randInt(2, 4);
+        return strQ('What is the domain of f(x) = √(2x − ' + a + ')?',
+          'x ≥ ' + (a / 2), ['x > 0', 'x ≥ ' + a, 'x ≤ ' + (a / 2), 'All real numbers', 'x > ' + (a / 2)],
+          'We need 2x − ' + a + ' ≥ 0, so x ≥ ' + (a / 2) + '.');
+      },
+      level => {
+        if (level === 'easy') {
+          return strQ('What is the domain of the quadratic function f(x) = x² − 4?',
+            'All real numbers', ['x > 0', 'x ≥ 0', 'x ≠ 0', 'x ≥ 4', 'x ≠ 4'],
+            'A quadratic function is defined for every real input.');
+        }
+        if (level === 'medium') {
+          const a = randInt(2, 4);
+          return strQ('Which value is NOT in the domain of f(x) = (x − 1)/(x − ' + a + ')?',
+            String(a), [String(-a), String(1), '0', String(a - 1), String(a + 1)],
+            'The denominator x − ' + a + ' is zero at x = ' + a + ', so that value is excluded.');
+        }
+        const a = randInt(2, 4), b = randInt(5, 8);
+        return strQ('What is the domain of f(x) = √(x − ' + a + ')/(x − ' + b + ')?',
+          'x ≥ ' + a + ' and x ≠ ' + b, ['x ≥ ' + a, 'x ≠ ' + b, 'x > ' + a + ' and x ≠ ' + b, 'x ≥ ' + b + ' and x ≠ ' + a, 'All real numbers'],
+          'The radicand needs x ≥ ' + a + ', and the denominator excludes x = ' + b + '.');
+      }
+    ],
+
+    'Function Transformations': [
+      level => {
+        if (level === 'easy') {
+          const k = randInt(2, 5);
+          return strQ('How does the graph of y = f(x) + ' + k + ' compare to y = f(x)?',
+            'It shifts up ' + k + ' units', ['It shifts down ' + k + ' units', 'It shifts right ' + k + ' units', 'It shifts left ' + k + ' units', 'It reflects across the x-axis'],
+            'Adding outside the function shifts the graph up by ' + k + '.');
+        }
+        if (level === 'medium') {
+          return strQ('How does the graph of y = −f(x) compare to y = f(x)?',
+            'It reflects across the x-axis', ['It reflects across the y-axis', 'It shifts down', 'It compresses vertically', 'It shifts left'],
+            'A negative sign outside the function reflects the graph across the x-axis.');
+        }
+        const h = randInt(2, 4), k = randInt(2, 4);
+        return strQ('How does the graph of y = f(x − ' + h + ') − ' + k + ' compare to y = f(x)?',
+          'Shift right ' + h + ' and down ' + k,
+          ['Shift left ' + h + ' and up ' + k, 'Shift right ' + h + ' and up ' + k, 'Shift left ' + h + ' and down ' + k, 'Shift down ' + h + ' and right ' + k, 'Reflect and shift'],
+          'Inside the function shifts opposite to intuition (right by ' + h + '); outside shifts normally (down by ' + k + ').');
+      },
+      level => {
+        if (level === 'easy') {
+          const k = randInt(2, 5);
+          return strQ('How does the graph of y = f(x − ' + k + ') compare to y = f(x)?',
+            'It shifts right ' + k + ' units', ['It shifts left ' + k + ' units', 'It shifts up ' + k + ' units', 'It shifts down ' + k + ' units', 'It reflects across the x-axis'],
+            'Inside the function shifts opposite to intuition: x − ' + k + ' moves right ' + k + '.');
+        }
+        if (level === 'medium') {
+          return strQ('How does the graph of y = f(−x) compare to y = f(x)?',
+            'It reflects across the y-axis', ['It reflects across the x-axis', 'It shifts down', 'It shifts left', 'It compresses horizontally'],
+            'A negative inside the function reflects the graph across the y-axis.');
+        }
+        const a = randInt(2, 4), h = randInt(2, 4);
+        return strQ('How does the graph of y = ' + a + '·f(x + ' + h + ') compare to y = f(x)?',
+          'Vertical stretch by ' + a + ' and shift left ' + h,
+          ['Vertical stretch by ' + a + ' and shift right ' + h, 'Compression by ' + a + ' and shift left ' + h, 'Shift left ' + h + ' only', 'Stretch by ' + h + ' and shift left ' + a, 'Reflect and stretch'],
+          'The ' + a + ' outside stretches vertically; x + ' + h + ' inside shifts left by ' + h + '.');
+      },
+      level => {
+        if (level === 'easy') {
+          const k = randInt(2, 5);
+          return strQ('How does the graph of y = f(x) − ' + k + ' compare to y = f(x)?',
+            'It shifts down ' + k + ' units', ['It shifts up ' + k + ' units', 'It shifts right ' + k + ' units', 'It shifts left ' + k + ' units', 'It reflects across the x-axis'],
+            'Subtracting outside the function shifts the graph down by ' + k + '.');
+        }
+        if (level === 'medium') {
+          const a = randInt(2, 4);
+          return strQ('How does the graph of y = ' + a + '·f(x) compare to y = f(x)?',
+            'It stretches vertically by a factor of ' + a,
+            ['It compresses vertically by ' + a, 'It shifts up ' + a + ' units', 'It reflects across the x-axis', 'It shifts right ' + a + ' units', 'It compresses horizontally'],
+            'A multiplier greater than 1 outside the function stretches it vertically by ' + a + '.');
+        }
+        const a = randInt(2, 3), h = randInt(2, 3), k = randInt(2, 3);
+        return strQ('How does the graph of y = −' + a + '·f(x − ' + h + ') + ' + k + ' compare to y = f(x)?',
+          'Reflect across x-axis, stretch by ' + a + ', shift right ' + h + ' and up ' + k,
+          ['Stretch by ' + a + ' and shift left ' + h + ' and down ' + k, 'Reflect and shift left ' + h + ' and up ' + k, 'Compress by ' + a + ' and shift right ' + h + ' and down ' + k, 'Shift right ' + h + ' and up ' + k + ' only', 'Reflect and shift down ' + h + ' and right ' + k],
+          'The − reflects across the x-axis, ' + a + ' stretches, (x − ' + h + ') shifts right ' + h + ', and + ' + k + ' shifts up ' + k + '.');
+      }
+    ],
+
+    'Composition & Inverses': level => {
+      if (level === 'easy') {
+        const m = randInt(2, 3), b = randInt(1, 4), m2 = randInt(2, 3), b2 = randInt(1, 3), x = randInt(2, 4);
+        const g = m2 * x + b2;
+        return numQ('If f(x) = ' + m + 'x + ' + b + ' and g(x) = ' + m2 + 'x + ' + b2 + ', what is f(g(' + x + '))?',
+          m * g + b, [m * g + b + 1, m * g + b - 1, g, m2 * g + b2, m * g],
+          'Apply g first: g(' + x + ') = ' + g + ', then f: ' + m + '(' + g + ') + ' + b + ' = ' + (m * g + b) + '.');
+      }
+      if (level === 'medium') {
+        const m = randInt(2, 3), b = randInt(1, 5);
+        return strQ('What is the inverse of f(x) = ' + m + 'x + ' + b + '?',
+          '(x − ' + b + ')/' + m, ['x/' + m + ' − ' + b, 'x − ' + b + '/' + m, 'x/' + m + ' + ' + b, 'x + ' + b + '/ ' + m, '(x + ' + b + ')/' + m],
+          'Swap x and y, solve for y: x = ' + m + 'y + ' + b + ' → y = (x − ' + b + ')/' + m + '.');
+      }
+      if (level === 'hard') {
+        const m = randInt(2, 3), b = randInt(1, 4), x = randInt(2, 4);
+        return numQ('If f(x) = ' + m + 'x + ' + b + ', what is f⁻¹(f(' + x + '))?', x,
+          [x + 1, x - 1, m * x + b, x * m, m + x + b],
+          'A function composed with its inverse returns the input: f⁻¹(f(' + x + ')) = ' + x + '.');
+      }
+    },
+
+    // ── Statistics & Probability ─────────────────────
+    'Counting Principles': level => {
+      if (level === 'easy') {
+        const a = randInt(2, 5), b = randInt(2, 6);
+        return numQ('A restaurant offers ' + a + ' appetizers and ' + b + ' main courses. How many appetizer-and-main combinations are there?',
+          a * b, [a + b, a * b + 1, a * b - 1, a * b * 2, a * b / 2],
+          'Fundamental counting principle: ' + a + ' × ' + b + ' = ' + (a * b) + '.');
+      }
+      if (level === 'medium') {
+        const n = randInt(4, 6);
+        return numQ('How many ways can ' + n + ' distinct books be arranged on a shelf?', (() => { let p = 1; for (let i = 2; i <= n; i++) p *= i; return p; })(),
+          [n * n, n * (n - 1), (() => { let p = 1; for (let i = 2; i < n; i++) p *= i; return p; })(), n * 2, n + 1],
+          'Arranging ' + n + ' items is ' + n + '! = ' + (() => { let p = 1; for (let i = 2; i <= n; i++) p *= i; return p; })() + '.');
+      }
+      if (level === 'hard') {
+        const n = randInt(5, 8), r = 3;
+        const comb = (n * (n - 1) * (n - 2)) / 6;
+        return numQ('How many ways can a committee of ' + r + ' be chosen from ' + n + ' people?', comb,
+          [comb + 1, comb - 1, n * r, n * (n - 1), comb * 2],
+          'Combination: C(' + n + ', ' + r + ') = ' + n + '!/(3!·' + (n - r) + '!) = ' + comb + '.');
+      }
+    },
+
+    'Advanced Probability': level => {
+      if (level === 'easy') {
+        const a = randInt(2, 4), b = randInt(2, 4);
+        const total = a + b;
+        return numQ('A bag has ' + a + ' red and ' + b + ' blue marbles. One is drawn and replaced, then another. What is the probability both are red?',
+          (a / total) * (a / total),
+          [(a / total) * (b / total), (a / total) * ((a - 1) / (total - 1)), (a / total) * 2, a / total + a / total, (a + b) / (2 * total)],
+          'With replacement the probabilities stay independent: (' + a + '/' + total + ')² = ' + (a / total) * (a / total) + '.');
+      }
+      if (level === 'medium') {
+        const r = randInt(2, 4), b = randInt(2, 4);
+        const total = r + b;
+        const ans = (r / total) * (b / (total - 1)) + (b / total) * (r / (total - 1));
+        return numQ('A bag has ' + r + ' red and ' + b + ' blue marbles. Two are drawn without replacement. What is the probability of drawing one of each color?',
+          ans, [ans + 0.1, ans - 0.1, (r / total) * (b / total), 1 - ans, (r * b) / total],
+          'Red then blue: ' + (r / total) + ' × ' + (b / (total - 1)) + '. Blue then red adds the same value: total ' + ans + '.');
+      }
+      if (level === 'hard') {
+        const r = randInt(2, 3), b = randInt(2, 3);
+        const total = r + b;
+        const bothB = (b / total) * ((b - 1) / (total - 1));
+        const ans = 1 - bothB;
+        return numQ('A bag has ' + r + ' red and ' + b + ' blue marbles. Two are drawn without replacement. What is the probability that at least one is red?',
+          ans, [bothB, ans + 0.1, ans - 0.1, r / total, (r + b) / total],
+          'P(at least one red) = 1 − P(both blue) = 1 − ' + bothB + ' = ' + ans + '.');
+      }
+    },
+
+    'Expected Value': level => {
+      if (level === 'easy') {
+        const w = randInt(2, 10), p = pick([0.25, 0.5, 0.75]);
+        return numQ('A game pays $' + (w * 10) + ' with probability ' + p + ' and $0 otherwise. What is the expected payout?',
+          w * 10 * p,
+          [w * 10, w * 10 * p + 5, w * 10 * p - 5, w * 10 * (1 - p), w * 10 / 2],
+          'Expected value = $' + (w * 10) + ' × ' + p + ' = $' + (w * 10 * p) + '.');
+      }
+      if (level === 'medium') {
+        const a = randInt(2, 5), b = randInt(6, 12);
+        return numQ('A spinner lands on $' + (a * 10) + ' with probability 1/4 and $' + (b * 10) + ' with probability 3/4. What is the expected value?',
+          a * 10 * 0.25 + b * 10 * 0.75,
+          [a * 10 + b * 10, (a * 10 + b * 10) / 2, a * 10 * 0.75 + b * 10 * 0.25, b * 10, a * 10],
+          'E = $' + (a * 10) + '(1/4) + $' + (b * 10) + '(3/4) = $' + (a * 10 * 0.25 + b * 10 * 0.75) + '.');
+      }
+      if (level === 'hard') {
+        const c = randInt(5, 15), p = pick([0.2, 0.25, 0.4]);
+        const ans = c * p;
+        return numQ('A raffle costs $' + (c * 5) + ' to play. You win $' + (c * 5) + ' back with probability ' + p + ' and nothing otherwise. What is the expected value of your net gain?',
+          -c * 5 + c * 5 * p,
+          [c * 5 * p, -c * 5 * p, c * 5 - c * 5 * p, 0, c * 5 * p - c * 5 + 5],
+          'Net gain = win − cost = $' + (c * 5 * p) + ' − $' + (c * 5) + ' = $' + (-c * 5 + c * 5 * p) + '.');
+      }
+    },
+
+    'Scatterplots & Lines of Best Fit': level => {
+      if (level === 'easy') {
+        const m = randInt(2, 4), b = randInt(5, 20), x = randInt(3, 8);
+        const scFig = fig({ type: 'line', pts: [[1, m * 1 + b], [2, m * 2 + b], [4, m * 4 + b], [6, m * 6 + b], [8, m * 8 + b]], fit: { m, b }, xMin: 0, xMax: 10, yMin: 0, yMax: m * 10 + b + 2 });
+        return numQ(scFig + 'The line of best fit is y = ' + m + 'x + ' + b + '. What value does it predict for x = ' + x + '?',
+          m * x + b, [m * x + b + 1, m * x + b - 1, m + x + b, m * x, b],
+          'Plug in: y = ' + m + '(' + x + ') + ' + b + ' = ' + (m * x + b) + '.');
+      }
+      if (level === 'medium') {
+        const m = randInt(2, 4), b = randInt(5, 15);
+        const scFig = fig({ type: 'line', pts: [[0, b], [10, m * 10 + b]], fit: { m, b }, xMin: 0, xMax: 11, yMin: 0, yMax: m * 10 + b + 2, xLabel: 'x', yLabel: 'y' });
+        return numQ(scFig + 'A line of best fit passes through (0, ' + b + ') and (10, ' + (m * 10 + b) + '). What is its slope?',
+          m, [m + 1, m - 1, b, m / 10, 10 * m + b],
+          'Slope = (' + (m * 10 + b) + ' − ' + b + ')/(10 − 0) = ' + (m * 10) + '/10 = ' + m + '.');
+      }
+      if (level === 'hard') {
+        const m = randInt(2, 3), b = randInt(10, 20), y = randInt(20, 30);
+        const x = (y - b) / m;
+        const scFig = fig({ type: 'line', pts: [[1, m * 1 + b], [3, m * 3 + b], [5, m * 5 + b], [7, m * 7 + b]], fit: { m, b }, xMin: 0, xMax: 10, yMin: 0, yMax: m * 10 + b + 2 });
+        return numQ(scFig + 'The line of best fit is y = ' + m + 'x + ' + b + '. At what x does it predict y = ' + y + '?',
+          x, [x + 1, x - 1, m * y + b, y - b, y / m],
+          'Solve ' + y + ' = ' + m + 'x + ' + b + ' → x = (' + y + ' − ' + b + ')/' + m + ' = ' + x + '.');
+      }
+    }
+  };
+
+  // Generic fallback: if a topic has no custom generator, pull a formula
+  // from its explanation and ask for its value; else a generic arithmetic Q.
+  const fallback = (level, topicName) => {
+    const expl = explFor(topicName);
+    const codeMatch = expl.match(/<code>([^<]+)<\/code>/);
+    if (codeMatch) {
+      const expr = codeMatch[1];
+      const val = safeEval(expr);
+      if (val !== null && Math.abs(val) < 1e7) {
+        return numQ('What is the value of ' + expr + '?', val,
+          [val + 1, val - 1, val + 2, val * 2, val / 2],
+          'Simplifying ' + expr + ' gives ' + val + '.');
+      }
+    }
+    const a = randInt(12, 40), b = randInt(8, 30);
+    return numQ('What is ' + a + ' + ' + b + '?', a + b,
+      [a + b + 1, a + b - 1, a + b + 2, a * b, a + b - 2],
+      a + ' + ' + b + ' = ' + (a + b) + '.');
+  };
+
+  // ─────────────────── public API ───────────────────
+  // LEVEL_MIX controls the easy:medium:hard split of a generated test.
+  // Adjust these proportions to make tests easier or harder overall.
+  const LEVEL_MIX = [0.34, 0.33, 0.33];
+
+  function generateTopicQuestions(topicName, count, level) {
+    count = Math.max(1, Math.min(count || 10, 60));
+    const tpl = GEN[topicName];
+    const gen = (lvl) => (Array.isArray(tpl) ? pick(tpl)(lvl) : (tpl || ((x) => fallback(x, topicName)))(lvl));
+    const questions = [];
+    const seen = new Set();
+    let guard = 0;
+    let perLevel;
+    if (level === 'easy' || level === 'medium' || level === 'hard') {
+      perLevel = [[level, count]];
+    } else {
+      const easyN = Math.round(count * LEVEL_MIX[0]);
+      const medN = Math.round(count * LEVEL_MIX[1]);
+      const hardN = count - easyN - medN;
+      perLevel = [['easy', easyN], ['medium', medN], ['hard', hardN]];
+    }
+    for (const [lvl, n] of perLevel) {
+      let produced = 0;
+      while (produced < n && guard++ < count * 60) {
+        const q = gen(lvl);
+        if (!q || !q.q || !q.options || q.options.length !== 5) continue;
+        const key = q.q + '\u0000' + q.options.join('\u0000');
+        if (seen.has(key)) continue;
+        seen.add(key);
+        q.level = lvl;
+        questions.push(q);
+        produced++;
+      }
+    }
+    const fillLevel = (level === 'easy' || level === 'medium' || level === 'hard') ? level : 'medium';
+    while (questions.length < count && guard++ < count * 60) {
+      const q = gen(fillLevel);
+      const key = q && q.q && q.options && q.options.length === 5 ? q.q + '\u0000' + q.options.join('\u0000') : '';
+      if (key && !seen.has(key)) {
+        seen.add(key);
+        q.level = fillLevel;
+        questions.push(q);
+      }
+    }
+    return questions;
   }
-};
-const mathQuestionBank = {
-  "Number Types & Properties": [
-    {
-      "q": "How many prime numbers are between 1 and 20?",
-      "options": [
-        "6",
-        "7",
-        "8",
-        "9"
-      ],
-      "answer": 2,
-      "explanation": "The primes between 1 and 20 are 2, 3, 5, 7, 11, 13, 17, 19. That is 8 primes."
-    },
-    {
-      "q": "What is the product of (-4) × (-6)?",
-      "options": [
-        "-24",
-        "24",
-        "-10",
-        "10"
-      ],
-      "answer": 1,
-      "explanation": "The product of two negative numbers is always positive: (-4) × (-6) = 24."
-    },
-    {
-      "q": "Which statement is always true?",
-      "options": [
-        "The sum of two odd numbers is odd",
-        "The sum of two even numbers is even",
-        "The product of two even numbers is odd",
-        "The sum of an even and odd is even"
-      ],
-      "answer": 1,
-      "explanation": "The sum of two even numbers is always even. The sum of two odds is even. The sum of even+odd is odd."
-    },
-    {
-      "q": "How many integers between 1 and 100 are divisible by 3?",
-      "options": [
-        "32",
-        "33",
-        "34",
-        "35"
-      ],
-      "answer": 1,
-      "explanation": "100 ÷ 3 = 33.33, so there are 33 integers divisible by 3 (3, 6, 9, ..., 99)."
-    },
-    {
-      "q": "Which of the following is an irrational number?",
-      "options": [
-        "√9",
-        "√16",
-        "√2",
-        "√25"
-      ],
-      "answer": 2,
-      "explanation": "√2 is irrational because its decimal expansion never repeats or terminates. √9=3, √16=4, √25=5 are integers."
-    },
-    {
-      "q": "Which statement is true about Number Types & Properties?",
-      "options": [
-        "Product of two negatives = positive",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Product of two negatives = positive"
-    },
-    {
-      "q": "True or False: Sum of two odds = even",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Number Types & Properties."
-    },
-    {
-      "q": "True or False: Product of odd × even = even",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Number Types & Properties."
-    }
-  ],
-  "Factors, Multiples & Divisibility": [
-    {
-      "q": "What is the GCF of 36 and 54?",
-      "options": [
-        "6",
-        "9",
-        "12",
-        "18"
-      ],
-      "answer": 3,
-      "explanation": "36 = 2² × 3², 54 = 2 × 3³. Common factors with lowest exponents: 2¹ × 3² = 18."
-    },
-    {
-      "q": "What is the LCM of 8 and 12?",
-      "options": [
-        "24",
-        "36",
-        "48",
-        "96"
-      ],
-      "answer": 0,
-      "explanation": "LCM uses highest exponents: 8 = 2³, 12 = 2² × 3. LCM = 2³ × 3 = 24."
-    },
-    {
-      "q": "Which number is divisible by 6?",
-      "options": [
-        "112",
-        "123",
-        "216",
-        "401"
-      ],
-      "answer": 2,
-      "explanation": "A number divisible by 6 must be divisible by both 2 and 3. 216 is even and its digits sum to 9, which is divisible by 3."
-    },
-    {
-      "q": "Which number is divisible by 9?",
-      "options": [
-        "123",
-        "234",
-        "345",
-        "456"
-      ],
-      "answer": 1,
-      "explanation": "A number is divisible by 9 if the sum of its digits is divisible by 9. 2+3+4=9, so 234 is divisible by 9."
-    },
-    {
-      "q": "Which statement is true about Factors, Multiples & Divisibility?",
-      "options": [
-        "2: last digit even",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: 2: last digit even"
-    },
-    {
-      "q": "True or False: 4: last two digits divisible by 4",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Factors, Multiples & Divisibility."
-    },
-    {
-      "q": "True or False: 5: last digit 0 or 5",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Factors, Multiples & Divisibility."
-    },
-    {
-      "q": "True or False: 6: divisible by 2 AND 3",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Factors, Multiples & Divisibility."
-    }
-  ],
-  "Fractions, Decimals & Percentages": [
-    {
-      "q": "A shirt costs $40 and is on sale for $30. What percent decrease is this?",
-      "options": [
-        "20%",
-        "25%",
-        "30%",
-        "33%"
-      ],
-      "answer": 1,
-      "explanation": "Percent change = (new - old) / old × 100 = (30-40)/40 × 100 = -25%. The absolute decrease is 25%."
-    },
-    {
-      "q": "What is 0.75 as a percent?",
-      "options": [
-        "7.5%",
-        "75%",
-        "0.75%",
-        "750%"
-      ],
-      "answer": 1,
-      "explanation": "To convert a decimal to a percent, multiply by 100: 0.75 × 100 = 75%."
-    },
-    {
-      "q": "If 15% of a number is 30, what is the number?",
-      "options": [
-        "100",
-        "150",
-        "200",
-        "450"
-      ],
-      "answer": 2,
-      "explanation": "Set up the equation: 0.15x = 30. Divide both sides by 0.15: x = 30 / 0.15 = 200."
-    },
-    {
-      "q": "A price increases by 20%, then decreases by 20%. The final price is:",
-      "options": [
-        "The same as the original",
-        "4% less than the original",
-        "4% more than the original",
-        "20% less than the original"
-      ],
-      "answer": 1,
-      "explanation": "Successive increases/decreases don't cancel out. If original is $100: $100 × 1.2 = $120, then $120 × 0.8 = $96. That's 4% less than original."
-    },
-    {
-      "q": "Which equation represents the formula in Fractions, Decimals & Percentages?",
-      "options": [
-        "0.15x  =  30",
-        " 30 = 0.15x ",
-        "0.15x  ×  30",
-        "0.15x  +  30"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is 0.15x = 30."
-    },
-    {
-      "q": "Which statement is true about Fractions, Decimals & Percentages?",
-      "options": [
-        "Fraction → Decimal: divide numerator by denominator",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Fraction → Decimal: divide numerator by denominator"
-    },
-    {
-      "q": "True or False: Percent → Fraction: put over 100 and simplify",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Fractions, Decimals & Percentages."
-    },
-    {
-      "q": "True or False: Successive increases/decreases don't cancel out!",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Fractions, Decimals & Percentages."
-    },
-    {
-      "q": "True or False: 15% of a number is 30 → 0.15x = 30 → x = 200",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Fractions, Decimals & Percentages."
-    }
-  ],
-  "Ratios & Proportions": [
-    {
-      "q": "If the ratio of boys to girls is 3:4 and there are 21 boys, how many girls are there?",
-      "options": [
-        "24",
-        "28",
-        "32",
-        "35"
-      ],
-      "answer": 1,
-      "explanation": "Set up proportion: 3/4 = 21/x. Cross-multiply: 3x = 84, so x = 28."
-    },
-    {
-      "q": "A car travels 300 miles on 10 gallons of gas. What is the unit rate (miles per gallon)?",
-      "options": [
-        "20 mpg",
-        "25 mpg",
-        "30 mpg",
-        "35 mpg"
-      ],
-      "answer": 2,
-      "explanation": "Unit rate = total miles ÷ total gallons = 300 ÷ 10 = 30 mpg."
-    },
-    {
-      "q": "On a map, 1 inch = 5 miles. If two cities are 3.5 inches apart on the map, what is the actual distance?",
-      "options": [
-        "12.5 miles",
-        "15 miles",
-        "17.5 miles",
-        "20 miles"
-      ],
-      "answer": 2,
-      "explanation": "Actual distance = 3.5 inches × 5 miles/inch = 17.5 miles."
-    },
-    {
-      "q": "Which equation represents the formula in Ratios & Proportions?",
-      "options": [
-        "a/b  =  c/d",
-        " c/d = a/b ",
-        "a/b  ×  c/d",
-        "a/b  +  c/d"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is a/b = c/d."
-    },
-    {
-      "q": "Which statement is true about Ratios & Proportions?",
-      "options": [
-        "Unit rates: miles per gallon = total miles ÷ total gallons",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Unit rates: miles per gallon = total miles ÷ total gallons"
-    },
-    {
-      "q": "True or False: Proportions in similar figures: corresponding sides are proportional",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Ratios & Proportions."
-    }
-  ],
-  "Scientific Notation": [
-    {
-      "q": "What is 5,200,000 in scientific notation?",
-      "options": [
-        "5.2 × 10^5",
-        "5.2 × 10^6",
-        "52 × 10^5",
-        "5.2 × 10^7"
-      ],
-      "answer": 1,
-      "explanation": "Move the decimal 6 places to the left: 5.2 × 10^6. The coefficient must be between 1 and 10."
-    },
-    {
-      "q": "What is the product of (2 × 10^3) and (3 × 10^4)?",
-      "options": [
-        "6 × 10^7",
-        "6 × 10^12",
-        "6 × 10^1",
-        "6 × 10^4"
-      ],
-      "answer": 0,
-      "explanation": "Multiply coefficients: 2 × 3 = 6. Add exponents: 10^3 × 10^4 = 10^(3+4) = 10^7. Result: 6 × 10^7."
-    },
-    {
-      "q": "Which is the largest?",
-      "options": [
-        "2 × 10^5",
-        "3 × 10^4",
-        "5 × 10^3",
-        "9 × 10^2"
-      ],
-      "answer": 0,
-      "explanation": "Compare exponents first: 10^5 > 10^4 > 10^3 > 10^2. So 2 × 10^5 is largest."
-    },
-    {
-      "q": "Which equation represents the formula in Scientific Notation?",
-      "options": [
-        "3.5 × 10⁶  =  3,500,000",
-        " 3,500,000 = 3.5 × 10⁶ ",
-        "3.5 × 10⁶  ×  3,500,000",
-        "3.5 × 10⁶  +  3,500,000"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is 3.5 × 10⁶ = 3,500,000."
-    },
-    {
-      "q": "Which statement is true about Scientific Notation?",
-      "options": [
-        "Multiplication: (a×10ᵐ)(b×10ⁿ) = ab × 10ᵐ⁺ⁿ",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Multiplication: (a×10ᵐ)(b×10ⁿ) = ab × 10ᵐ⁺ⁿ"
-    }
-  ],
-  "Mean, Median, Mode & Range": [
-    {
-      "q": "What is the median of 3, 7, 1, 9, 5?",
-      "options": [
-        "1",
-        "5",
-        "7",
-        "9"
-      ],
-      "answer": 1,
-      "explanation": "First sort: 1, 3, 5, 7, 9. The middle value is 5."
-    },
-    {
-      "q": "A set has mean 20. If 15 is added to the set, the new mean becomes 18. How many numbers were originally in the set?",
-      "options": [
-        "4",
-        "5",
-        "6",
-        "7"
-      ],
-      "answer": 1,
-      "explanation": "Let n be original count. Original sum = 20n. New sum = 20n+15, new count = n+1. (20n+15)/(n+1) = 18. Solving: 20n+15 = 18n+18, 2n = 3, n = 5."
-    },
-    {
-      "q": "A set has mean 10 and median 8. If we add 100 to the set, what happens to the mean?",
-      "options": [
-        "It increases slightly",
-        "It increases significantly",
-        "It stays the same",
-        "It decreases"
-      ],
-      "answer": 1,
-      "explanation": "An outlier (100) pulls the mean up significantly because the mean is affected by extreme values. The median would change less."
-    },
-    {
-      "q": "Which statement is true about Mean, Median, Mode & Range?",
-      "options": [
-        "Weighted mean: different values have different weights",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Weighted mean: different values have different weights"
-    },
-    {
-      "q": "True or False: Combined sets: new mean = (sum1 + sum2) / (n1 + n2)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Mean, Median, Mode & Range."
-    }
-  ],
-  "Basic Probability": [
-    {
-      "q": "What is the probability of rolling a sum of 7 with two standard dice?",
-      "options": [
-        "1/6",
-        "1/9",
-        "1/12",
-        "1/36"
-      ],
-      "answer": 0,
-      "explanation": "There are 6 favorable outcomes: (1,6),(2,5),(3,4),(4,3),(5,2),(6,1). Total outcomes = 36. Probability = 6/36 = 1/6."
-    },
-    {
-      "q": "A bag has 3 red and 2 blue marbles. What is the probability of drawing a red marble?",
-      "options": [
-        "1/5",
-        "2/5",
-        "3/5",
-        "4/5"
-      ],
-      "answer": 2,
-      "explanation": "Probability = desired outcomes / total outcomes = 3/5."
-    },
-    {
-      "q": "What is the probability of flipping two heads in a row with a fair coin?",
-      "options": [
-        "1/2",
-        "1/3",
-        "1/4",
-        "1/8"
-      ],
-      "answer": 2,
-      "explanation": "P(heads) × P(heads) = (1/2) × (1/2) = 1/4. For independent events, multiply probabilities."
-    },
-    {
-      "q": "Which equation represents the formula in Basic Probability?",
-      "options": [
-        "1 − 1/6  =  5/6",
-        " 5/6 = 1 − 1/6 ",
-        "1 − 1/6  ×  5/6",
-        "1 − 1/6  +  5/6"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is 1 − 1/6 = 5/6."
-    },
-    {
-      "q": "Which statement is true about Basic Probability?",
-      "options": [
-        "With replacement: probabilities stay the same",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: With replacement: probabilities stay the same"
-    },
-    {
-      "q": "True or False: Mutually exclusive: P(A and B) = 0",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Basic Probability."
-    },
-    {
-      "q": "True or False: Independent: P(A and B) = P(A) × P(B)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Basic Probability."
-    }
-  ],
-  "Order of Operations (PEMDAS)": [
-    {
-      "q": "What is the value of 6 + 2 × 3?",
-      "options": [
-        "12",
-        "24",
-        "18",
-        "10"
-      ],
-      "answer": 0,
-      "explanation": "Multiplication comes before addition: 2 × 3 = 6, then 6 + 6 = 12."
-    },
-    {
-      "q": "What is -3²?",
-      "options": [
-        "9",
-        "-9",
-        "6",
-        "-6"
-      ],
-      "answer": 1,
-      "explanation": "Exponents come before negation: 3² = 9, so -3² = -(3²) = -9. If it were (-3)², the answer would be 9."
-    },
-    {
-      "q": "What is (8 + 4) ÷ 3?",
-      "options": [
-        "4",
-        "3",
-        "2",
-        "1"
-      ],
-      "answer": 0,
-      "explanation": "Parentheses first: 8 + 4 = 12. Then division: 12 ÷ 3 = 4."
-    },
-    {
-      "q": "Which statement is true about Order of Operations (PEMDAS)?",
-      "options": [
-        "Negative numbers: −3² = −9, but (−3)² = 9",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Negative numbers: −3² = −9, but (−3)² = 9"
-    },
-    {
-      "q": "True or False: Absolute value: like parentheses — do first",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Order of Operations (PEMDAS)."
-    }
-  ],
-  "Linear Inequalities": [
-    {
-      "q": "Solve: -3x > 12",
-      "options": [
-        "x > -4",
-        "x < -4",
-        "x > 4",
-        "x < 4"
-      ],
-      "answer": 1,
-      "explanation": "Divide by -3 and flip the inequality sign: x < -4. This is the #1 ACT trap - always flip when dividing by negative!"
-    },
-    {
-      "q": "Which represents the solution to x + 2 ≤ 5?",
-      "options": [
-        "x ≤ 3 (closed circle, shade left)",
-        "x ≥ 3 (closed circle, shade right)",
-        "x < 3 (open circle, shade left)",
-        "x > 3 (open circle, shade right)"
-      ],
-      "answer": 0,
-      "explanation": "Subtract 2: x ≤ 3. Closed circle because ≤ includes 3. Shade left because x is less than 3."
-    },
-    {
-      "q": "Which statement is true about Linear Inequalities?",
-      "options": [
-        "Open circle for  (point not included)",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Open circle for  (point not included)"
-    },
-    {
-      "q": "True or False: Shade direction: test a point (0,0)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Linear Inequalities."
-    },
-    {
-      "q": "True or False: AND: overlap of both graphs",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Linear Inequalities."
-    },
-    {
-      "q": "True or False: OR: union of both graphs",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Linear Inequalities."
-    }
-  ],
-  "Evaluating Expressions": [
-    {
-      "q": "Which equation represents the formula in Evaluating Expressions?",
-      "options": [
-        "x  =  3",
-        " 3 = x ",
-        "x  ×  3",
-        "x  +  3"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is x = 3."
-    },
-    {
-      "q": "Which statement is true about Evaluating Expressions?",
-      "options": [
-        "Forgetting order of operations inside the expression",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Forgetting order of operations inside the expression"
-    },
-    {
-      "q": "True or False: Confusing −3² (−9) with (−3)² (9)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Evaluating Expressions."
-    }
-  ],
-  "Combining Like Terms": [
-    {
-      "q": "Which statement is true about Combining Like Terms?",
-      "options": [
-        "CAN combine: same variable, same exponent",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: CAN combine: same variable, same exponent"
-    },
-    {
-      "q": "True or False: Constants can combine with each other",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Combining Like Terms."
-    }
-  ],
-  "FOIL & Multiplying Binomials": [
-    {
-      "q": "Factor: x² - 9",
-      "options": [
-        "(x-3)²",
-        "(x+3)(x-3)",
-        "(x+9)(x-9)",
-        "(x-9)²"
-      ],
-      "answer": 1,
-      "explanation": "Difference of squares: a² - b² = (a+b)(a-b). So x² - 9 = (x+3)(x-3)."
-    },
-    {
-      "q": "Factor: x² + 5x + 6",
-      "options": [
-        "(x+2)(x+3)",
-        "(x+1)(x+6)",
-        "(x+5)(x+1)",
-        "(x-2)(x-3)"
-      ],
-      "answer": 0,
-      "explanation": "Find two numbers that multiply to 6 and add to 5: 2 and 3. So (x+2)(x+3)."
-    },
-    {
-      "q": "What is (x + 5)²?",
-      "options": [
-        "x² + 10x + 25",
-        "x² + 25",
-        "x² + 5x + 25",
-        "x² + 10x + 5"
-      ],
-      "answer": 0,
-      "explanation": "Perfect square pattern: (a+b)² = a² + 2ab + b². So (x+5)² = x² + 10x + 25."
-    },
-    {
-      "q": "Which equation represents the formula in FOIL & Multiplying Binomials?",
-      "options": [
-        "x × x  =  x²",
-        " x² = x × x ",
-        "x × x  ×  x²",
-        "x × x  +  x²"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is x × x = x²."
-    },
-    {
-      "q": "Which statement is true about FOIL & Multiplying Binomials?",
-      "options": [
-        "(a+b)² = a² + 2ab + b²",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: (a+b)² = a² + 2ab + b²"
-    },
-    {
-      "q": "True or False: (a+b)(a−b) = a² − b² (difference of squares)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for FOIL & Multiplying Binomials."
-    }
-  ],
-  "Solving Quadratic Equations": [
-    {
-      "q": "What are the solutions to x² - 5x + 6 = 0?",
-      "options": [
-        "x = 2, 3",
-        "x = -2, -3",
-        "x = 1, 6",
-        "x = -1, -6"
-      ],
-      "answer": 0,
-      "explanation": "Factor: (x-2)(x-3) = 0. Set each factor to 0: x = 2 or x = 3."
-    },
-    {
-      "q": "How many real solutions does x² + 4x + 4 = 0 have?",
-      "options": [
-        "0",
-        "1",
-        "2",
-        "3"
-      ],
-      "answer": 1,
-      "explanation": "This factors to (x+2)² = 0. The discriminant b² - 4ac = 16 - 16 = 0, so there is 1 repeated real root: x = -2."
-    },
-    {
-      "q": "Which equation represents the formula in Solving Quadratic Equations?",
-      "options": [
-        "ax² + bx + c  =  0",
-        " 0 = ax² + bx + c ",
-        "ax² + bx + c  ×  0",
-        "ax² + bx + c  +  0"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is ax² + bx + c = 0."
-    },
-    {
-      "q": "Which statement is true about Solving Quadratic Equations?",
-      "options": [
-        "Positive → 2 real roots",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Positive → 2 real roots"
-    },
-    {
-      "q": "True or False: Negative → 0 real roots (complex)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Solving Quadratic Equations."
-    }
-  ],
-  "Word Problems Setup": [
-    {
-      "q": "Which equation represents the formula in Word Problems Setup?",
-      "options": [
-        " = ",
-        " = ",
-        " × ",
-        " + "
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is =."
-    },
-    {
-      "q": "Which statement is true about Word Problems Setup?",
-      "options": [
-        "less than → − (order matters!)",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: less than → − (order matters!)"
-    },
-    {
-      "q": "True or False: less than → − (order matters!)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Word Problems Setup."
-    },
-    {
-      "q": "True or False: per → division or rate",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Word Problems Setup."
-    }
-  ],
-  "Absolute Value Equations": [
-    {
-      "q": "Solve: |x - 2| = 5",
-      "options": [
-        "x = 7",
-        "x = -3",
-        "x = 7 or x = -3",
-        "x = 3 or x = -7"
-      ],
-      "answer": 2,
-      "explanation": "Absolute value gives two cases: x - 2 = 5 → x = 7, or x - 2 = -5 → x = -3."
-    },
-    {
-      "q": "Solve: |x + 3| = -2",
-      "options": [
-        "x = -5 or x = -1",
-        "x = -1",
-        "x = -5",
-        "No solution"
-      ],
-      "answer": 3,
-      "explanation": "Absolute value cannot equal a negative number. |x + 3| is always ≥ 0, so it can never equal -2."
-    },
-    {
-      "q": "Which equation represents the formula in Absolute Value Equations?",
-      "options": [
-        "|x|  =  3",
-        " 3 = |x| ",
-        "|x|  ×  3",
-        "|x|  +  3"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is |x| = 3."
-    },
-    {
-      "q": "Which statement is true about Absolute Value Equations?",
-      "options": [
-        "|x|  → distance from zero is less than 4 → −4",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: |x|  → distance from zero is less than 4 → −4"
-    }
-  ],
-  "Rational Expressions": [
-    {
-      "q": "Which equation represents the formula in Rational Expressions?",
-      "options": [
-        "(x²−4)/(x+2)  =  (x+2)(x−2)/(x+2) = x−2",
-        " (x+2)(x−2)/(x+2) = x−2 = (x²−4)/(x+2) ",
-        "(x²−4)/(x+2)  ×  (x+2)(x−2)/(x+2) = x−2",
-        "(x²−4)/(x+2)  +  (x+2)(x−2)/(x+2) = x−2"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is (x²−4)/(x+2) = (x+2)(x−2)/(x+2) = x−2."
-    },
-    {
-      "q": "Which statement is true about Rational Expressions?",
-      "options": [
-        "Multiplication: factor, cancel, multiply remaining",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Multiplication: factor, cancel, multiply remaining"
-    },
-    {
-      "q": "True or False: Addition/Subtraction: find LCD first, then combine",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Rational Expressions."
-    }
-  ],
-  "Exponents & Radicals": [
-    {
-      "q": "Simplify: (2³)²",
-      "options": [
-        "2⁵",
-        "2⁶",
-        "4³",
-        "8²"
-      ],
-      "answer": 1,
-      "explanation": "Power rule: (a^m)^n = a^(mn). So (2³)² = 2^(3×2) = 2⁶ = 64."
-    },
-    {
-      "q": "What is 8^(2/3)?",
-      "options": [
-        "2",
-        "4",
-        "8",
-        "16"
-      ],
-      "answer": 1,
-      "explanation": "8^(2/3) = (cube root of 8)² = 2² = 4. The denominator of the fractional exponent tells you the root."
-    },
-    {
-      "q": "Simplify: 2⁻³",
-      "options": [
-        "-8",
-        "-6",
-        "1/8",
-        "1/6"
-      ],
-      "answer": 2,
-      "explanation": "Negative exponent means reciprocal: 2⁻³ = 1/(2³) = 1/8."
-    },
-    {
-      "q": "Simplify: √8 × √2",
-      "options": [
-        "√16",
-        "4",
-        "16",
-        "√10"
-      ],
-      "answer": 1,
-      "explanation": "√a × √b = √(ab). So √8 × √2 = √16 = 4. Alternatively: √8 = 2√2, so 2√2 × √2 = 2 × 2 = 4."
-    },
-    {
-      "q": "Which equation represents the formula in Exponents & Radicals?",
-      "options": [
-        "xᵃ × xᵇ  =  xᵃ⁺ᵇ",
-        " xᵃ⁺ᵇ = xᵃ × xᵇ ",
-        "xᵃ × xᵇ  ×  xᵃ⁺ᵇ",
-        "xᵃ × xᵇ  +  xᵃ⁺ᵇ"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is xᵃ × xᵇ = xᵃ⁺ᵇ."
-    },
-    {
-      "q": "True or False: (xᵃ)ᵇ = xᵃᵇ",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Exponents & Radicals."
-    },
-    {
-      "q": "True or False: x^(1/n) = ⁿ√x (fractional exponents are roots!)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Exponents & Radicals."
-    }
-  ],
-  "Logarithms": [
-    {
-      "q": "Which equation represents the formula in Logarithms?",
-      "options": [
-        "log_b(x)  =  y",
-        " y = log_b(x) ",
-        "log_b(x)  ×  y",
-        "log_b(x)  +  y"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is log_b(x) = y."
-    },
-    {
-      "q": "Which statement is true about Logarithms?",
-      "options": [
-        "log(xy) = log(x) + log(y)",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: log(xy) = log(x) + log(y)"
-    },
-    {
-      "q": "True or False: log(xⁿ) = n·log(x)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Logarithms."
-    },
-    {
-      "q": "True or False: log_b(b) = 1 and log_b(1) = 0",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Logarithms."
-    }
-  ],
-  "Complex Numbers": [
-    {
-      "q": "Which equation represents the formula in Complex Numbers?",
-      "options": [
-        "i  =  √(−1)",
-        " √(−1) = i ",
-        "i  ×  √(−1)",
-        "i  +  √(−1)"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is i = √(−1)."
-    }
-  ],
-  "Sequences & Series": [
-    {
-      "q": "Which equation represents the formula in Sequences & Series?",
-      "options": [
-        "aₙ  =  a₁ + (n−1)d",
-        " a₁ + (n−1)d = aₙ ",
-        "aₙ  ×  a₁ + (n−1)d",
-        "aₙ  +  a₁ + (n−1)d"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is aₙ = a₁ + (n−1)d."
-    },
-    {
-      "q": "Which statement is true about Sequences & Series?",
-      "options": [
-        "Arithmetic sum: n/2 × (a₁ + aₙ) or n/2 × [2a₁ + (n−1)d]",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Arithmetic sum: n/2 × (a₁ + aₙ) or n/2 × [2a₁ + (n−1)d]"
-    }
-  ],
-  "Slope of a Line": [
-    {
-      "q": "What is the slope of the line passing through (2,3) and (5,9)?",
-      "options": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
-      "answer": 1,
-      "explanation": "Slope = (y2-y1)/(x2-x1) = (9-3)/(5-2) = 6/3 = 2."
-    },
-    {
-      "q": "What is the slope of a line perpendicular to y = 2x + 1?",
-      "options": [
-        "2",
-        "-2",
-        "1/2",
-        "-1/2"
-      ],
-      "answer": 3,
-      "explanation": "Perpendicular lines have negative reciprocal slopes. The slope of y = 2x + 1 is 2, so perpendicular slope is -1/2."
-    },
-    {
-      "q": "Which equation represents the formula in Slope of a Line?",
-      "options": [
-        "y  =  mx + b",
-        " mx + b = y ",
-        "y  ×  mx + b",
-        "y  +  mx + b"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is y = mx + b."
-    },
-    {
-      "q": "Which statement is true about Slope of a Line?",
-      "options": [
-        "Parallel lines have equal slopes",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Parallel lines have equal slopes"
-    }
-  ],
-  "Equations of Lines": [
-    {
-      "q": "What is the equation of a line with slope 2 and y-intercept -3?",
-      "options": [
-        "y = 2x - 3",
-        "y = -3x + 2",
-        "y = 2x + 3",
-        "y = 3x - 2"
-      ],
-      "answer": 0,
-      "explanation": "Slope-intercept form: y = mx + b. Here m=2 and b=-3, so y = 2x - 3."
-    },
-    {
-      "q": "What is the equation of a line with slope 3 passing through (1, 2)?",
-      "options": [
-        "y - 2 = 3(x - 1)",
-        "y + 2 = 3(x + 1)",
-        "y = 3x + 2",
-        "y = 3x - 1"
-      ],
-      "answer": 0,
-      "explanation": "Point-slope form: y - y₁ = m(x - x₁). With slope 3 and point (1,2): y - 2 = 3(x - 1)."
-    },
-    {
-      "q": "Which equation represents the formula in Equations of Lines?",
-      "options": [
-        "y  =  mx + b",
-        " mx + b = y ",
-        "y  ×  mx + b",
-        "y  +  mx + b"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is y = mx + b."
-    },
-    {
-      "q": "Which statement is true about Equations of Lines?",
-      "options": [
-        "Horizontal: y = c (slope = 0)",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Horizontal: y = c (slope = 0)"
-    }
-  ],
-  "Distance & Midpoint Formulas": [
-    {
-      "q": "What is the distance between (0,0) and (3,4)?",
-      "options": [
-        "5",
-        "7",
-        "25",
-        "12"
-      ],
-      "answer": 0,
-      "explanation": "Distance = √((3-0)² + (4-0)²) = √(9+16) = √25 = 5."
-    },
-    {
-      "q": "What is the midpoint of (2,5) and (8,-1)?",
-      "options": [
-        "(5, 2)",
-        "(6, 3)",
-        "(4, 4)",
-        "(7, 1)"
-      ],
-      "answer": 0,
-      "explanation": "Midpoint = ((x₁+x₂)/2, (y₁+y₂)/2) = ((2+8)/2, (5+(-1))/2) = (10/2, 4/2) = (5, 2)."
-    },
-    {
-      "q": "Which equation represents the formula in Distance & Midpoint Formulas?",
-      "options": [
-        "d  =  √[(x₂−x₁)² + (y₂−y₁)²]",
-        " √[(x₂−x₁)² + (y₂−y₁)²] = d ",
-        "d  ×  √[(x₂−x₁)² + (y₂−y₁)²]",
-        "d  +  √[(x₂−x₁)² + (y₂−y₁)²]"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is d = √[(x₂−x₁)² + (y₂−y₁)²]."
-    }
-  ],
-  "Graphing Inequalities": [
-    {
-      "q": "Which statement is true about Graphing Inequalities?",
-      "options": [
-        "Dashed for  (boundary not included)",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Dashed for  (boundary not included)"
-    }
-  ],
-  "Angles & Parallel Lines": [
-    {
-      "q": "Which statement is true about Angles & Parallel Lines?",
-      "options": [
-        "Corresponding angles are equal",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Corresponding angles are equal"
-    },
-    {
-      "q": "True or False: Same-side interior angles sum to 180°",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Angles & Parallel Lines."
-    },
-    {
-      "q": "True or False: Vertical angles are always equal",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Angles & Parallel Lines."
-    },
-    {
-      "q": "True or False: Sum of interior angles: (n−2) × 180°",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Angles & Parallel Lines."
-    }
-  ],
-  "Triangles": [
-    {
-      "q": "In a right triangle with legs 3 and 4, what is the hypotenuse?",
-      "options": [
-        "5",
-        "6",
-        "7",
-        "25"
-      ],
-      "answer": 0,
-      "explanation": "Pythagorean Theorem: a² + b² = c². 3² + 4² = 9 + 16 = 25, so c = 5."
-    },
-    {
-      "q": "What is the area of a triangle with base 8 and height 5?",
-      "options": [
-        "20",
-        "25",
-        "30",
-        "40"
-      ],
-      "answer": 0,
-      "explanation": "Area = ½ × base × height = ½ × 8 × 5 = 20."
-    },
-    {
-      "q": "In a 45°-45°-90° triangle, if one leg is 5, what is the hypotenuse?",
-      "options": [
-        "5√2",
-        "10",
-        "5",
-        "5√3"
-      ],
-      "answer": 0,
-      "explanation": "45°-45°-90° triangle has sides in ratio x : x : x√2. If leg = 5, hypotenuse = 5√2."
-    },
-    {
-      "q": "Which equation represents the formula in Triangles?",
-      "options": [
-        "a² + b²  =  c²",
-        " c² = a² + b² ",
-        "a² + b²  ×  c²",
-        "a² + b²  +  c²"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is a² + b² = c²."
-    },
-    {
-      "q": "Which statement is true about Triangles?",
-      "options": [
-        "All angles sum to 180°",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: All angles sum to 180°"
-    },
-    {
-      "q": "True or False: Pythagorean Theorem: a² + b² = c² (right triangles only)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Triangles."
-    }
-  ],
-  "Quadrilaterals & Polygons": [
-    {
-      "q": "Which statement is true about Quadrilaterals & Polygons?",
-      "options": [
-        "Square: 4 equal sides, 4 right angles, Area = s²",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Square: 4 equal sides, 4 right angles, Area = s²"
-    },
-    {
-      "q": "True or False: Parallelogram: Area = base×height (NOT side×side!)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Quadrilaterals & Polygons."
-    },
-    {
-      "q": "True or False: Trapezoid: Area = ½(b₁+b₂)×h (average of parallel sides × height)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Quadrilaterals & Polygons."
-    },
-    {
-      "q": "True or False: Rhombus: 4 equal sides, diagonals are perpendicular",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Quadrilaterals & Polygons."
-    }
-  ],
-  "Circles": [
-    {
-      "q": "What is the circumference of a circle with radius 3?",
-      "options": [
-        "3π",
-        "6π",
-        "9π",
-        "12π"
-      ],
-      "answer": 1,
-      "explanation": "Circumference = 2πr = 2π(3) = 6π."
-    },
-    {
-      "q": "What is the area of a circle with diameter 10?",
-      "options": [
-        "10π",
-        "25π",
-        "50π",
-        "100π"
-      ],
-      "answer": 1,
-      "explanation": "Radius = diameter/2 = 5. Area = πr² = π(5)² = 25π."
-    },
-    {
-      "q": "What is the center of the circle (x+2)² + (y-3)² = 16?",
-      "options": [
-        "(2, -3)",
-        "(-2, 3)",
-        "(2, 3)",
-        "(-2, -3)"
-      ],
-      "answer": 1,
-      "explanation": "Standard form: (x-h)² + (y-k)² = r². Here h=-2, k=3, so center is (-2, 3)."
-    },
-    {
-      "q": "Which equation represents the formula in Circles?",
-      "options": [
-        "C  =  2πr",
-        " 2πr = C ",
-        "C  ×  2πr",
-        "C  +  2πr"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is C = 2πr."
-    },
-    {
-      "q": "Which statement is true about Circles?",
-      "options": [
-        "Circumference: C = 2πr or C = πd",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Circumference: C = 2πr or C = πd"
-    },
-    {
-      "q": "True or False: Arc length: (θ/360°) × 2πr",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Circles."
-    },
-    {
-      "q": "True or False: Sector area: (θ/360°) × πr²",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Circles."
-    }
-  ],
-  "3D Geometry": [
-    {
-      "q": "Which equation represents the formula in 3D Geometry?",
-      "options": [
-        "d  =  √(l² + w² + h²)",
-        " √(l² + w² + h²) = d ",
-        "d  ×  √(l² + w² + h²)",
-        "d  +  √(l² + w² + h²)"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is d = √(l² + w² + h²)."
-    },
-    {
-      "q": "Which statement is true about 3D Geometry?",
-      "options": [
-        "Cube: Volume = s³, Surface Area = 6s²",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Cube: Volume = s³, Surface Area = 6s²"
-    },
-    {
-      "q": "True or False: Cylinder: V = πr²h, SA = 2πr²+2πrh",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for 3D Geometry."
-    },
-    {
-      "q": "True or False: Cone: V = ⅓πr²h",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for 3D Geometry."
-    },
-    {
-      "q": "True or False: Sphere: V = ⁴⁄₃πr³, SA = 4πr²",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for 3D Geometry."
-    }
-  ],
-  "Reciprocal Trig Functions": [
-    {
-      "q": "Which equation represents the formula in Reciprocal Trig Functions?",
-      "options": [
-        "tan(θ)  =  sin(θ)/cos(θ)",
-        " sin(θ)/cos(θ) = tan(θ) ",
-        "tan(θ)  ×  sin(θ)/cos(θ)",
-        "tan(θ)  +  sin(θ)/cos(θ)"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is tan(θ) = sin(θ)/cos(θ)."
-    },
-    {
-      "q": "Which statement is true about Reciprocal Trig Functions?",
-      "options": [
-        "csc(θ) = 1/sin(θ)",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: csc(θ) = 1/sin(θ)"
-    },
-    {
-      "q": "True or False: cot(θ) = 1/tan(θ)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Reciprocal Trig Functions."
-    }
-  ],
-  "Law of Sines & Cosines": [
-    {
-      "q": "Which equation represents the formula in Law of Sines & Cosines?",
-      "options": [
-        "sin(A)/a  =  sin(B)/b = sin(C)/c",
-        " sin(B)/b = sin(C)/c = sin(A)/a ",
-        "sin(A)/a  ×  sin(B)/b = sin(C)/c",
-        "sin(A)/a  +  sin(B)/b = sin(C)/c"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is sin(A)/a = sin(B)/b = sin(C)/c."
-    }
-  ],
-  "Function Notation": [
-    {
-      "q": "If f(x) = 2x + 1, what is f(3)?",
-      "options": [
-        "5",
-        "6",
-        "7",
-        "8"
-      ],
-      "answer": 2,
-      "explanation": "Substitute x=3: f(3) = 2(3) + 1 = 6 + 1 = 7."
-    },
-    {
-      "q": "What is the domain of f(x) = √(x - 2)?",
-      "options": [
-        "x > 2",
-        "x ≥ 2",
-        "x > 0",
-        "All real numbers"
-      ],
-      "answer": 1,
-      "explanation": "The expression under the square root must be ≥ 0. So x - 2 ≥ 0, which gives x ≥ 2."
-    },
-    {
-      "q": "Which equation represents the formula in Function Notation?",
-      "options": [
-        "f(x)  =  2x + 3",
-        " 2x + 3 = f(x) ",
-        "f(x)  ×  2x + 3",
-        "f(x)  +  2x + 3"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is f(x) = 2x + 3."
-    }
-  ],
-  "Domain & Range": [
-    {
-      "q": "If f(x) = 2x + 1, what is f(3)?",
-      "options": [
-        "5",
-        "6",
-        "7",
-        "8"
-      ],
-      "answer": 2,
-      "explanation": "Substitute x=3: f(3) = 2(3) + 1 = 6 + 1 = 7."
-    },
-    {
-      "q": "What is the domain of f(x) = √(x - 2)?",
-      "options": [
-        "x > 2",
-        "x ≥ 2",
-        "x > 0",
-        "All real numbers"
-      ],
-      "answer": 1,
-      "explanation": "The expression under the square root must be ≥ 0. So x - 2 ≥ 0, which gives x ≥ 2."
-    },
-    {
-      "q": "Which statement is true about Domain & Range?",
-      "options": [
-        "Under a square root must be ≥ 0",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Under a square root must be ≥ 0"
-    },
-    {
-      "q": "True or False: Under a log must be > 0",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Domain & Range."
-    }
-  ],
-  "Composition & Inverses": [
-    {
-      "q": "Which equation represents the formula in Composition & Inverses?",
-      "options": [
-        "(f∘g)(x)  =  f(g(x))",
-        " f(g(x)) = (f∘g)(x) ",
-        "(f∘g)(x)  ×  f(g(x))",
-        "(f∘g)(x)  +  f(g(x))"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is (f∘g)(x) = f(g(x))."
-    }
-  ],
-  "Counting Principles": [
-    {
-      "q": "Which equation represents the formula in Counting Principles?",
-      "options": [
-        "nPr  =  n!/(n−r)!",
-        " n!/(n−r)! = nPr ",
-        "nPr  ×  n!/(n−r)!",
-        "nPr  +  n!/(n−r)!"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is nPr = n!/(n−r)!."
-    }
-  ],
-  "Scatterplots & Lines of Best Fit": [
-    {
-      "q": "Which statement is true about Scatterplots & Lines of Best Fit?",
-      "options": [
-        "Positive correlation: as x increases, y increases",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Positive correlation: as x increases, y increases"
-    },
-    {
-      "q": "True or False: No correlation: no clear pattern",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Scatterplots & Lines of Best Fit."
-    }
-  ],
-  "Transitions": [
-    {
-      "q": "Which statement is true about Transitions?",
-      "options": [
-        "Addition: furthermore, moreover, also, in addition",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Addition: furthermore, moreover, also, in addition"
-    },
-    {
-      "q": "True or False: Cause/Effect: therefore, thus, consequently, as a result",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Transitions."
-    },
-    {
-      "q": "True or False: Sequence: first, then, subsequently, finally",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Transitions."
-    },
-    {
-      "q": "True or False: Example: for instance, for example, specifically",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Transitions."
-    }
-  ],
-  "Organization & Paragraph Order": [
-    {
-      "q": "Which statement is true about Organization & Paragraph Order?",
-      "options": [
-        "Pronouns: This theory… — the previous sentence must introduce the theory.",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Pronouns: This theory… — the previous sentence must introduce the theory."
-    },
-    {
-      "q": "True or False: Topic sentences: A paragraph's first sentence should introduce its subject.",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Organization & Paragraph Order."
-    }
-  ],
-  "Conciseness & Redundancy": [
-    {
-      "q": "Which statement is true about Conciseness & Redundancy?",
-      "options": [
-        "past history → history",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: past history → history"
-    },
-    {
-      "q": "True or False: advance planning → planning",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Conciseness & Redundancy."
-    },
-    {
-      "q": "True or False: end result → result",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Conciseness & Redundancy."
-    }
-  ],
-  "Main Idea / Central Theme": [
-    {
-      "q": "Which statement is true about Main Idea / Central Theme?",
-      "options": [
-        "Read the first and last paragraphs carefully — the thesis often lives there.",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Read the first and last paragraphs carefully — the thesis often lives there."
-    },
-    {
-      "q": "True or False: Eliminate answers that are too narrow (just a detail) or too broad (goes beyond the text).",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Main Idea / Central Theme."
-    }
-  ],
-  "Text Structure": [
-    {
-      "q": "Which statement is true about Text Structure?",
-      "options": [
-        "Chronological: Events in time order",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Chronological: Events in time order"
-    },
-    {
-      "q": "True or False: Compare/Contrast: Similarities and differences",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Text Structure."
-    },
-    {
-      "q": "True or False: Problem/Solution: Identifies a problem and proposes solutions",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Text Structure."
-    },
-    {
-      "q": "True or False: Claim/Evidence: Makes an argument and supports it",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Text Structure."
-    }
-  ],
-  "Paired Passages": [
-    {
-      "q": "Which statement is true about Paired Passages?",
-      "options": [
-        "Where do the authors AGREE?",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Where do the authors AGREE?"
-    },
-    {
-      "q": "True or False: How would Author 1 respond to Author 2's argument?",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Paired Passages."
-    }
-  ],
-  "Literary Narrative / Prose Fiction": [
-    {
-      "q": "Which statement is true about Literary Narrative / Prose Fiction?",
-      "options": [
-        "Track the narrator's attitude and emotional shifts",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Track the narrator's attitude and emotional shifts"
-    },
-    {
-      "q": "True or False: Notice descriptive language and what it reveals",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Literary Narrative / Prose Fiction."
-    },
-    {
-      "q": "True or False: Look for internal conflict or realization moments",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Literary Narrative / Prose Fiction."
-    }
-  ],
-  "Social Studies": [
-    {
-      "q": "Which statement is true about Social Studies?",
-      "options": [
-        "Identify the thesis in the first paragraph",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Identify the thesis in the first paragraph"
-    },
-    {
-      "q": "True or False: Notice cause/effect relationships",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Social Studies."
-    },
-    {
-      "q": "True or False: Pay attention to dates, names, and specific studies mentioned",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Social Studies."
-    }
-  ],
-  "Humanities": [
-    {
-      "q": "Which statement is true about Humanities?",
-      "options": [
-        "Grasp the central thesis or aesthetic argument",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Grasp the central thesis or aesthetic argument"
-    },
-    {
-      "q": "True or False: Track comparisons between artists, periods, or ideas",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Humanities."
-    },
-    {
-      "q": "True or False: Don't get lost in fancy language — focus on what the author is arguing",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Humanities."
-    }
-  ],
-  "Natural Sciences": [
-    {
-      "q": "Which statement is true about Natural Sciences?",
-      "options": [
-        "Identify the main scientific concept being explained",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Identify the main scientific concept being explained"
-    },
-    {
-      "q": "True or False: Understand cause/effect relationships",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Natural Sciences."
-    },
-    {
-      "q": "True or False: Don't panic if you don't know the science — everything you need is in the passage",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Natural Sciences."
-    }
-  ],
-  "Reading Graphs & Charts": [
-    {
-      "q": "Which statement is true about Reading Graphs & Charts?",
-      "options": [
-        "Line graphs: trends over time",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Line graphs: trends over time"
-    },
-    {
-      "q": "True or False: Scatterplots: correlation between two variables",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Reading Graphs & Charts."
-    },
-    {
-      "q": "True or False: Pie charts: parts of a whole",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Reading Graphs & Charts."
-    }
-  ],
-  "Identifying Trends & Patterns": [
-    {
-      "q": "Which statement is true about Identifying Trends & Patterns?",
-      "options": [
-        "Direct relationship: as one increases, the other increases",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Direct relationship: as one increases, the other increases"
-    },
-    {
-      "q": "True or False: No relationship: no clear pattern",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Identifying Trends & Patterns."
-    },
-    {
-      "q": "True or False: Exponential: curve gets steeper and steeper",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Identifying Trends & Patterns."
-    },
-    {
-      "q": "True or False: Plateau: levels off after a certain point",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Identifying Trends & Patterns."
-    }
-  ],
-  "Experimental Design": [
-    {
-      "q": "Which statement is true about Experimental Design?",
-      "options": [
-        "Independent variable: What the scientist deliberately changes",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Independent variable: What the scientist deliberately changes"
-    },
-    {
-      "q": "True or False: Control variables: Everything kept the same",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Experimental Design."
-    },
-    {
-      "q": "True or False: Control group: The baseline — receives no treatment or the standard treatment",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Experimental Design."
-    }
-  ],
-  "Comparing Experiments": [
-    {
-      "q": "Which statement is true about Comparing Experiments?",
-      "options": [
-        "Why was Experiment 2 done? (to test a different variable or confirm results)",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Why was Experiment 2 done? (to test a different variable or confirm results)"
-    },
-    {
-      "q": "True or False: What conclusion is consistent with BOTH experiments?",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Comparing Experiments."
-    }
-  ],
-  "Hypothesis Support": [
-    {
-      "q": "Which statement is true about Hypothesis Support?",
-      "options": [
-        "Do the results support the hypothesis? → Yes if data matches prediction, No if it contradicts",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Do the results support the hypothesis? → Yes if data matches prediction, No if it contradicts"
-    },
-    {
-      "q": "True or False: What would support the hypothesis? → Predict what data WOULD look like if the hypothesis were true",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Hypothesis Support."
-    }
-  ],
-  "Cell Structure": [
-    {
-      "q": "Which statement is true about Cell Structure?",
-      "options": [
-        "Nucleus: contains DNA, controls the cell",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Nucleus: contains DNA, controls the cell"
-    },
-    {
-      "q": "True or False: Ribosomes: make proteins",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Cell Structure."
-    },
-    {
-      "q": "True or False: Cell membrane: controls what enters and exits",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Cell Structure."
-    },
-    {
-      "q": "True or False: Chloroplasts: in plant cells only — photosynthesis",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Cell Structure."
-    }
-  ],
-  "DNA, Genes & Proteins": [
-    {
-      "q": "Which statement is true about DNA, Genes & Proteins?",
-      "options": [
-        "DNA is the genetic blueprint",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: DNA is the genetic blueprint"
-    },
-    {
-      "q": "True or False: Genes are segments of DNA that code for proteins",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for DNA, Genes & Proteins."
-    },
-    {
-      "q": "True or False: Mutations are changes in DNA sequence — they can be harmful, neutral, or beneficial",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for DNA, Genes & Proteins."
-    },
-    {
-      "q": "True or False: Natural selection: organisms with advantageous traits survive and reproduce more",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for DNA, Genes & Proteins."
-    }
-  ],
-  "Ecology & Ecosystems": [
-    {
-      "q": "Which statement is true about Ecology & Ecosystems?",
-      "options": [
-        "Food chains: producers → primary consumers → secondary consumers → decomposers",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Food chains: producers → primary consumers → secondary consumers → decomposers"
-    },
-    {
-      "q": "True or False: Carrying capacity: maximum population an ecosystem can sustain",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Ecology & Ecosystems."
-    },
-    {
-      "q": "True or False: Symbiosis: mutualism (both benefit), parasitism (one benefits, one harmed), commensalism (one benefits, one unaffected)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Ecology & Ecosystems."
-    }
-  ],
-  "States of Matter": [
-    {
-      "q": "Which statement is true about States of Matter?",
-      "options": [
-        "Solid: fixed shape & volume, particles packed tightly",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Solid: fixed shape & volume, particles packed tightly"
-    },
-    {
-      "q": "True or False: Gas: no fixed shape or volume, particles spread out",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for States of Matter."
-    }
-  ],
-  "Reaction Rates": [
-    {
-      "q": "Which statement is true about Reaction Rates?",
-      "options": [
-        "Temperature increases (particles move faster, collide more)",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Temperature increases (particles move faster, collide more)"
-    },
-    {
-      "q": "True or False: Surface area increases (more exposed to react)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Reaction Rates."
-    },
-    {
-      "q": "True or False: Catalysts are added (lower activation energy without being consumed)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Reaction Rates."
-    }
-  ],
-  "Energy": [
-    {
-      "q": "Which statement is true about Energy?",
-      "options": [
-        "Kinetic energy: energy of motion. KE = ½mv² (increases with mass and especially speed!)",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Kinetic energy: energy of motion. KE = ½mv² (increases with mass and especially speed!)"
-    },
-    {
-      "q": "True or False: Conservation of energy: energy cannot be created or destroyed, only transformed (KE ↔ PE)",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Energy."
-    }
-  ],
-  "Forces & Motion": [
-    {
-      "q": "Which equation represents the formula in Forces & Motion?",
-      "options": [
-        "F  =  ma",
-        " ma = F ",
-        "F  ×  ma",
-        "F  +  ma"
-      ],
-      "answer": 0,
-      "explanation": "The correct formula is F = ma."
-    }
-  ],
-  "Plate Tectonics": [
-    {
-      "q": "Which statement is true about Plate Tectonics?",
-      "options": [
-        "Convergent boundaries: plates collide → mountains, volcanoes, trenches",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Convergent boundaries: plates collide → mountains, volcanoes, trenches"
-    },
-    {
-      "q": "True or False: Transform boundaries: plates slide past each other → earthquakes",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Plate Tectonics."
-    }
-  ],
-  "Greenhouse Effect": [
-    {
-      "q": "Which statement is true about Greenhouse Effect?",
-      "options": [
-        "Sunlight passes through the atmosphere and warms the Earth",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Sunlight passes through the atmosphere and warms the Earth"
-    },
-    {
-      "q": "True or False: Greenhouse gases absorb some of this infrared, keeping the planet warm",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Greenhouse Effect."
-    },
-    {
-      "q": "True or False: More greenhouse gases = more heat trapped = global warming",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for Greenhouse Effect."
-    }
-  ],
-  "The Solar System": [
-    {
-      "q": "Which statement is true about The Solar System?",
-      "options": [
-        "Planets orbit the Sun in elliptical (nearly circular) paths",
-        "None of the above",
-        "It depends",
-        "Not enough info"
-      ],
-      "answer": 0,
-      "explanation": "Key concept: Planets orbit the Sun in elliptical (nearly circular) paths"
-    },
-    {
-      "q": "True or False: Outer planets (Jupiter, Saturn, Uranus, Neptune): gas giants, large",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for The Solar System."
-    },
-    {
-      "q": "True or False: Gravity keeps planets in orbit — stronger when closer to the Sun",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for The Solar System."
-    },
-    {
-      "q": "True or False: The Moon orbits Earth; its gravity causes tides",
-      "options": [
-        "True",
-        "False",
-        "Only sometimes",
-        "Depends"
-      ],
-      "answer": 0,
-      "explanation": "This is a key rule for The Solar System."
-    }
-  ]
-};
+
+  return generateTopicQuestions;
+})();
 
 
 
@@ -2870,30 +1557,92 @@ let currentSection = null;
 const main = document.getElementById('mainContent');
 const searchInput = document.getElementById('searchInput');
 const navButtons = document.querySelectorAll('.topbar nav button');
-function navigate(view, section, category, topic) {
+async function navigate(view, section, category, topic) {
+  endTest();
+  closeMobileMenu();
   currentView = view;
   currentSection = section;
   currentCategory = category;
   currentTopic = topic;
   searchInput.value = '';
   navButtons.forEach(b => b.classList.remove('active'));
-  const activeBtn = document.querySelector(`[data-view="${view === 'home' ? 'home' : section}"]`);
+  const activeBtn = document.querySelector(`[data-view="${view === 'home' ? 'home' : (section || view)}"]`);
   if (activeBtn) activeBtn.classList.add('active');
+  if (view === 'analytics') {
+    const alt = document.querySelector('[data-view="analytics"]');
+    if (alt) alt.classList.add('active');
+  }
+  // Lazy-load this section's data chunk (and question generators) on first visit.
+  if (section && DATA_MANIFEST[section] && !data[section] && (section !== 'science' || isScienceEnabled())) {
+    main.innerHTML = `<div class="loading-state">Loading ${(DATA_MANIFEST[section].title || section)}…</div>`;
+    try {
+      await loadSection(section);
+    } catch (err) {
+      main.innerHTML = `<div class="no-results"><h3>Could not load this section</h3><p>Please refresh the page and try again.</p></div>`;
+      return;
+    }
+  }
+  if (topic != null && section && category !== null && data[section]) {
+    const cat = data[section].categories[category];
+    if (cat && cat.topics[topic]) {
+      markTopicViewed(section, cat.name, cat.topics[topic].name);
+    }
+  }
+  if (section && DATA_MANIFEST[section]) trackSectionTime(section);
+  else flushSectionTime();
   render();
   window.scrollTo(0,0);
 }
 function render() {
+  if (currentView === 'analytics') return renderAnalytics();
+  if (currentView === 'support') return renderSupport();
+  if (currentSection === 'science' && !isScienceEnabled()) return renderScienceOptIn();
   if (currentTopic != null) return renderTopicDetail();
   if (currentCategory != null) return renderTopicList();
   if (currentView === 'section') return renderCategoryGrid();
   return renderHome();
 }
 // ── HOME ──────────────────────
+function isScienceEnabled() {
+  try { return localStorage.getItem('actGenieScienceOptIn') === '1'; } catch (e) { return true; }
+}
+function setScienceEnabled(on) {
+  try { localStorage.setItem('actGenieScienceOptIn', on ? '1' : '0'); } catch (e) {}
+}
+function toggleScienceOptIn(el) {
+  setScienceEnabled(!!el && el.checked);
+  if (currentSection === 'science' && currentView === 'section') {
+    navigate('section', 'science');
+  } else {
+    renderHome();
+  }
+}
 function renderHome() {
+  const progress = getProgress();
+  const viewedCount = progress.topicViews ? Object.keys(progress.topicViews).length : 0;
+  const scienceOn = isScienceEnabled();
+  const totalCount = countTopics('math') + countTopics('english') + countTopics('reading') + (scienceOn ? countTopics('science') : 0);
+  const testResults = progress.testResults || [];
+  const counted = scienceOn ? testResults : testResults.filter(r => r.section !== 'science');
+  const avgScore = counted.length ? Math.round(counted.reduce((s, r) => s + r.pct, 0) / counted.length) : 0;
+  const heroSections = scienceOn ? 4 : 3;
   main.innerHTML = `
     <div class="hero-section">
-      <h1>Free ACT Revision — Topic by Topic</h1>
-      <p>Master every topic on the ACT with clear explanations and video lessons. Choose a subject to get started.</p>
+      <h1>Master the <span class="hero-accent">ACT</span>, topic by topic</h1>
+      <p>ACT Wizard teaches every topic on the ACT with clear explanations and video lessons — then tests you ACT-style, with the real question counts and timings.</p>
+      <div class="hero-stats">
+        <div class="stat"><b>${heroSections}</b><span>Sections</span></div>
+        <div class="stat"><b>${totalCount}</b><span>Topics</span></div>
+        <div class="stat"><b>${viewedCount}/${totalCount}</b><span>Topics Viewed</span></div>
+        <div class="stat"><b>${counted.length}</b><span>Tests Taken</span></div>
+        <div class="stat"><b>${avgScore}%</b><span>Avg Score</span></div>
+        <div class="stat"><b>100%</b><span>Free</span></div>
+      </div>
+      <label class="science-toggle">
+        <input type="checkbox" onchange="toggleScienceOptIn(this)" ${scienceOn ? 'checked' : ''}>
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+        <span class="toggle-label">Science — optional add-on (40 questions · 40 min)</span>
+      </label>
     </div>
     <div class="subject-grid">
       <div class="subject-card math" onclick="navigate('section','math')">
@@ -2904,18 +1653,44 @@ function renderHome() {
       <div class="subject-card english" onclick="navigate('section','english')">
         <span class="icon">📝</span>
         <h3>English</h3>
-        <p>50 questions · 35 min · Grammar, usage & rhetoric · ${countTopics('english')} topics</p>
+        <p>50 questions · 35 min · Grammar, style & rhetoric · ${countTopics('english')} topics</p>
       </div>
       <div class="subject-card reading" onclick="navigate('section','reading')">
         <span class="icon">📖</span>
         <h3>Reading</h3>
-        <p>36 questions · 40 min · 4 passage types · ${countTopics('reading')} topics</p>
+        <p>36 questions · 40 min · Literary, Social Studies, Humanities, Natural Science · ${countTopics('reading')} topics</p>
       </div>
+      ${scienceOn ? `
       <div class="subject-card science" onclick="navigate('section','science')">
         <span class="icon">🔬</span>
         <h3>Science</h3>
-        <p>40 questions · 40 min · Data analysis & reasoning · ${countTopics('science')} topics</p>
+        <p>40 questions · 40 min · Optional add-on · Data analysis & reasoning · ${countTopics('science')} topics</p>
+      </div>` : ''}
+      <div class="subject-card past-tests" onclick="navigate('section','past tests')">
+        <span class="icon">📚</span>
+        <h3>Past Tests</h3>
+        <p>Full-length practice tests · ${countTopics('past tests')} topics</p>
       </div>
+    </div>
+  `;
+}
+// ── SCIENCE OPT-IN BLOCKER ───
+function renderScienceOptIn() {
+  const scienceOn = isScienceEnabled();
+  if (scienceOn) { renderCategoryGrid(); return; }
+  main.innerHTML = `
+    <div class="breadcrumb">
+      <button onclick="navigate('home')">← Home</button>
+      <span>/</span>
+      <strong>ACT Science</strong>
+    </div>
+    <div class="no-results"><h3>Science is off</h3>
+      <p>Science is now an optional add-on on the ACT. Enable it from the home screen toggle to study and test this section.</p>
+      <p><label class="science-toggle" style="margin-top:.5rem">
+        <input type="checkbox" onchange="toggleScienceOptIn(this)">
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+        <span class="toggle-label">Enable Science (optional add-on)</span>
+      </label></p>
     </div>
   `;
 }
@@ -2965,21 +1740,65 @@ function renderTopicList() {
     </div>
     <div class="section-header">
       <h2>${cat.name}</h2>
-      <p>${cat.topics.length} topics — click any topic for an AI explanation</p>
+      <p>${cat.topics.length} tests — open a test or its answer key</p>
     </div>
-    <div class="topic-list" id="topicListContainer">
   `;
+
+  if (currentSection === 'past tests') {
+    html += `<div class="past-tests-grid">`;
+    cat.topics.forEach((t, i) => {
+      html += `
+        <div class="past-test-card" onclick="navigate('section','${currentSection}',${currentCategory},${i})">
+          <h4>${t.name}</h4>
+          <p>Full-length ACT practice material${t.answerKey ? ' · includes answer key' : ''}</p>
+          <div class="past-test-actions">
+            ${t.pdf ? `<a href="${t.pdf}" target="_blank" rel="noopener" class="yt-btn" style="background:#5c6bc0">📄 Open Test</a>` : ''}
+            ${t.answerKey ? `<a href="${t.answerKey}" target="_blank" rel="noopener" class="yt-btn" style="background:#2e7d32">✅ Answer Key</a>` : ''}
+          </div>
+        </div>
+      `;
+    });
+    html += `</div>`;
+    main.innerHTML = html;
+    return;
+  }
+
+  if (currentSection === 'other links') {
+    html += `<div class="past-tests-grid">`;
+    cat.topics.forEach((t, i) => {
+      const url = t.url || t.pdf || '#';
+      const label = url !== '#' ? '🔗 Open Link' : 'Coming soon';
+      html += `
+        <div class="past-test-card" onclick="${url !== '#' ? `window.open('${url}','_blank')` : ''}" style="${url === '#' ? 'opacity:.7;cursor:default' : ''}">
+          <h4>${t.name}</h4>
+          <p>${url !== '#' ? 'External resource' : 'Link coming soon'}</p>
+          <div class="past-test-actions">
+            ${url !== '#' ? `<a href="${url}" target="_blank" rel="noopener" class="yt-btn" style="background:#5c6bc0">${label}</a>` : ''}
+          </div>
+        </div>
+      `;
+    });
+    html += `</div>`;
+    main.innerHTML = html;
+    return;
+  }
+
+  const progress = getProgress();
+  html += `<div class="topic-list" id="topicListContainer">`;
   cat.topics.forEach((t, i) => {
-    const diffClass = t.diff === 'easy' ? 'easy' : t.diff === 'medium' ? 'medium' : 'hard';
-    const excerpt = getExcerpt(t.expl);
+    const excerpt = t.expl ? getExcerpt(t.expl) : '';
+    const diff = t.diff ? `<span class="difficulty ${t.diff === 'easy' ? 'easy' : t.diff === 'medium' ? 'medium' : 'hard'}">${t.diff}</span>` : '';
+    const viewKey = `${currentSection}::${cat.name}::${t.name}`;
+    const viewed = progress.topicViews && progress.topicViews[viewKey];
+    const viewedBadge = viewed ? `<span style="font-size:.72rem;font-weight:700;color:var(--primary);background:var(--emerald-soft);padding:.18rem .55rem;border-radius:10px;">✓ Viewed</span>` : '';
     html += `
       <div class="topic-row" data-searchable="${t.name.toLowerCase()} ${cat.name.toLowerCase()} ${excerpt.toLowerCase()}" onclick="navigate('section','${currentSection}',${currentCategory},${i})">
         <div>
-          <span class="tname">${t.name}</span>
-          <span class="tdesc">${excerpt}</span>
+          <span class="tname">${t.name} ${viewed ? '<span class="viewed-badge">✓ Viewed</span>' : ''}</span>
+          ${excerpt ? `<span class="tdesc">${excerpt}</span>` : ''}
         </div>
         <div class="tmeta">
-          <span class="difficulty ${diffClass}">${t.diff}</span>
+          ${diff}
           <span style="color:var(--text2);font-size:.8rem">→</span>
         </div>
       </div>
@@ -3010,27 +1829,28 @@ function renderTopicDetail() {
       </div>
       ${topic.khan ? `<a href="${topic.khan}" target="_blank" rel="noopener" class="yt-btn" style="background:#28a6b5">📚 Khan Academy Lesson</a>` : ''}
       ${topic.pdf ? `<a href="${topic.pdf}" target="_blank" rel="noopener" class="yt-btn" style="background:#5c6bc0">📄 Open Past Test</a>` : ''}
+      ${topic.answerKey ? `<a href="${topic.answerKey}" target="_blank" rel="noopener" class="yt-btn" style="background:#2e7d32">✅ Open Answer Key</a>` : ''}
     </div>
     <div class="detail-tabs">
       <button class="tab-btn active" data-tab="learn" onclick="showTab('learn')">📖 Learn</button>
-      <button class="tab-btn" data-tab="test" onclick="showTab('test')">✏️ Test</button>
+      ${currentSection === 'past tests' || currentSection === 'other links' ? '' : '<button class="tab-btn" data-tab="test" onclick="showTab(\'test\')">✏️ Test</button>'}
     </div>
     <div class="tab-panel active" id="tabLearn">
-      <div class="ai-explanation">
+      <div class="ai-explanation" id="explanationArea">
+        ${topic.visual && typeof ACTVisuals !== 'undefined' ? ACTVisuals.render(topic.visual) : ''}
         ${topic.expl}
       </div>
     </div>
-    <div class="tab-panel" id="tabTest">
-      <div id="testArea"></div>
-    </div>
+    ${currentSection === 'past tests' || currentSection === 'other links' ? '' : '<div class="tab-panel" id="tabTest"><div id="testArea"></div></div>'}
   `;
   main.innerHTML = html;
-  if (currentSection === 'math') {
+  if (currentSection !== 'past tests' && currentSection !== 'other links') {
     const testArea = document.getElementById('testArea');
     if (testArea && typeof renderTestConfigHTML === 'function') {
       testArea.innerHTML = renderTestConfigHTML();
     }
   }
+  initStepAnimator();
 }
 // ── SEARCH ────────────────────
 function doSearch() {
@@ -3043,9 +1863,21 @@ function doSearch() {
     else navigate('home');
     return;
   }
-  // Search all topics across all sections
+  recordSearchTerm(q);
+  renderSearchResults(q);
+  // Search should cover the whole dataset: pull in any unloaded chunks, then
+  // re-render. Graceful — results appear immediately for already-loaded sections.
+  if (Object.keys(DATA_MANIFEST).some(k => !data[k])) {
+    loadAllSections().then(() => {
+      if (searchInput.value.toLowerCase().trim() === q) renderSearchResults(q);
+    });
+  }
+}
+function renderSearchResults(q) {
+  // Search all topics across all sections that are currently loaded.
   let results = [];
   for (const [sectionKey, sectionData] of Object.entries(data)) {
+    if (!sectionData || !sectionData.categories) continue;
     sectionData.categories.forEach((cat, ci) => {
       cat.topics.forEach((t, ti) => {
         const haystack = `${t.name} ${cat.name} ${sectionData.title}`.toLowerCase();
@@ -3072,16 +1904,16 @@ function doSearch() {
     <div class="topic-list">
   `;
   results.forEach(r => {
-    const diffClass = r.topic.diff === 'easy' ? 'easy' : r.topic.diff === 'medium' ? 'medium' : 'hard';
-    const excerpt = getExcerpt(r.topic.expl);
+    const excerpt = r.topic.expl ? getExcerpt(r.topic.expl) : '';
+    const diff = r.topic.diff ? `<span class="difficulty ${r.topic.diff === 'easy' ? 'easy' : r.topic.diff === 'medium' ? 'medium' : 'hard'}">${r.topic.diff}</span>` : '';
     html += `
       <div class="topic-row" onclick="navigate('section','${r.section}',${r.catIdx},${r.topicIdx})">
         <div>
           <span class="tname">${highlight(r.topic.name, q)} <span style="color:var(--text2);font-weight:400;font-size:.82rem">— ${r.sectionTitle} · ${r.catName}</span></span>
-          <span class="tdesc">${excerpt}</span>
+          ${excerpt ? `<span class="tdesc">${excerpt}</span>` : ''}
         </div>
         <div class="tmeta">
-          <span class="difficulty ${diffClass}">${r.topic.diff}</span>
+          ${diff}
           <span style="color:var(--text2);font-size:.8rem">→</span>
         </div>
       </div>
@@ -3095,55 +1927,207 @@ function highlight(text, query) {
   return text.replace(re, '<mark>$1</mark>');
 }
 function countTopics(section) {
-  return data[section].categories.reduce((sum, c) => sum + c.topics.length, 0);
+  const sec = data[section];
+  if (sec && sec.categories) return sec.categories.reduce((sum, c) => sum + c.topics.length, 0);
+  return manifestCount(section);
+}
+// ── PROGRESS TRACKING ───────────
+function getProgress() {
+  try {
+    const raw = localStorage.getItem('actGenieProgress');
+    if (raw) return JSON.parse(raw);
+  } catch (e) {}
+  return { topicViews: {}, testResults: [] };
+}
+function saveProgress(progress) {
+  try { localStorage.setItem('actGenieProgress', JSON.stringify(progress)); } catch (e) {}
+}
+function markTopicViewed(section, category, topic) {
+  const progress = getProgress();
+  const key = `${section}::${category}::${topic}`;
+  if (!progress.topicViews) progress.topicViews = {};
+  const prev = progress.topicViews[key];
+  progress.topicViews[key] = { viewedAt: Date.now(), count: (prev && prev.count || 0) + 1 };
+  saveProgress(progress);
+  recordTopicView(section, category, topic);
+}
+function recordTestResult(section, category, topic, correct, total) {
+  const progress = getProgress();
+  if (!progress.testResults) progress.testResults = [];
+  progress.testResults.push({
+    section, category, topic,
+    correct, total,
+    pct: Math.round((correct / total) * 100),
+    takenAt: Date.now()
+  });
+  progress.testResults = progress.testResults.slice(-50);
+  saveProgress(progress);
+  recordTestAnalytics(section, Math.round((correct / total) * 100));
+}
+function getTopicProgress(section, category, topic) {
+  const progress = getProgress();
+  const key = `${section}::${category}::${topic}`;
+  return progress.topicViews && progress.topicViews[key];
 }
 // ── NAV CLICKS ────────────────
 navButtons.forEach(btn => {
   btn.addEventListener('click', () => {
     const view = btn.dataset.view;
     if (view === 'home') navigate('home');
+    else if (view === 'support' || view === 'analytics') navigate(view);
     else navigate('section', view);
+    closeMobileMenu();
   });
+});
+// ── RIPPLE EFFECT ─────────────
+document.addEventListener('pointerdown', (e) => {
+  const btn = e.target.closest('.subject-card, .cat-card, .topic-row, .back-btn, .yt-btn, .start-test-btn, .submit-test-btn, .retry-btn, .topbar nav button, .act-option, .act-nav button, .nav-dot, .preset-btn');
+  if (!btn) return;
+  const rect = btn.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height) * 1.2;
+  const span = document.createElement('span');
+  span.className = 'ripple';
+  span.style.width = span.style.height = size + 'px';
+  span.style.left = (e.clientX - rect.left - size / 2) + 'px';
+  span.style.top = (e.clientY - rect.top - size / 2) + 'px';
+  btn.appendChild(span);
+  setTimeout(() => span.remove(), 600);
+});
+// ── QUIZ KEYBOARD SHORTCUTS (A–E select, ←/→ navigate, Enter next/submit) ─────
+document.addEventListener('keydown', (e) => {
+  if (!testState || testState.submitted) return;
+  const tag = e.target && e.target.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+  const key = e.key.toLowerCase();
+  if (/^[a-e]$/.test(key)) {
+    const i = testState._current;
+    const idx = key.charCodeAt(0) - 97;
+    if (idx < testState.questions[i].options.length) selectAnswer(i, idx);
+  } else if (e.key === 'ArrowLeft') {
+    gotoQ(testState._current - 1);
+  } else if (e.key === 'ArrowRight' || e.key === 'Enter') {
+    if (testState._current >= testState.questions.length - 1) submitTest();
+    else gotoQ(testState._current + 1);
+  }
 });
 // ── TEST TABS & QUIZ ENGINE ───────
 let testState = null;
+// Any navigation or leaving the Test tab ends the current test session.
+function endTest() {
+  if (testState && testState._timer) clearInterval(testState._timer);
+  testState = null;
+}
+const LETTERS = ['A', 'B', 'C', 'D', 'E'];
+function answeredCount() {
+  return testState.answers.filter(a => a !== null).length;
+}
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+// Build a full-length ACT test by mixing questions from every topic of a section,
+// ordered easy → medium → hard so difficulty rises through the test like the real ACT.
+function generateFullLengthSectionTest(section, count) {
+  const secData = data[section];
+  if (!secData || !secData.categories) return [];
+  const topics = [];
+  secData.categories.forEach(cat => cat.topics.forEach(t => topics.push(t.name)));
+  const genFn = section === 'math' ? TopicQuestionGenerator : (window.SectionQuestionGenerator && window.SectionQuestionGenerator[section]);
+  if (!genFn) return [];
+  const seen = new Set();
+  const picked = [];
+  const easyN = Math.round(count / 3);
+  const medN = Math.round(count / 3);
+  const hardN = count - easyN - medN;
+  [['easy', easyN], ['medium', medN], ['hard', hardN]].forEach(([lvl, needed0]) => {
+    let needed = needed0;
+    let guard = 0;
+    while (needed > 0 && guard++ < count * 40) {
+      const name = topics[Math.floor(Math.random() * topics.length)];
+      const qs = genFn(name, 1, lvl);
+      for (const q of qs) {
+        if (needed <= 0) break;
+        const key = q.q + '\u0000' + q.options.join('\u0000');
+        if (seen.has(key)) continue;
+        seen.add(key);
+        q.topic = name;
+        q.level = lvl;
+        picked.push(q);
+        needed--;
+      }
+    }
+  });
+  return shuffle(picked.filter(q => q.level === 'easy'))
+    .concat(shuffle(picked.filter(q => q.level === 'medium')))
+    .concat(shuffle(picked.filter(q => q.level === 'hard')))
+    .slice(0, count);
+}
+function sectionTestLabel(section) {
+  return { math: 'Full ACT Math', english: 'Full ACT English', reading: 'Full ACT Reading', science: 'Full ACT Science' }[section] || 'Full ACT Test';
+}
 function startTest() {
   const countInput = document.getElementById('testQuestionCount');
   const timeInput = document.getElementById('testTimeLimit');
-  const requested = parseInt(countInput.value, 10) || 10;
+  const scopeInput = document.getElementById('testScopeFull');
+  let requested = parseInt(countInput.value, 10) || 10;
   const minutes = parseInt(timeInput.value, 10) || 0;
-  const topic = data[currentSection].categories[currentCategory].topics[currentTopic];
-  const bank = mathQuestionBank[topic.name];
-  if (!bank || bank.length === 0) {
-    alert('No questions available for this topic yet.');
+  const fullScope = !!(scopeInput && scopeInput.checked);
+  const fullQ = (DATA_MANIFEST[currentSection] && DATA_MANIFEST[currentSection].test && DATA_MANIFEST[currentSection].test.q) || 60;
+  requested = Math.max(5, Math.min(requested, fullQ));
+  const topicName = data[currentSection] && data[currentSection].categories[currentCategory].topics[currentTopic].name;
+  // Generate a fresh set of questions on every start — nothing is cached.
+  let questions = [];
+  if (fullScope) {
+    questions = generateFullLengthSectionTest(currentSection, requested);
+  } else if (currentSection === 'math') {
+    questions = TopicQuestionGenerator(topicName, requested);
+  } else if (window.SectionQuestionGenerator && window.SectionQuestionGenerator[currentSection]) {
+    questions = window.SectionQuestionGenerator[currentSection](topicName, requested);
+  }
+  if (!questions || questions.length === 0) {
+    alert('Could not generate questions for this test. Please try again.');
     return;
   }
-  const count = Math.max(10, Math.min(requested, bank.length));
-  if (bank.length < 10) {
-    alert(`This topic has only ${bank.length} questions available. Starting test with all ${bank.length} questions.`);
-  }
-  const indices = Array.from({length: bank.length}, (_, i) => i);
-  for (let i = indices.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [indices[i], indices[j]] = [indices[j], indices[i]];
-  }
-  const selected = indices.slice(0, count);
+  const finalCount = questions.length;
   testState = {
-    questions: selected.map(i => ({...bank[i], index: i})),
-    answers: new Array(count).fill(null),
+    questions: questions.slice(0, finalCount).map((q, i) => ({...q, index: i})),
+    answers: new Array(finalCount).fill(null),
     submitted: false,
     startTime: Date.now(),
     timeLimit: minutes > 0 ? minutes * 60 : null,
-    remaining: minutes > 0 ? minutes * 60 : null
+    remaining: minutes > 0 ? minutes * 60 : null,
+    _current: 0,
+    _scope: fullScope ? 'full' : 'topic',
+    _source: fullScope ? sectionTestLabel(currentSection) : topicName,
+    paused: false,
+    flags: new Array(finalCount).fill(false)
   };
   renderTest();
   if (testState.timeLimit) testState._timer = setInterval(tickTimer, 1000);
 }
-function tickTimer() {
+function togglePause() {
   if (!testState || testState.submitted || !testState.timeLimit) return;
+  testState.paused = !testState.paused;
+  renderTest();
+}
+function toggleFlag(i) {
+  if (!testState || testState.submitted || testState.paused) return;
+  testState.flags[i] = !testState.flags[i];
+  renderQuestionArea();
+  refreshTestChrome();
+}
+function tickTimer() {
+  if (!testState || testState.submitted || !testState.timeLimit || testState.paused) return;
   testState.remaining--;
   const el = document.getElementById('testTimer');
-  if (el) el.textContent = formatTime(testState.remaining);
+  if (el) {
+    el.textContent = formatTime(testState.remaining);
+    el.classList.toggle('warn', testState.remaining <= (testState.timeLimit >= 1200 ? 300 : 60));
+  }
   if (testState.remaining <= 0) {
     clearInterval(testState._timer);
     submitTest();
@@ -3156,73 +2140,161 @@ function formatTime(seconds) {
 }
 function renderTest() {
   if (!testState) return;
-  const topic = data[currentSection].categories[currentCategory].topics[currentTopic];
-  let html = '<div class="test-container">';
-  html += '<div class="test-header"><h3>Test: ' + topic.name + '</h3>';
-  if (testState.timeLimit) {
-    html += '<span id="testTimer" class="timer">' + formatTime(testState.remaining) + '</span>';
+  let html = '<div class="act-test-shell">';
+  html += '<div class="test-header"><h3>Test: ' + testState._source + '</h3>';
+  if (testState.timeLimit) html += '<span id="testTimer" class="timer">' + formatTime(testState.remaining) + '</span>';
+  html += '<span class="answered-count" id="answeredCount">' + answeredCount() + '/' + testState.questions.length + ' answered</span>';
+  if (testState.timeLimit && !testState.submitted) {
+    html += '<button id="pauseBtn" class="pause-btn" onclick="togglePause()">' + (testState.paused ? '▶ Resume' : '⏸ Pause') + '</button>';
   }
   html += '</div>';
-  html += '<div class="questions-list">';
-  testState.questions.forEach((q, i) => {
-    const answered = testState.answers[i] !== null;
-    html += '<div class="question-card ' + (answered ? 'answered' : '') + '">';
-    html += '<div class="q-header"><span class="q-num">Q' + (i+1) + '</span>';
-    if (testState.submitted) {
-      const correct = testState.answers[i] === q.answer;
-      html += '<span class="result-badge ' + (correct ? 'correct' : 'wrong') + '">' + (correct ? 'Correct' : 'Incorrect') + '</span>';
-    }
-    html += '</div>';
-    html += '<p class="q-text">' + (i+1) + '. ' + q.q + '</p>';
-    html += '<div class="options">';
-    q.options.forEach((opt, oi) => {
-      const selected = testState.answers[i] === oi;
-      const isCorrect = oi === q.answer;
-      let cls = 'option';
-      if (testState.submitted && isCorrect) cls += ' correct-option';
-      if (selected && testState.submitted && !isCorrect) cls += ' wrong-option';
-      html += '<label class="' + cls + '">';
-      html += '<input type="radio" name="q' + i + '" value="' + oi + '" ' + (selected ? 'checked' : '') + (testState.submitted ? ' disabled' : '') + ' onchange="selectAnswer(' + i + ', ' + oi + ')">';
-      html += '<span>' + opt + '</span></label>';
-    });
-    html += '</div>';
-    if (testState.submitted) {
-      html += '<div class="q-explanation"><strong>Explanation:</strong> ' + q.explanation + '</div>';
-    }
-    html += '</div>';
-  });
-  html += '</div>';
   if (!testState.submitted) {
+    html += '<div class="navigator-grid" id="navGrid"></div>';
+    html += '<div id="qArea"></div>';
+    html += '<div class="act-nav">';
+    html += '<button id="prevBtn" onclick="gotoQ(' + (testState._current - 1) + ')">← Previous</button>';
+    html += '<button id="nextBtn" onclick="gotoQ(' + (testState._current + 1) + ')">Next →</button>';
+    html += '</div>';
     html += '<button class="submit-test-btn" onclick="submitTest()">Submit Test</button>';
   } else {
-    const correct = testState.questions.reduce((s, q, i) => s + (testState.answers[i] === q.answer ? 1 : 0), 0);
-    html += '<div class="score-panel"><strong>Score: ' + correct + '/' + testState.questions.length + '</strong>';
-    html += '<button class="retry-btn" onclick="retryTest()">Try Again</button></div>';
+    html += reviewHTML();
   }
   html += '</div>';
   const container = document.getElementById('testArea');
   if (container) container.innerHTML = html;
+  if (!testState.submitted) {
+    renderQuestionArea();
+    refreshTestChrome();
+  } else {
+    const ta = document.getElementById('testArea');
+    if (ta) ta.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+function renderQuestionArea() {
+  const qArea = document.getElementById('qArea');
+  if (!qArea || testState.submitted) return;
+  if (testState.paused) {
+    qArea.innerHTML = '<div class="act-question"><p class="dim">Timer paused. Click Resume to continue.</p></div>';
+    return;
+  }
+  const i = testState._current;
+  const q = testState.questions[i];
+  const selected = testState.answers[i];
+  const flagged = testState.flags[i];
+  let h = '<div class="act-question">';
+  h += '<div class="q-header"><span class="q-num">Question ' + (i + 1) + ' of ' + testState.questions.length + '</span>';
+  if (testState.timeLimit) {
+    h += '<button class="flag-btn' + (flagged ? ' flagged' : '') + '" onclick="toggleFlag(' + i + ')" title="Flag for review">' + (flagged ? '🚩' : '🏳️') + '</button>';
+  }
+  h += '</div>';
+  h += '<p class="q-text">' + (i + 1) + '. ' + q.q + '</p>';
+  h += '<div class="act-options">';
+  q.options.forEach((opt, oi) => {
+    h += '<button type="button" class="act-option' + (selected === oi ? ' selected' : '') + '" onclick="selectAnswer(' + i + ',' + oi + ')">';
+    h += '<span class="letter">' + LETTERS[oi] + '</span><span>' + opt + '</span></button>';
+  });
+  h += '</div></div>';
+  qArea.innerHTML = h;
+}
+function refreshTestChrome() {
+  if (!testState || testState.submitted) return;
+  const ac = document.getElementById('answeredCount');
+  if (ac) ac.textContent = answeredCount() + '/' + testState.questions.length + ' answered';
+  const grid = document.getElementById('navGrid');
+  if (grid) {
+    let h = '';
+    testState.questions.forEach((_, i) => {
+      const cls = (testState.answers[i] !== null ? ' answered' : '') + (i === testState._current ? ' current' : '') + (testState.flags[i] ? ' flagged' : '');
+      h += '<button class="nav-dot' + cls + '" onclick="gotoQ(' + i + ')" title="' + (testState.flags[i] ? 'Flagged for review' : '') + '">' + (i + 1) + '</button>';
+    });
+    grid.innerHTML = h;
+  }
+  const prev = document.getElementById('prevBtn');
+  const next = document.getElementById('nextBtn');
+  if (prev) prev.disabled = testState._current <= 0;
+  if (next) {
+    if (testState._current >= testState.questions.length - 1) {
+      next.textContent = 'Submit Test';
+      next.onclick = () => submitTest();
+    } else {
+      next.textContent = 'Next →';
+      next.onclick = () => gotoQ(testState._current + 1);
+    }
+  }
+}
+function gotoQ(i) {
+  if (!testState || testState.submitted) return;
+  if (i < 0) i = 0;
+  if (i > testState.questions.length - 1) i = testState.questions.length - 1;
+  testState._current = i;
+  renderQuestionArea();
+  refreshTestChrome();
+}
+function reviewHTML() {
+  const correct = testState.questions.reduce((s, q, i) => s + (testState.answers[i] === q.answer ? 1 : 0), 0);
+  const pct = Math.round(correct / testState.questions.length * 100);
+  let h = '<div class="score-panel"><strong>Score: ' + correct + '/' + testState.questions.length + '</strong>';
+  h += '<span class="score-pct">' + pct + '%</span>';
+  h += '<button class="retry-btn" onclick="retryTest()">Try Again</button></div>';
+  h += '<div class="questions-list">';
+  testState.questions.forEach((q, i) => {
+    const ans = testState.answers[i];
+    const ok = ans === q.answer;
+    h += '<div class="question-card ' + (ans !== null ? 'answered' : '') + '">';
+    h += '<div class="q-header"><span class="q-num">Q' + (i + 1) + '</span>';
+    if (q.topic) h += '<span class="q-topic">' + q.topic + '</span>';
+    if (testState.flags[i]) h += '<span class="flag-badge">Flagged</span>';
+    h += '<span class="result-badge ' + (ok ? 'correct' : 'wrong') + '">' + (ok ? 'Correct' : 'Incorrect') + '</span></div>';
+    h += '<p class="q-text">' + (i + 1) + '. ' + q.q + '</p>';
+    h += '<div class="act-options">';
+    q.options.forEach((opt, oi) => {
+      let cls = 'act-option';
+      if (oi === q.answer) cls += ' correct';
+      if (oi === ans && !ok) cls += ' wrong';
+      h += '<div class="' + cls + '"><span class="letter">' + LETTERS[oi] + '</span><span>' + opt + '</span></div>';
+    });
+    h += '</div>';
+    h += '<div class="q-explanation"><strong>Explanation:</strong> ' + q.explanation + '</div>';
+    h += '</div>';
+  });
+  h += '</div>';
+  return h;
 }
 function selectAnswer(qIndex, optionIndex) {
   if (!testState || testState.submitted) return;
   testState.answers[qIndex] = optionIndex;
-  renderTest();
+  if (qIndex === testState._current) renderQuestionArea();
+  refreshTestChrome();
 }
 function submitTest() {
   if (!testState || testState.submitted) return;
+  if (testState.timeLimit && testState.remaining <= 0) {
+    // auto-submit handled by timer
+  } else if (!confirm('Submit test now? You won\'t be able to change answers after submitting.')) {
+    return;
+  }
   if (testState._timer) clearInterval(testState._timer);
   testState.submitted = true;
   testState.endTime = Date.now();
+  const correctCount = testState.answers.filter((a, i) => a === testState.questions[i].answer).length;
+  recordTestResult(
+    currentSection,
+    data[currentSection].categories[currentCategory].name,
+    data[currentSection].categories[currentCategory].topics[currentTopic].name,
+    correctCount,
+    testState.questions.length
+  );
   renderTest();
 }
 function retryTest() {
-  testState = null;
+  endTest();
   const testArea = document.getElementById('testArea');
   if (testArea && typeof renderTestConfigHTML === 'function') {
     testArea.innerHTML = renderTestConfigHTML();
   }
 }
 function showTab(tab) {
+  if (tab === 'learn') endTest();
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.tab-panel').forEach(p => { p.classList.remove('active'); p.style.display = 'none'; });
   const btn = document.querySelector('[data-tab="' + tab + '"]');
@@ -3230,9 +2302,9 @@ function showTab(tab) {
   const panel = document.getElementById(tab === 'learn' ? 'tabLearn' : 'tabTest');
   if (panel) { panel.classList.add('active'); panel.style.display = 'block'; }
   if (tab === 'test') {
-    if (currentSection !== 'math') {
+    if (currentSection === 'past tests' || currentSection === 'other links') {
       const ta = document.getElementById('testArea');
-      if (ta) ta.innerHTML = '<p class="no-results">Tests are only available for Math topics.</p>';
+      if (ta) ta.innerHTML = '<p class="no-results">Tests are not available for this section.</p>';
       return;
     }
     if (!testState) {
@@ -3244,10 +2316,426 @@ function showTab(tab) {
   }
 }
 function renderTestConfigHTML() {
+  const sec = currentSection;
+  const cfg = DATA_MANIFEST[sec] && DATA_MANIFEST[sec].test;
+  const fullQ = cfg ? cfg.q : 60;
+  const fullMin = cfg ? cfg.min : 60;
+  const halfQ = cfg ? Math.round(fullQ / 2) : 30;
+  const halfMin = cfg ? Math.round(fullMin / 2) : 30;
   return '<div class="test-config">' +
     '<h4>Test Settings</h4>' +
-    '<div class="config-row"><label>Questions: <input type="number" id="testQuestionCount" min="10" value="10"></label></div>' +
-    '<div class="config-row"><label>Time (minutes, 0 = untimed): <input type="number" id="testTimeLimit" min="0" max="30" value="0"></label></div>' +
+    '<div class="preset-row">' +
+      '<button class="preset-btn" onclick="applyPreset(' + fullQ + ',' + fullMin + ',true)">🏁 ' + sectionTestLabel(sec) + ' · ' + fullQ + 'q · ' + fullMin + 'min</button>' +
+      '<button class="preset-btn" onclick="applyPreset(' + halfQ + ',' + halfMin + ',false)">Half Length · ' + halfQ + 'q · ' + halfMin + 'min</button>' +
+      '<button class="preset-btn" onclick="applyPreset(10,0,false)">Quick · 10q · Untimed</button>' +
+    '</div>' +
+    '<div class="config-row"><label>Questions: <input type="number" id="testQuestionCount" min="5" max="' + fullQ + '" value="10"></label></div>' +
+    '<div class="config-row"><label>Time (minutes, 0 = untimed): <input type="number" id="testTimeLimit" min="0" max="' + fullMin + '" value="0"></label></div>' +
+    '<div class="config-row"><label><input type="checkbox" id="testScopeFull"> Full test — mix all topics, ordered easy → hard</label></div>' +
     '<button class="start-test-btn" onclick="startTest()">Start Test</button>' +
     '</div>';
 }
+function applyPreset(q, min, full) {
+  const c = document.getElementById('testQuestionCount');
+  const t = document.getElementById('testTimeLimit');
+  const s = document.getElementById('testScopeFull');
+  if (c) c.value = q;
+  if (t) t.value = min;
+  if (s) s.checked = full;
+}
+
+// ── STEP ANIMATOR ──────────────────
+let stepAnimator = null;
+function initStepAnimator() {
+  stepAnimator = null;
+  const area = document.getElementById('explanationArea');
+  if (!area) return;
+  const steps = area.querySelectorAll('.step-box');
+  if (!steps.length) return;
+
+  const controls = document.createElement('div');
+  controls.className = 'step-controls';
+  controls.innerHTML = `
+    <span class="step-label">Steps</span>
+    <button class="step-btn" id="stepPrev" title="Previous step">← Prev</button>
+    <button class="step-btn primary" id="stepPlay" title="Play / Pause">▶ Play</button>
+    <button class="step-btn" id="stepNext" title="Next step">Next →</button>
+    <span class="step-counter" id="stepCounter">0 / 0</span>
+    <span class="step-label" style="margin-left:.25rem">Speed</span>
+    <select class="step-speed" id="stepSpeed">
+      <option value="1800">Slow</option>
+      <option value="1100" selected>Normal</option>
+      <option value="600">Fast</option>
+    </select>
+    <button class="step-btn" id="stepReset" title="Reset">↺ Reset</button>
+  `;
+  area.parentElement.insertBefore(controls, area);
+  area.classList.add('animating');
+
+  let idx = -1;
+  let timer = null;
+  let playing = false;
+  const update = () => {
+    steps.forEach((s, i) => s.classList.toggle('active-step', i === idx));
+    document.getElementById('stepCounter').textContent = (idx + 1) + ' / ' + steps.length;
+    document.getElementById('stepPrev').disabled = idx <= 0;
+    document.getElementById('stepNext').disabled = idx >= steps.length - 1;
+    if (idx > -1) steps[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+  const clear = () => { if (timer) { clearTimeout(timer); timer = null; } };
+  const advance = () => {
+    if (idx < steps.length - 1) { idx++; update(); schedule(); }
+    else stop();
+  };
+  const schedule = () => {
+    clear();
+    if (!playing) return;
+    const speed = parseInt(document.getElementById('stepSpeed').value || '1100', 10);
+    timer = setTimeout(advance, speed);
+  };
+  const play = () => {
+    playing = true;
+    document.getElementById('stepPlay').textContent = '⏸ Pause';
+    if (idx >= steps.length - 1) { idx = -1; update(); }
+    schedule();
+  };
+  const stop = () => {
+    playing = false; clear();
+    document.getElementById('stepPlay').textContent = '▶ Play';
+  };
+
+  document.getElementById('stepPrev').onclick = () => { stop(); if (idx > 0) idx--; update(); };
+  document.getElementById('stepNext').onclick = () => { stop(); if (idx < steps.length - 1) idx++; update(); };
+  document.getElementById('stepPlay').onclick = () => playing ? stop() : play();
+  document.getElementById('stepReset').onclick = () => { stop(); idx = -1; update(); };
+
+  update();
+  stepAnimator = { stop };
+}
+// ── SECTION QUESTION GENERATOR FACTORY ──
+// Question-generator chunks (English/Reading/Science) call this to build their
+// section generator. Mirrors the math TopicQuestionGenerator contract:
+// generate(topicName, count, level) -> array of {q, options, answer, explanation}.
+window.makeSectionGenerator = function (GEN, fallback) {
+  'use strict';
+  const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+  const shuffle = arr => {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  };
+  function generate(topicName, count, level) {
+    count = Math.max(1, Math.min(count || 10, 60));
+    const tpl = GEN[topicName];
+    const gen = (lvl) => (Array.isArray(tpl) ? pick(tpl)(lvl) : (tpl || ((x) => fallback(x, topicName)))(lvl));
+    const questions = [];
+    const seen = new Set();
+    let guard = 0;
+    let perLevel;
+    if (level === 'easy' || level === 'medium' || level === 'hard') {
+      perLevel = [[level, count]];
+    } else {
+      const easyN = Math.round(count * 0.4);
+      const medN = Math.round(count * 0.35);
+      perLevel = [['easy', easyN], ['medium', medN], ['hard', count - easyN - medN]];
+    }
+    for (const [lvl, n] of perLevel) {
+      let produced = 0;
+      while (produced < n && guard++ < count * 80) {
+        const q = gen(lvl);
+        if (!q || !q.q || !q.options || q.options.length < 2) continue;
+        const key = q.q + '\u0000' + q.options.join('\u0000');
+        if (seen.has(key)) continue;
+        seen.add(key);
+        q.level = lvl;
+        questions.push(q);
+        produced++;
+      }
+    }
+    const fillLevel = (level === 'easy' || level === 'medium' || level === 'hard') ? level : 'medium';
+    while (questions.length < count && guard++ < count * 80) {
+      const q = gen(fillLevel);
+      const key = q && q.q && q.options ? q.q + '\u0000' + q.options.join('\u0000') : '';
+      if (key && !seen.has(key)) {
+        seen.add(key);
+        q.level = fillLevel;
+        questions.push(q);
+      }
+    }
+    return questions;
+  }
+  return generate;
+};
+
+// ═══════════════════════════════════════════╗
+// ║  ANALYTICS — localStorage only, private  ║
+// ╚══════════════════════════════════════════╝
+// No external tracking. Everything lives in the visitor's own browser.
+const ANALYTICS_KEY = 'actGenieAnalytics';
+function getAnalytics() {
+  try {
+    const raw = localStorage.getItem(ANALYTICS_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (e) {}
+  return { visits: { count: 0, firstVisit: 0, lastVisit: 0, days: [] }, views: {}, search: {}, tests: {}, timeSpent: {} };
+}
+function saveAnalytics(a) {
+  try { localStorage.setItem(ANALYTICS_KEY, JSON.stringify(a)); } catch (e) {}
+}
+function recordVisit() {
+  const a = getAnalytics();
+  const now = Date.now();
+  if (!a.visits) a.visits = { count: 0, firstVisit: now, lastVisit: now, days: [] };
+  a.visits.count = (a.visits.count || 0) + 1;
+  a.visits.firstVisit = a.visits.firstVisit || now;
+  a.visits.lastVisit = now;
+  const dayKey = new Date().toISOString().slice(0, 10);
+  if (!a.visits.days.includes(dayKey)) a.visits.days.push(dayKey);
+  saveAnalytics(a);
+}
+function recordTopicView(section, category, topic) {
+  const a = getAnalytics();
+  const key = section + '::' + category + '::' + topic;
+  a.views[key] = (a.views[key] || 0) + 1;
+  saveAnalytics(a);
+}
+function recordSearchTerm(term) {
+  if (term.length < 2) return;
+  const a = getAnalytics();
+  a.search[term] = (a.search[term] || 0) + 1;
+  saveAnalytics(a);
+}
+function recordTestAnalytics(section, pct) {
+  if (!section) return;
+  const a = getAnalytics();
+  if (!a.tests[section]) a.tests[section] = { count: 0, sum: 0, best: 0 };
+  const t = a.tests[section];
+  t.count++; t.sum += pct; if (pct > t.best) t.best = pct;
+  saveAnalytics(a);
+}
+function recordPlanSignup() {
+  // study-plan waitlist removed
+}
+// Section time spent — accumulated seconds while a section view is active.
+let sectionTime = { section: null, start: 0 };
+function trackSectionTime(section) {
+  flushSectionTime();
+  sectionTime = { section, start: Date.now() };
+}
+function flushSectionTime() {
+  if (!sectionTime.section) return;
+  const a = getAnalytics();
+  const sec = sectionTime.section;
+  a.timeSpent[sec] = (a.timeSpent[sec] || 0) + Math.max(1, Math.round((Date.now() - sectionTime.start) / 1000));
+  saveAnalytics(a);
+  sectionTime.section = null;
+}
+document.addEventListener('visibilitychange', () => { if (document.hidden) flushSectionTime(); });
+window.addEventListener('beforeunload', flushSectionTime);
+
+function fmtDuration(sec) {
+  if (!sec) return '0m';
+  if (sec < 60) return sec + 's';
+  const m = Math.floor(sec / 60), s = sec % 60;
+  return s ? m + 'm ' + s + 's' : m + 'm';
+}
+function fmtDate(ts) {
+  if (!ts) return '—';
+  return new Date(ts).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+}
+// ── SUPPORT VIEW ──
+function renderSupport() {
+  main.innerHTML = `
+    <div class="breadcrumb">
+      <button onclick="navigate('home')">← Home</button>
+      <span>/</span>
+      <strong>💛 Support ACT Wizard</strong>
+    </div>
+    <div class="section-header">
+      <h2>Support ACT Wizard</h2>
+      <p>Donations help keep the project going. A portion of contributions goes
+directly toward improving the site. The rest supports the time and effort behind making this resource free and accessible.</p>
+    </div>
+    <div class="analytics-grid">
+      <div class="analytics-card support-card">
+        <h4>Buy Me a Coffee</h4>
+        <p class="dim">One-time support with no account required.</p>
+        <a href="https://buymeacoffee.com/jurrienward" target="_blank" rel="noopener" class="donation-btn bmc"><span class="dn-ico">☕</span>Buy Me a Coffee</a>
+      </div>
+      <div class="analytics-card support-card">
+        <h4>PayPal</h4>
+        <p class="dim">Send a one-time donation through your PayPal account.</p>
+        <a href="https://paypal.me/jurrienward" target="_blank" rel="noopener" class="donation-btn paypal"><span class="dn-ico">♡</span>Donate via PayPal</a>
+      </div>
+    </div>
+  `;
+}
+// ── ANALYTICS VIEW ──
+function renderAnalytics() {
+  const a = getAnalytics();
+  const v = a.visits || {};
+  const daysSince = v.firstVisit ? Math.max(0, Math.floor((Date.now() - v.firstVisit) / 86400000)) : 0;
+  const retention = v.days ? v.days.length : 0;
+
+  const topViews = Object.entries(a.views || {})
+    .sort((x, y) => y[1] - x[1]).slice(0, 8)
+    .map(([key, n]) => {
+      const [section, cat, topic] = key.split('::');
+      return `<tr><td><strong>${topic}</strong><span class="dim"> · ${section} · ${cat}</span></td><td class="num">${n}</td></tr>`;
+    }).join('') || '<tr><td colspan="2" class="dim">No topics viewed yet.</td></tr>';
+
+  const tests = Object.entries(a.tests || {})
+    .filter(([sec]) => sec !== 'science' || isScienceEnabled())
+    .map(([sec, t]) => `<tr><td><strong>${sectionTestLabel(sec)}</strong></td><td class="num">${t.count}</td><td class="num">${Math.round(t.sum / t.count)}%</td><td class="num">${t.best}%</td></tr>`)
+    .join('') || '<tr><td colspan="4" class="dim">No tests taken yet.</td></tr>';
+
+  const searches = Object.entries(a.search || {})
+    .sort((x, y) => y[1] - x[1]).slice(0, 8)
+    .map(([term, n]) => `<tr><td><strong>${term.replace(/</g, '&lt;')}</strong></td><td class="num">${n}</td></tr>`)
+    .join('') || '<tr><td colspan="2" class="dim">No searches yet.</td></tr>';
+
+  const time = Object.entries(a.timeSpent || {})
+    .sort((x, y) => y[1] - x[1])
+    .map(([sec, s]) => `<tr><td><strong>${sectionTestLabel(sec)}</strong></td><td class="num">${fmtDuration(s)}</td></tr>`)
+    .join('') || '<tr><td colspan="2" class="dim">No time recorded yet.</td></tr>';
+
+  main.innerHTML = `
+    <div class="breadcrumb">
+      <button onclick="navigate('home')">← Home</button>
+      <span>/</span>
+      <strong>Local Analytics</strong>
+    </div>
+    <div class="section-header">
+      <h2>📊 Local Analytics</h2>
+      <p>Private by design — everything below is stored only in your browser.</p>
+    </div>
+    <div class="analytics-grid">
+      <div class="analytics-card">
+        <h4>Retention</h4>
+        <div class="kpi-row">
+          <div class="kpi"><b>${v.count || 0}</b><span>Visits</span></div>
+          <div class="kpi"><b>${retention}</b><span>Active days</span></div>
+          <div class="kpi"><b>${daysSince}</b><span>Days since first</span></div>
+        </div>
+        <p class="dim">First visit: ${fmtDate(v.firstVisit)} · Last visit: ${fmtDate(v.lastVisit)}</p>
+        ${daysSince > 0 ? `<p class="dim">Returning visitor: ${retention >= 2 ? '✅ yes' : '—'} (${Math.round(v.count / daysSince * 10) / 10} visits/day)</p>` : ''}
+      </div>
+      <div class="analytics-card">
+        <h4>Average Test Scores</h4>
+        <table class="analytics-table">
+          <thead><tr><th>Section</th><th>Tests</th><th>Avg</th><th>Best</th></tr></thead>
+          <tbody>${tests}</tbody>
+        </table>
+      </div>
+      <div class="analytics-card">
+        <h4>Most-Viewed Topics</h4>
+        <table class="analytics-table">
+          <thead><tr><th>Topic</th><th>Views</th></tr></thead>
+          <tbody>${topViews}</tbody>
+        </table>
+      </div>
+      <div class="analytics-card">
+        <h4>Common Searches</h4>
+        <table class="analytics-table">
+          <thead><tr><th>Term</th><th>Count</th></tr></thead>
+          <tbody>${searches}</tbody>
+        </table>
+      </div>
+      <div class="analytics-card">
+        <h4>Time Spent by Section</h4>
+        <table class="analytics-table">
+          <thead><tr><th>Section</th><th>Time</th></tr></thead>
+          <tbody>${time}</tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+function resetAnalytics() {
+  try { localStorage.removeItem(ANALYTICS_KEY); } catch (e) {}
+  renderAnalytics();
+}
+
+// ═══════════════════════════════════════════╗
+// ║         MOBILE NAV & SEARCH UI           ║
+// ╚══════════════════════════════════════════╝
+const menuToggle = document.getElementById('menuToggle');
+const mainNav = document.getElementById('mainNav');
+const navOverlay = document.getElementById('navOverlay');
+const searchToggle = document.getElementById('searchToggle');
+const searchWrap = document.querySelector('.search-wrap');
+
+function openMobileMenu() {
+  if (!mainNav) return;
+  mainNav.classList.add('open');
+  if (navOverlay) navOverlay.hidden = false;
+  setTimeout(() => { if (navOverlay) navOverlay.classList.add('show'); }, 10);
+  if (menuToggle) { menuToggle.setAttribute('aria-expanded', 'true'); menuToggle.setAttribute('aria-label', 'Close menu'); }
+  document.body.classList.add('no-scroll');
+}
+function closeMobileMenu() {
+  if (!mainNav) return;
+  mainNav.classList.remove('open');
+  if (navOverlay) navOverlay.classList.remove('show');
+  if (navOverlay) setTimeout(() => { navOverlay.hidden = true; }, 250);
+  if (menuToggle) { menuToggle.setAttribute('aria-expanded', 'false'); menuToggle.setAttribute('aria-label', 'Open menu'); }
+  document.body.classList.remove('no-scroll');
+}
+function toggleMobileMenu() {
+  mainNav.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+}
+if (menuToggle) menuToggle.addEventListener('click', toggleMobileMenu);
+if (navOverlay) navOverlay.addEventListener('click', closeMobileMenu);
+if (searchToggle) {
+  searchToggle.addEventListener('click', () => {
+    const open = searchWrap && searchWrap.classList.toggle('search-open');
+    searchToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open && searchInput) searchInput.focus();
+  });
+}
+
+// ═══════════════════════════════════════════╗
+// ║            SUPPORT MODAL                 ║
+// ╚══════════════════════════════════════════╝
+const supportModal = document.getElementById('supportModal');
+const supportBtn = document.getElementById('supportBtn');
+const supportClose = document.getElementById('supportModalClose');
+function openSupportModal() {
+  if (supportModal) { supportModal.hidden = false; document.body.classList.add('no-scroll'); }
+  const first = supportModal && supportModal.querySelector('a, button');
+  if (first) setTimeout(() => first.focus(), 30);
+}
+function closeSupportModal() {
+  if (supportModal) supportModal.hidden = true;
+  document.body.classList.remove('no-scroll');
+}
+if (supportBtn) supportBtn.addEventListener('click', openSupportModal);
+if (supportClose) supportClose.addEventListener('click', closeSupportModal);
+if (supportModal) supportModal.addEventListener('click', (e) => { if (e.target === supportModal) closeSupportModal(); });
+
+// ── KEYBOARD: ESC closes overlays ──
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  closeMobileMenu();
+  closeSupportModal();
+  searchWrap && searchWrap.classList.remove('search-open');
+  if (searchToggle) searchToggle.setAttribute('aria-expanded', 'false');
+});
+// ── KEYBOARD: Ctrl+Shift+A opens the local analytics view ──
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+    e.preventDefault();
+    navigate('analytics');
+  }
+});
+// #analytics hash opens the dashboard even when already on the page.
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#analytics') navigate('analytics');
+});
+// ── BOOT ────────────────────────
+recordVisit();
+if (window.location.hash === '#analytics') navigate('analytics');
+else navigate('home');
