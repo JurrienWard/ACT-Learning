@@ -2,10 +2,10 @@
   'use strict';
   data["reading"] = {
     title: "ACT Reading",
-    desc: "36 questions · 40 minutes · Literary, Social Studies, Humanities, and Natural Science passages",
+    desc: "36 questions · 35 minutes · Literary, Social Studies, Humanities, and Natural Science passages",
     categories: [
       {
-        name: "Key Ideas & Details",
+        name: "Key Ideas & Details (44–52%)",
         topics: [
           {
             name: "Main Idea / Central Theme",
@@ -54,7 +54,7 @@
         ]
       },
       {
-        name: "Craft & Structure",
+        name: "Craft & Structure (26–33%)",
         topics: [
           {
             name: "Vocabulary in Context",
@@ -103,7 +103,7 @@
         ]
       },
       {
-        name: "Integration of Knowledge",
+        name: "Integration of Knowledge & Ideas (19–26%)",
         topics: [
           {
             name: "Claims & Evidence",

@@ -109,7 +109,7 @@ const TopicQuestionGenerator = (() => {
   // 'easy' | 'medium' | 'hard'.
   const GEN = {
 
-    // ── Pre-Algebra & Arithmetic ──────────────────────
+    // ── Number & Quantity ──────────────────────
     'Number Types & Properties': [
       level => {
         if (level === 'easy') {
@@ -333,7 +333,7 @@ const TopicQuestionGenerator = (() => {
           'Parentheses first: ' + a + ' + ' + b + ' = ' + (a + b) + '. Then ' + (a + b) + ' × ' + c + ' = ' + ((a + b) * c) + ', and finally − ' + d + ' = ' + ans + '.');
     },
 
-    // ── Elementary Algebra ───────────────────────────
+    // ── Algebra ───────────────────────────
     'Solving Linear Equations': level => {
       if (level === 'easy') {
         const x = randInt(2, 9), a = randInt(3, 12);
@@ -559,7 +559,7 @@ const TopicQuestionGenerator = (() => {
       }
     ],
 
-    // ── Intermediate Algebra ─────────────────────────
+    // ── Algebra / Intermediate Algebra ────────────────
     'Systems of Equations': level => {
       if (level === 'easy') {
         let a = randInt(2, 5), b = randInt(2, 5), c = randInt(2, 5), d = randInt(2, 5);
@@ -759,7 +759,7 @@ const TopicQuestionGenerator = (() => {
       }
     },
 
-    // ── Coordinate Geometry ──────────────────────────
+    // ── Geometry / Coordinate Geometry ────────────────
     'Slope of a Line': level => {
       if (level === 'easy') {
         const x1 = randInt(1, 5), y1 = randInt(1, 8), dx = randInt(2, 5), dy = randInt(2, 6);
@@ -895,7 +895,7 @@ const TopicQuestionGenerator = (() => {
       }
     },
 
-    // ── Plane Geometry ───────────────────────────────
+    // ── Geometry / Plane Geometry ─────────────────────
     'Angles & Parallel Lines': level => {
       if (level === 'easy') {
         const a = randInt(30, 80);
@@ -1069,7 +1069,7 @@ const TopicQuestionGenerator = (() => {
       }
     },
 
-    // ── Trigonometry ─────────────────────────────────
+    // ── Geometry / Trigonometry ───────────────────────
     'SOH-CAH-TOA': level => {
       if (level === 'easy') {
         const theta = pick([30, 45, 60]), hyp = randInt(6, 12);
@@ -1648,7 +1648,7 @@ function renderHome() {
       <div class="subject-card math" onclick="navigate('section','math')">
         <span class="icon">📐</span>
         <h3>Math</h3>
-        <p>45 questions · 50 min · Pre-Algebra through Trigonometry · ${countTopics('math')} topics</p>
+        <p>45 questions · 50 min · Number & Quantity, Algebra, Functions, Statistics & Probability, Geometry, Integrating Essential Skills, Modeling · ${countTopics('math')} topics</p>
       </div>
       <div class="subject-card english" onclick="navigate('section','english')">
         <span class="icon">📝</span>

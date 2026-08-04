@@ -3,10 +3,11 @@
   data['english'] = {
     title: 'ACT English',
     desc: '50 questions · 35 minutes · Grammar, style & rhetoric. You read short passages and choose the best fix for each underlined phrase, so editing in context is everything.',
-    categories: [
+    categories: 
       {
-        name: 'Punctuation',
+        name: 'Conventions of Standard English',
         topics: [
+          
           {
             name: 'Commas',
             diff: 'medium',
@@ -86,12 +87,8 @@
   <strong>Answer:</strong> B. Match the opening dash with a closing dash; A, C, and D leave one break unmatched.
 </div><div class="warning-box">Mixing punctuation inside a single interruption is a trap: if you open with an em dash, close with an em dash. Also, a lone dash can never join two complete sentences by itself — both halves must still combine into one grammatical sentence.</div>`,
             khan: '-'
-          }
-        ]
-      },
-      {
-        name: 'Sentence Structure',
-        topics: [
+          },
+          
           {
             name: 'Run-ons & Comma Splices',
             diff: 'medium',
@@ -155,12 +152,8 @@
   <strong>Answer:</strong> B. "documented" matches "kept," keeping the passage squarely in the past.
 </div><div class="warning-box">A single present-tense verb hidden in an all-past paragraph is the classic trap: it read fine by itself but clashes with the whole passage. Read two sentences around the blank and match the dominant tense before you decide.</div>`,
             khan: '-'
-          }
-        ]
-      },
-      {
-        name: 'Grammar & Usage',
-        topics: [
+          },
+          
           {
             name: 'Subject-Verb Agreement',
             diff: 'medium',
@@ -241,94 +234,8 @@ Careful with the split: "The flower smells well" would mean the flower is health
   <strong>Answer:</strong> B. "performed extremely well" — the adverb pair reads correctly.
 </div><div class="warning-box">After a linking verb the answer flips to an adjective ("tastes good"); after an action verb it stays an adverb ("sings well"). Check whether the word describes a noun or the action. If it modifies the action, add the "-ly"/adverb form.</div>`,
             khan: '-'
-          }
-        ]
-      },
-      {
-        name: 'Rhetorical Skills',
-        topics: [
-          {
-            name: 'Add/Delete Questions',
-            diff: 'medium',
-            expl: `Should the writer add a sentence, or delete one? Ask three questions:<br><br>1. Does it advance the paragraph&apos;s <strong>main idea</strong>?<br>2. Does it add <strong>new, relevant</strong> information?<br>3. Does it match the <strong>tone</strong> of the passage?<br><br>The ACT values focused, concise paragraphs. If a sentence is off-topic, repeats an idea already stated, or belongs elsewhere, DELETE it — even if it is factually true and well-written.<br><br>Read the line just before and just after the proposed sentence; the right answer keeps the paragraph united.<div class="example-box">
-  <strong>Question:</strong> A paragraph celebrates the honeybee's role in pollinating crops. The writer <em>considers adding</em>: "Honeybees can lift twice their body weight." Should the sentence be added?<br>
-  A. Yes, because it provides a comforting new fact.<br>
-  B. No, because it mentions a trait that is unrelated to the paragraph's focus on pollination.<br>
-  C. Yes, because all bee facts improve the essay.<br>
-  D. No, because it is grammatically incorrect.
-  <div class="step-box"><span class="step-num">1</span> What is the paragraph's single subject? Pollination — the honeybee's role in it.</div>
-  <div class="step-box"><span class="step-num">2</span> "Can lift twice body weight" is an interesting fact about bee strength, not about pollination.</div>
-  <div class="step-box"><span class="step-num">3</span> The detail is off-topic, regardless of being true and interesting.</div>
-  <strong>Answer:</strong> B. Reject the sentence because it shifts away from the focus.
-</div><div class="warning-box">True and interesting are not success conditions. A fascinating but off-topic fact should be rejected, and a sentence that repeats what was already said should be rejected too. Focus and freshness are the questions, not correctness alone.</div>`,
-            khan: '-'
           },
-          {
-            name: 'Transitions',
-            diff: 'medium',
-            expl: `Transition words signal the logical relationship between ideas. Read both surrounding sentences and name that relationship before choosing a word.<br><br>• <strong>Addition:</strong> furthermore, moreover, also, in addition<br>• <strong>Contrast:</strong> however, but, yet, in contrast, on the contrary<br>• <strong>Cause / Effect:</strong> therefore, thus, consequently, as a result<br>• <strong>Sequence:</strong> first, then, subsequently, finally<br>• <strong>Example:</strong> for instance, for example, specifically<br>• <strong>Conclusion:</strong> therefore, as a result, in sum, finally<br><br>Read the clause before and after the blank. Is the idea "and," "but," or "therefore"? Match your selection to the same logic.<div class="example-box">
-  <strong>Question:</strong> Many students cut back on sleep to study extra hours; <em>blank</em>, they are exhausted in the morning.<br>
-  A. however<br>
-  B. consequently<br>
-  C. likewise<br>
-  D. first
-  <div class="step-box"><span class="step-num">1</span> The relationship: little sleep causes morning exhaustion.</div>
-  <div class="step-box"><span class="step-num">2</span> We need a cause-and-effect word, not a contrast or list-added.</div>
-  <div class="step-box"><span class="step-num">3</span> "Consequently" marks the result.</div>
-  <strong>Answer:</strong> B. The exhaustion follows as a result of the sleep loss.
-</div><div class="warning-box">Do not choose a transition just because it "sounds good." "However" is forceful and common, but if the logic is cause-to-effect, only a cause-effect word works. Name the relationship (contrast? addition? result?) before you scan the options.</div>`,
-            khan: '-'
-          },
-          {
-            name: 'Organization & Paragraph Order',
-            diff: 'medium',
-            expl: `Questions about moving a sentence or paragraph test logical flow.<br><br>Look for coherent clues:<br>• <strong>Pronoun cues:</strong> the sentence "This theory…" — the previous sentence must introduce the theory.<br>• <strong>Chronology:</strong> events should follow time order.<br>• <strong>Topic sentences:</strong> a paragraph's first sentence should introduce what it develops.<br>• <strong>Echo of claims:</strong> a claim made earlier should be resolved later.<br><br>Strategy: read the sentences in the proposed new order. Does the flow feel smoother and more logical? A pronoun reference must come after the subject it points to.<div class="example-box">
-  <strong>Question:</strong> The passage's second paragraph begins with the italic phrase "This rival theory argues the opposite," but the first paragraph never describes that rival theory. Best fix?<br>
-  A. Delete the phrase "this rival theory."<br>
-  B. Add a sentence describing the rival theory earlier in the passage.<br>
-  C. Move it to the end of the passage.<br>
-  D. No change is needed.
-  <div class="step-box"><span class="step-num">1</span> "This rival theory" is a pronoun; it needs a clear reference already introduced.</div>
-  <div class="step-box"><span class="step-num">2</span> Since no theory was named earlier, the reference is broken.</div>
-  <div class="step-box"><span class="step-num">3</span> The passage must introduce the rival theory before the phrase can point to it.</div>
-  <strong>Answer:</strong> B. Supply the missing antecedent so the pronoun "this" has a clear referent.
-</div><div class="warning-box">"It would sound better" is not a real test. Track pronouns: any "this, it, they" must have a clear, already-present target. If a pronoun points to a concept never introduced, the structure is broken regardless of how well the sentence flows in isolation.</div>`,
-            khan: '-'
-          },
-          {
-            name: 'Conciseness & Redundancy',
-            diff: 'easy',
-            expl: `The ACT prizes tight, efficient writing. When several answers are grammatically correct, the <strong>shortest</strong> one is usually best.<br><br>Wrong: She returned back to the store. (return already means "went back")<br>Correct: She returned to the store.<br>Wrong: The two twins sat together. (twins are already two)<br><br>Common redundancies to avoid:<br>• past history → history<br>• completely finished → finished<br>• advance planning → planning<br>• end result → result<br>• reason why → reason<br>• share together → share<br><br>If removing a phrase will not change the meaning, remove it. Cut the overlap, not the necessary detail.<div class="example-box">
-  <strong>Question:</strong> The mayor said her top priority was to upgrade the town&apos;s roads.<br>
-  Consider: "highly unique new innovation" — pick the cleanest fix.
-  <div class="step-box"><span class="step-num">1</span> "unique" that means "one of a kind" — "highly" adds nothing, and "new" repeats it.</div>
-  <div class="step-box"><span class="step-num">2</span> "Innovation" also means something new, so "new" is redundant.</div>
-  <div class="step-box"><span class="step-num">3</span> The clean version: "a unique innovation."</div>
-  <strong>Answer:</strong> Drop the redundant words ("highly," "new") and keep the precise noun.
-</div><div class="warning-box">A crisp, short answer can feel too plain, so you may reach for a longer, similarly "correct" option. Conciseness wins when it cuts only redundancy. Never cut a word that carries necessary, non-repeated meaning.</div>` ,
-            khan: '-'
-          },
-          {
-            name: 'Tone & Style',
-            diff: 'medium',
-            expl: `Match the passage&apos;s register. A formal argument should not use slang; a personal memoir should not sound like a clinical report.<br><br>Ask: What is the author&apos;s purpose and audience? Then choose wording that fits.<br><br>Wrong in a formal essay: The results were totally awesome.<br>Correct: The results were significant.<br><br>Wrong in a personal piece: The individual proceeded to acquire sustenance.<br>Correct: I went to get some food.<br><br>Also watch the register (can&apos;t vs cannot) rules — a passage often prefers one style over the other.<br><br>Read a sentence before and after the choice to match the style surrounding it.<div class="example-box">
-  <strong>Question:</strong> In a formal funding proposal, a draft states, "the program is kind of a big deal".<br>
-  A. the program is kind of a big deal<br>
-  B. the program is quite significant<br>
-  C. the program rocks<br>
-  D. the program works
-  <div class="step-box"><span class="step-num">1</span> The tone must be formal because the sentence appears in a funding proposal.</div>
-  <div class="step-box"><span class="step-num">2</span> "Kind of a big deal" and "rocks" are informal/casual phrasings.</div>
-  <div class="step-box"><span class="step-num">3</span> "Quite significant" has the formal register the context calls for.</div>
-  <strong>Answer:</strong> B. Choose the option that matches the piece&apos;s formal register.
-</div><div class="warning-box">A tone question can feature a grammatically perfect but stylistically wrong option. Register, not correctness, is the test. Read the sentences around the blank and mirror their formality and audience posture before choosing.</div>`,
-            khan: '-'
-          }
-        ]
-      },
-      {
-        name: 'Commonly Confused Words',
-        topics: [
+          
           {
             name: 'Affect vs Effect',
             diff: 'medium',
@@ -377,7 +284,7 @@ Careful with the split: "The flower smells well" would mean the flower is health
 </div><div class="warning-box">The pronoun after a preposition is overwhelmingly "whom." But be careful: the object/subject depends on the surrounding clause, not the preposition alone. Keep testing he/him; if "he" is the subject, use "who"; if "him" fits, use "whom."</div>`,
         khan: '-'
         },
-        {
+          {
           name: 'Its vs It&apos;s',
           diff: 'easy',
           expl: `<strong>It&apos;s</strong> = it is (a contraction of the subject and verb).<br><strong>Its</strong> = possessive, belonging to it, with no apostrophe.<br><br>Test: replace the word with "it is." If the sentence still reads correctly, use it&apos;s; if it does not, use its.<br><br>Correct: It&apos;s going to rain. (= It is going to rain.)<br>Correct: The dog wagged <em>its</em> tail. (= The dog wagged *it is* tail? No. Use its.)<br><br>Possession alert: his, hers, ours, yours, theirs, its — NO apostrophe on possessives.<br><br>This is among the most-tested word-choice distinctions, so master the "it is" substitution.<div class="example-box">
@@ -393,7 +300,7 @@ D. it is / its
 </div><div class="warning-box">Underline "its/it&apos;s" and substitute "it is." If the sentence lets "it is" fill the blank, it&apos;s with an apostrophe wins; if not, the possessive "its" (no apostrophe) is correct. Do not let the word "it is" override the possessive reading you need.</div>`,
           khan: '-'
         },
-        {
+          {
           name: 'Their/There/They&apos;re',
           diff: 'easy',
           expl: `<strong>Their</strong> = possessive, belongs to them.<br><strong>There</strong> = a place, or a filler word ("there is," "there are").<br><strong>They&apos;re</strong> = they are.<br><br>Correct: They&apos;re driving to their house over there.<br><br>Easy breaks: Their has "heir" linking to possession and inheritance; there contains "here," a place of location; they&apos;re is literally they + are.<div class="example-box">
@@ -406,8 +313,96 @@ D. it is / its
 </div><div class="warning-box">Sound out they&apos;re as "they are." The possessive their belongs to people only, never places; there points to a location or starts a phrase like "there is." Run the three memory breaks to separate them instantly and dodge the cheap but common trap.</div>`,
           khan: '-'
         }
-      ]
-    }
-  ]
+        ]
+      },
+      {
+        name: 'Production of Writing',
+        topics: [
+          
+          {
+            name: 'Add/Delete Questions',
+            diff: 'medium',
+            expl: `Should the writer add a sentence, or delete one? Ask three questions:<br><br>1. Does it advance the paragraph&apos;s <strong>main idea</strong>?<br>2. Does it add <strong>new, relevant</strong> information?<br>3. Does it match the <strong>tone</strong> of the passage?<br><br>The ACT values focused, concise paragraphs. If a sentence is off-topic, repeats an idea already stated, or belongs elsewhere, DELETE it — even if it is factually true and well-written.<br><br>Read the line just before and just after the proposed sentence; the right answer keeps the paragraph united.<div class="example-box">
+  <strong>Question:</strong> A paragraph celebrates the honeybee's role in pollinating crops. The writer <em>considers adding</em>: "Honeybees can lift twice their body weight." Should the sentence be added?<br>
+  A. Yes, because it provides a comforting new fact.<br>
+  B. No, because it mentions a trait that is unrelated to the paragraph's focus on pollination.<br>
+  C. Yes, because all bee facts improve the essay.<br>
+  D. No, because it is grammatically incorrect.
+  <div class="step-box"><span class="step-num">1</span> What is the paragraph's single subject? Pollination — the honeybee's role in it.</div>
+  <div class="step-box"><span class="step-num">2</span> "Can lift twice body weight" is an interesting fact about bee strength, not about pollination.</div>
+  <div class="step-box"><span class="step-num">3</span> The detail is off-topic, regardless of being true and interesting.</div>
+  <strong>Answer:</strong> B. Reject the sentence because it shifts away from the focus.
+</div><div class="warning-box">True and interesting are not success conditions. A fascinating but off-topic fact should be rejected, and a sentence that repeats what was already said should be rejected too. Focus and freshness are the questions, not correctness alone.</div>`,
+            khan: '-'
+          },
+          {
+            name: 'Transitions',
+            diff: 'medium',
+            expl: `Transition words signal the logical relationship between ideas. Read both surrounding sentences and name that relationship before choosing a word.<br><br>• <strong>Addition:</strong> furthermore, moreover, also, in addition<br>• <strong>Contrast:</strong> however, but, yet, in contrast, on the contrary<br>• <strong>Cause / Effect:</strong> therefore, thus, consequently, as a result<br>• <strong>Sequence:</strong> first, then, subsequently, finally<br>• <strong>Example:</strong> for instance, for example, specifically<br>• <strong>Conclusion:</strong> therefore, as a result, in sum, finally<br><br>Read the clause before and after the blank. Is the idea "and," "but," or "therefore"? Match your selection to the same logic.<div class="example-box">
+  <strong>Question:</strong> Many students cut back on sleep to study extra hours; <em>blank</em>, they are exhausted in the morning.<br>
+  A. however<br>
+  B. consequently<br>
+  C. likewise<br>
+  D. first
+  <div class="step-box"><span class="step-num">1</span> The relationship: little sleep causes morning exhaustion.</div>
+  <div class="step-box"><span class="step-num">2</span> We need a cause-and-effect word, not a contrast or list-added.</div>
+  <div class="step-box"><span class="step-num">3</span> "Consequently" marks the result.</div>
+  <strong>Answer:</strong> B. The exhaustion follows as a result of the sleep loss.
+</div><div class="warning-box">Do not choose a transition just because it "sounds good." "However" is forceful and common, but if the logic is cause-to-effect, only a cause-effect word works. Name the relationship (contrast? addition? result?) before you scan the options.</div>`,
+            khan: '-'
+          },
+          {
+            name: 'Organization & Paragraph Order',
+            diff: 'medium',
+            expl: `Questions about moving a sentence or paragraph test logical flow.<br><br>Look for coherent clues:<br>• <strong>Pronoun cues:</strong> the sentence "This theory…" — the previous sentence must introduce the theory.<br>• <strong>Chronology:</strong> events should follow time order.<br>• <strong>Topic sentences:</strong> a paragraph's first sentence should introduce what it develops.<br>• <strong>Echo of claims:</strong> a claim made earlier should be resolved later.<br><br>Strategy: read the sentences in the proposed new order. Does the flow feel smoother and more logical? A pronoun reference must come after the subject it points to.<div class="example-box">
+  <strong>Question:</strong> The passage's second paragraph begins with the italic phrase "This rival theory argues the opposite," but the first paragraph never describes that rival theory. Best fix?<br>
+  A. Delete the phrase "this rival theory."<br>
+  B. Add a sentence describing the rival theory earlier in the passage.<br>
+  C. Move it to the end of the passage.<br>
+  D. No change is needed.
+  <div class="step-box"><span class="step-num">1</span> "This rival theory" is a pronoun; it needs a clear reference already introduced.</div>
+  <div class="step-box"><span class="step-num">2</span> Since no theory was named earlier, the reference is broken.</div>
+  <div class="step-box"><span class="step-num">3</span> The passage must introduce the rival theory before the phrase can point to it.</div>
+  <strong>Answer:</strong> B. Supply the missing antecedent so the pronoun "this" has a clear referent.
+</div><div class="warning-box">"It would sound better" is not a real test. Track pronouns: any "this, it, they" must have a clear, already-present target. If a pronoun points to a concept never introduced, the structure is broken regardless of how well the sentence flows in isolation.</div>`,
+            khan: '-'
+          }
+        ]
+      },
+      {
+        name: 'Knowledge of Language',
+        topics: [
+          {
+            name: 'Conciseness & Redundancy',
+            diff: 'easy',
+            expl: `The ACT prizes tight, efficient writing. When several answers are grammatically correct, the <strong>shortest</strong> one is usually best.<br><br>Wrong: She returned back to the store. (return already means "went back")<br>Correct: She returned to the store.<br>Wrong: The two twins sat together. (twins are already two)<br><br>Common redundancies to avoid:<br>• past history → history<br>• completely finished → finished<br>• advance planning → planning<br>• end result → result<br>• reason why → reason<br>• share together → share<br><br>If removing a phrase will not change the meaning, remove it. Cut the overlap, not the necessary detail.<div class="example-box">
+  <strong>Question:</strong> The mayor said her top priority was to upgrade the town&apos;s roads.<br>
+  Consider: "highly unique new innovation" — pick the cleanest fix.
+  <div class="step-box"><span class="step-num">1</span> "unique" that means "one of a kind" — "highly" adds nothing, and "new" repeats it.</div>
+  <div class="step-box"><span class="step-num">2</span> "Innovation" also means something new, so "new" is redundant.</div>
+  <div class="step-box"><span class="step-num">3</span> The clean version: "a unique innovation."</div>
+  <strong>Answer:</strong> Drop the redundant words ("highly," "new") and keep the precise noun.
+</div><div class="warning-box">A crisp, short answer can feel too plain, so you may reach for a longer, similarly "correct" option. Conciseness wins when it cuts only redundancy. Never cut a word that carries necessary, non-repeated meaning.</div>` ,
+            khan: '-'
+          },
+          {
+            name: 'Tone & Style',
+            diff: 'medium',
+            expl: `Match the passage&apos;s register. A formal argument should not use slang; a personal memoir should not sound like a clinical report.<br><br>Ask: What is the author&apos;s purpose and audience? Then choose wording that fits.<br><br>Wrong in a formal essay: The results were totally awesome.<br>Correct: The results were significant.<br><br>Wrong in a personal piece: The individual proceeded to acquire sustenance.<br>Correct: I went to get some food.<br><br>Also watch the register (can&apos;t vs cannot) rules — a passage often prefers one style over the other.<br><br>Read a sentence before and after the choice to match the style surrounding it.<div class="example-box">
+  <strong>Question:</strong> In a formal funding proposal, a draft states, "the program is kind of a big deal".<br>
+  A. the program is kind of a big deal<br>
+  B. the program is quite significant<br>
+  C. the program rocks<br>
+  D. the program works
+  <div class="step-box"><span class="step-num">1</span> The tone must be formal because the sentence appears in a funding proposal.</div>
+  <div class="step-box"><span class="step-num">2</span> "Kind of a big deal" and "rocks" are informal/casual phrasings.</div>
+  <div class="step-box"><span class="step-num">3</span> "Quite significant" has the formal register the context calls for.</div>
+  <strong>Answer:</strong> B. Choose the option that matches the piece&apos;s formal register.
+</div><div class="warning-box">A tone question can feature a grammatically perfect but stylistically wrong option. Register, not correctness, is the test. Read the sentences around the blank and mirror their formality and audience posture before choosing.</div>`,
+            khan: '-'
+          }
+        ]
+      }
+    ]
 };
 })();

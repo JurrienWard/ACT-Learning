@@ -4,10 +4,10 @@
     "title": "ACT Math",
     "desc": "45 questions · 50 minutes · 5 answer choices per question. Topics span pre-algebra through trigonometry, with algebra, geometry, and word problems weighted heaviest. Know the formulas cold, use your calculator wisely, and practice pacing to finish strong.",
     "categories": [
-      {
-        "name": "Pre-Algebra & Arithmetic",
-        "topics": [
-          {
+        {
+            "name": "Number & Quantity",
+            "topics": [
+{
             "name": "Number Types & Properties",
             "diff": "easy",
             "visual": {"type":"numberLine","min":-10,"max":10,"marks":[{"v":-5,"filled":true},{"v":0,"filled":true},{"v":5,"filled":true}],"caption":""},
@@ -27,7 +27,7 @@
 </div>
 <div class="warning-box">On the ACT, "between 1 and 100" usually means <strong>inclusive</strong> (both 1 and 100 are candidates) unless it says "exclusive" or "not including." Always read the boundary conditions before counting. When stuck on a classify-the-number question, test each choice against the definition rather than guessing.</div>`
           },
-          {
+{
             "name": "Factors, Multiples & Divisibility",
             "diff": "easy",
             "visual": {"type":"numberLine","min":0,"max":24,"marks":[{"v":6,"filled":true},{"v":12,"filled":true},{"v":18,"filled":true},{"v":24,"filled":true}],"caption":""},
@@ -48,50 +48,7 @@
 </div>
 <div class="warning-box">A classic trap: for consecutive integers, the product is divisible by n!. Example: the product of 4 consecutive integers is always divisible by 24 (= 4!). Also, the GCF can never exceed the smaller number, and the LCM can never be smaller than the larger one — use those bounds to spot impossible answer choices.</div>`
           },
-          {
-            "name": "Fractions, Decimals & Percentages",
-            "diff": "medium",
-            "visual": {"type":"bar","labels":["1/2","1/4","3/4","1/5"],"values":[50,25,75,20],"gold":false,"caption":"Equivalent percentages"},
-            "expl": `Fractions, decimals, and percentages are three ways of writing the same value. <strong>Percent change</strong> measures growth or shrink relative to the original amount.<br><br>Memorize these conversions to save time: 1/2 = 0.5 = 50%, 1/4 = 25%, 3/4 = 75%, 1/3 ≈ 33.3%, 2/3 ≈ 66.7%, 1/5 = 20%, 1/8 = 12.5%.
-<div class="formula-box">Percent change = (new − old) ÷ old × 100%<br>Percent of a number: p% of x = (p/100) × x<br>Increase by p% → multiply by (1 + p/100); decrease → multiply by (1 − p/100)</div>
-<div class="example-box">
-  <strong>Question:</strong> A $40 shirt is on sale for $30. What is the percent decrease?
-  <div class="step-box"><span class="step-num">1</span> Change = old − new = 40 − 30 = $10.</div>
-  <div class="step-box"><span class="step-num">2</span> Divide by the original: 10 ÷ 40 = 0.25.</div>
-  <div class="step-box"><span class="step-num">3</span> Convert to a percent: 0.25 × 100 = 25%.</div>
-  <strong>Answer:</strong> 25% decrease. Always divide by the <strong>original</strong>, not the new value.
-</div>
-<div class="example-box">
-  <strong>Question:</strong> A restaurant bill is $48. What is a 15% tip, and what is the total paid?
-  <div class="step-box"><span class="step-num">1</span> 15% of 48 = (15/100) × 48 = 7.2.</div>
-  <div class="step-box"><span class="step-num">2</span> Total = 48 + 7.2 = 55.2.</div>
-  <div class="step-box"><span class="step-num">3</span> Faster: multiply 48 × 1.15 = 55.2 in one step.</div>
-  <strong>Answer:</strong> $7.20 tip, $55.20 total. A single multiplier (1 + p/100) handles the tip and the total at once.
-</div>
-<div class="warning-box">Successive percent changes do <strong>not</strong> cancel. A 20% increase followed by a 20% decrease = 0.96× the original (−4%), not 100%. Work step-by-step on the running amount, and never add percentages across separate steps. Convert everything to decimals on your calculator to avoid fraction-entry errors.</div>`
-          },
-          {
-            "name": "Ratios & Proportions",
-            "diff": "medium",
-            "visual": {"type":"bar","labels":["3","4"],"values":[3,4],"gold":false,"caption":"A 3:4 ratio"},
-            "expl": `A <strong>ratio</strong> compares two quantities (3:4). A <strong>proportion</strong> states two ratios are equal, and you solve it by <strong>cross-multiplying</strong>. Unit rates — cost per item, miles per hour — are ratios simplified so the second quantity equals 1.
-<div class="formula-box">a/b = c/d ⟺ a × d = b × c<br>Unit rate = total ÷ count</div>
-<div class="example-box">
-  <strong>Question:</strong> If 3 oranges cost $2, how much do 15 oranges cost?
-  <div class="step-box"><span class="step-num">1</span> Set up the proportion: 3/2 = 15/x.</div>
-  <div class="step-box"><span class="step-num">2</span> Cross-multiply: 3x = 15 × 2 = 30.</div>
-  <div class="step-box"><span class="step-num">3</span> Solve: x = 30 ÷ 3 = 10.</div>
-  <strong>Answer:</strong> $10. The ratio method: 15 is 5× the 3 oranges, so cost is 5 × $2 = $10.
-</div>
-<div class="example-box">
-  <strong>Question:</strong> On a map, 1 inch represents 20 miles. A trail measures 3.5 inches. How long is the trail?
-  <div class="step-box"><span class="step-num">1</span> Set up: 1/20 = 3.5/x.</div>
-  <div class="step-box"><span class="step-num">2</span> Cross-multiply: x = 3.5 × 20 = 70.</div>
-  <strong>Answer:</strong> 70 miles. For "how many times bigger" problems, find the multiplier first instead of cross-multiplying.
-</div>
-<div class="warning-box">If a ratio is boys:girls = 3:4, treat the parts as 3x and 4x. Total = 7x. A common trap is adding the ratio parts as the actual count — 3 boys and 4 girls is only correct when x = 1. Also make sure the same units appear on both sides of a proportion before you solve.</div>`
-          },
-          {
+{
             "name": "Scientific Notation",
             "diff": "easy",
             "visual": {"type":"line","pts":[[0,1],[1,10],[2,100],[3,1000]],"xMin":0,"xMax":3,"yMin":0,"yMax":1000,"xLabel":"n","yLabel":"10ⁿ","caption":"Powers of ten"},
@@ -112,51 +69,7 @@
 </div>
 <div class="warning-box">When multiplying in scientific notation: (a × 10ᵐ)(b × 10ⁿ) = (a × b) × 10ᵐ⁺ⁿ, then re-normalize if the new coefficient is ≥ 10 (e.g., 12 × 10⁵ → 1.2 × 10⁶). For division, subtract exponents: 10ᵐ ÷ 10ⁿ = 10ᵐ⁻ⁿ. On your calculator, use the EE or ×10ⁿ key instead of typing out the zeros.</div>`
           },
-          {
-            "name": "Mean, Median, Mode & Range",
-            "diff": "easy",
-            "visual": {"type":"bar","labels":["3","4","4","5","8"],"values":[3,4,4,5,8],"gold":false,"caption":"Sorted data: mean 4.8, median 4, mode 4"},
-            "expl": `Measures of center summarize a data set.<br>• <strong>Mean</strong>: sum ÷ count (the average)<br>• <strong>Median</strong>: middle value after sorting (average of the two middle values when the count is even)<br>• <strong>Mode</strong>: most frequent value (there can be none, or more than one)<br>• <strong>Range</strong>: max − min — a measure of spread, not of center
-<div class="example-box">
-  <strong>Question:</strong> Find the mean, median, mode, and range of {4, 8, 3, 5, 4}.
-  <div class="step-box"><span class="step-num">1</span> Sort: 3, 4, 4, 5, 8.</div>
-  <div class="step-box"><span class="step-num">2</span> Mean = (3+4+4+5+8) ÷ 5 = 24 ÷ 5 = 4.8.</div>
-  <div class="step-box"><span class="step-num">3</span> Median = middle (3rd) value = 4.</div>
-  <div class="step-box"><span class="step-num">4</span> Mode = 4 (appears twice). Range = 8 − 3 = 5.</div>
-  <strong>Answer:</strong> Mean 4.8, median 4, mode 4, range 5.
-</div>
-<div class="example-box">
-  <strong>Question:</strong> The mean of 5 numbers is 8. One number is removed, and the mean of the remaining four is 7. Which number was removed?
-  <div class="step-box"><span class="step-num">1</span> Total of all 5 = 5 × 8 = 40.</div>
-  <div class="step-box"><span class="step-num">2</span> Total of remaining 4 = 4 × 7 = 28.</div>
-  <div class="step-box"><span class="step-num">3</span> Removed number = 40 − 28 = 12.</div>
-  <strong>Answer:</strong> 12. Work backwards from totals — the mean × count trick reverses instantly.
-</div>
-<div class="warning-box">An outlier pulls the <strong>mean</strong> but barely moves the <strong>median</strong>. If mean &gt; median, the data is skewed right — a favorite ACT inference question. Always sort before finding the median, and remember the mean can be a non-integer even when every data value is an integer.</div>`
-          },
-          {
-            "name": "Basic Probability",
-            "diff": "medium",
-            "visual": {"type":"bar","labels":["Not 5","5"],"values":[5,1],"gold":false,"caption":"P(not 5) = 5/6"},
-            "expl": `Probability measures how likely an outcome is — always a number between 0 and 1 (or 0% to 100%).
-<div class="formula-box">P(event) = favorable outcomes ÷ total outcomes<br>P(not A) = 1 − P(A)<br>P(A and B) = P(A) × P(B) (independent events)<br>P(A or B) = P(A) + P(B) − P(both)</div>
-<div class="example-box">
-  <strong>Question:</strong> Roll one fair die. What is the probability of NOT rolling a 5?
-  <div class="step-box"><span class="step-num">1</span> Total outcomes = 6.</div>
-  <div class="step-box"><span class="step-num">2</span> P(5) = 1/6.</div>
-  <div class="step-box"><span class="step-num">3</span> Complement: 1 − 1/6 = 5/6.</div>
-  <strong>Answer:</strong> 5/6. Using the complement is almost always faster than counting "not" outcomes directly.
-</div>
-<div class="example-box">
-  <strong>Question:</strong> A spinner has 4 equal sections numbered 1–4. What is P(spinning a 2 or an even number)?
-  <div class="step-box"><span class="step-num">1</span> P(2) = 1/4 and P(even) = 2/4 (sections 2 and 4).</div>
-  <div class="step-box"><span class="step-num">2</span> The outcomes overlap (2 is both), so P(both) = 1/4.</div>
-  <div class="step-box"><span class="step-num">3</span> P(2 or even) = 1/4 + 2/4 − 1/4 = 2/4 = 1/2.</div>
-  <strong>Answer:</strong> 1/2. Favorable sections {2, 4} of 4. The "or" rule subtracts the double-counted overlap.
-</div>
-<div class="warning-box">Watch for <strong>with vs. without replacement</strong>. Drawing a card and putting it back keeps probabilities the same; not replacing it changes both the numerator and denominator for the next draw. Convert answers to the same format — decimals vs. fractions — before comparing against the choices.</div>`
-          },
-          {
+{
             "name": "Order of Operations (PEMDAS)",
             "diff": "easy",
             "visual": {"type":"line","pts":[[1,8],[2,11]],"xMin":0,"xMax":3,"yMin":0,"yMax":12,"caption":"Step 1: 4×2 = 8, Step 2: 3+8 = 11"},
@@ -176,12 +89,12 @@
 </div>
 <div class="warning-box">Two huge traps:<br>• −3² = −9 but (−3)² = 9 — the exponent applies only to the 3, not the minus sign, unless the minus is inside parentheses.<br>• With multiplication and division, work strictly left to right: 8 ÷ 2 × 4 = 16, not 1.</div>`
           }
-        ]
-      },
-      {
-        "name": "Elementary Algebra",
-        "topics": [
-          {
+            ]
+        },
+        {
+            "name": "Algebra",
+            "topics": [
+{
             "name": "Solving Linear Equations",
             "diff": "easy",
             "visual": {"type":"numberLine","min":0,"max":10,"marks":[{"v":5,"filled":true}],"caption":"3x + 5 = 20 → x = 5"},
@@ -203,7 +116,7 @@
 </div>
 <div class="warning-box">If variables appear on both sides, collect them on one side <em>first</em>. If fractions are present, multiply every term by the LCD to clear them before solving. When a question asks "what value makes this equation true," the answer choices are usually integers — substitute them in to check quickly.</div>`
           },
-          {
+{
             "name": "Linear Inequalities",
             "diff": "medium",
             "visual": {"type":"numberLine","min":-6,"max":2,"marks":[{"v":-3,"filled":false}],"caption":"x < −3"},
@@ -225,7 +138,7 @@
 </div>
 <div class="warning-box">Compound inequalities: "AND" graphs overlap (intersection); "OR" graphs combine (union). Absolute value: |x| &lt; a becomes −a &lt; x &lt; a, but |x| &gt; a splits into x &lt; −a or x &gt; a. Testing a convenient value (like 0) in the original inequality confirms which side is shaded.</div>`
           },
-          {
+{
             "name": "Evaluating Expressions",
             "diff": "easy",
             "visual": {"type":"numberLine","min":0,"max":24,"marks":[{"v":21,"filled":true}],"caption":"2(3)² − 3(−1) = 21"},
@@ -246,7 +159,7 @@
 </div>
 <div class="warning-box">The #1 source of careless errors is mishandling negatives: −3² = −9, but (−3)² = 9. When substituting a negative, wrap it in parentheses. On the calculator, enter negatives with parentheses too, and always re-read the expression once after substituting.</div>`
           },
-          {
+{
             "name": "Combining Like Terms",
             "diff": "easy",
             "visual": {"type":"bar","labels":["x²","x"],"values":[1,12],"gold":false,"caption":"x² + 12x (coefficients combined)"},
@@ -267,7 +180,7 @@
 </div>
 <div class="warning-box">Constants combine only with constants, and different variables (x vs. y) never combine. Rewrite the expression with like terms adjacent before adding. A common trap is mistaking 2x for x² — check whether the answer choices distinguish them before you commit.</div>`
           },
-          {
+{
             "name": "FOIL & Multiplying Binomials",
             "diff": "medium",
             "visual": {"type":"shape","shape":"rect","labels":{"w":"x+3","h":"x+5"},"caption":"Area model: (x+3)(x+5)"},
@@ -289,7 +202,7 @@
 </div>
 <div class="warning-box">Memorize the three perfect-square patterns — they appear constantly:<br>• (a + b)² = a² + 2ab + b²<br>• (a − b)² = a² − 2ab + b²<br>• (a + b)(a − b) = a² − b² (difference of squares)<br>Notice (x + 5)² = x² + 10x + 25 — the middle term is <strong>not</strong> optional.</div>`
           },
-          {
+{
             "name": "Factoring Quadratics",
             "diff": "medium",
             "visual": {"type":"shape","shape":"rect","labels":{"w":"x+3","h":"x-3"},"caption":"x² − 9 = (x+3)(x−3)"},
@@ -311,7 +224,7 @@
 </div>
 <div class="warning-box">Watch the sign patterns:<br>• x² − bx + c → both factors negative<br>• x² + bx − c → opposite signs, bigger factor positive<br>• x² − b² → difference of squares (x + b)(x − b)<br>On the ACT, factoring is often the fastest route to solving — check whether the answer choices are factored or expanded first.</div>`
           },
-          {
+{
             "name": "Solving Quadratic Equations",
             "diff": "medium",
             "visual": {"type":"plane","xMin":-6,"xMax":4,"yMin":-2,"yMax":2,"pts":[[2,0],[3,0]],"caption":"Roots of x² − 5x + 6 = 0"},
@@ -333,7 +246,7 @@
 </div>
 <div class="warning-box">Before solving, get the equation into standard form (everything on one side, = 0). If the discriminant is negative, the answer choices will include "no real solution" — do not force a fake answer. When answers contain √, the quadratic formula (not factoring) was intended.</div>`
           },
-          {
+{
             "name": "Word Problems Setup",
             "diff": "hard",
             "visual": {"type":"bar","labels":["x","x+1","x+2"],"values":[11,12,13],"gold":false,"caption":"Consecutive integers summing to 36"},
@@ -353,13 +266,8 @@
   <strong>Answer:</strong> Width 4, length 11. Check: 2(11 + 4) = 30 ✔. Each sentence of the problem produces one equation or expression.
 </div>
 <div class="warning-box">"3 less than x" means x − 3, <strong>not</strong> 3 − x. "A is 4 more than B" means A = B + 4. Getting the order backwards is the most common setup error. If stuck, try the answer choices: plug each one in and see which satisfies every condition.</div>`
-          }
-        ]
-      },
-      {
-        "name": "Intermediate Algebra",
-        "topics": [
-          {
+          },
+{
             "name": "Systems of Equations",
             "diff": "medium",
             "visual": {"type":"plane","xMin":0,"xMax":10,"yMin":0,"yMax":10,"line":{"m":-1,"b":10},"pts":[[7,3]],"caption":"Intersection at (7, 3)"},
@@ -381,7 +289,7 @@
 </div>
 <div class="warning-box">Three possible outcomes:<br>• 1 solution → lines intersect<br>• 0 solutions → parallel lines (same slope)<br>• Infinite solutions → same line. If elimination produces 0 = 0, the system has infinitely many solutions; if it produces 0 = 5, there is none. If one equation is a multiple of the other, the system is dependent — infinite solutions.</div>`
           },
-          {
+{
             "name": "Absolute Value Equations",
             "diff": "medium",
             "visual": {"type":"numberLine","min":-5,"max":5,"marks":[{"v":-2,"filled":true},{"v":3,"filled":true}],"caption":"|2x − 1| = 5 → x = 3, −2"},
@@ -402,7 +310,7 @@
 </div>
 <div class="warning-box">For inequalities:<br>• |x| &lt; 4 becomes −4 &lt; x &lt; 4 (an "and" sandwich)<br>• |x| &gt; 4 becomes x &lt; −4 or x &gt; 4.<br>And remember |x| = −5 has <strong>no solution</strong> — absolute value can never be negative.</div>`
           },
-          {
+{
             "name": "Rational Expressions",
             "diff": "hard",
             "visual": {"type":"numberLine","min":-4,"max":2,"marks":[{"v":-2,"filled":false}],"caption":"Domain excludes x = −2"},
@@ -423,7 +331,7 @@
 </div>
 <div class="warning-box">To add or subtract rational expressions, find the LCD first, then combine numerators. To divide, flip the second fraction and multiply. Never cancel terms that are added — only factors. Check every answer against the restriction: a choice that equals the simplified form but breaks the denominator at the excluded value is wrong.</div>`
           },
-          {
+{
             "name": "Exponents & Radicals",
             "diff": "medium",
             "visual": {"type":"line","pts":[[1,2],[2,4],[3,8],[4,16]],"xMin":0,"xMax":5,"yMin":0,"yMax":16,"xLabel":"n","yLabel":"2ⁿ","caption":"Exponential growth 2ⁿ"},
@@ -443,7 +351,7 @@
 </div>
 <div class="warning-box">√a × √b = √(ab) and √a ÷ √b = √(a/b), but you can <strong>never</strong> split √(a + b) into √a + √b. When you see a radical in a denominator, rationalize by multiplying by the conjugate. On the calculator, enter fractional exponents in parentheses: 8^(2/3), never 8^2/3.</div>`
           },
-          {
+{
             "name": "Logarithms",
             "diff": "hard",
             "visual": {"type":"line","pts":[[1,0],[2,1],[4,2],[8,3]],"xMin":0,"xMax":9,"yMin":0,"yMax":3,"xLabel":"x","yLabel":"log₂x","caption":"log₂ 8 = 3"},
@@ -464,7 +372,7 @@
 </div>
 <div class="warning-box">Change of base: log_b(a) = log(a) ÷ log(b) for any base — needed when the answer uses a different base than the problem. log_b(b) = 1 and log_b(1) = 0 are free points. Never apply log rules to a sum inside a single log: log(x + y) has no simple expansion.</div>`
           },
-          {
+{
             "name": "Complex Numbers",
             "diff": "hard",
             "visual": {"type":"plane","xMin":-1,"xMax":4,"yMin":-1,"yMax":3,"pts":[[3,2]],"caption":"3 + 2i on the complex plane"},
@@ -486,7 +394,7 @@
 </div>
 <div class="warning-box">To divide complex numbers, multiply top and bottom by the <strong>conjugate</strong> (a − bi). Example: (3 + 2i)/(1 − i) → multiply by (1 + i)/(1 + i) to make the denominator real. And i⁴ⁿ = 1 — divide the exponent by 4 to find its place in the cycle.</div>`
           },
-          {
+{
             "name": "Sequences & Series",
             "diff": "medium",
             "visual": {"type":"line","pts":[[1,3],[2,6],[3,12],[4,24],[5,48]],"xMin":0,"xMax":6,"yMin":0,"yMax":48,"xLabel":"n","yLabel":"term","caption":"Geometric, ratio 2"},
@@ -507,12 +415,96 @@
 </div>
 <div class="warning-box">The ACT usually asks only for a specific term or the next term. To decide arithmetic vs. geometric, check if consecutive terms differ by a constant (arithmetic) or are multiplied by a constant (geometric). Beware fake patterns where the difference itself grows — those are neither type.</div>`
           }
-        ]
-      },
-      {
-        "name": "Coordinate Geometry",
-        "topics": [
-          {
+            ]
+        },
+        {
+            "name": "Functions",
+            "topics": [
+{
+            "name": "Function Notation",
+            "diff": "easy",
+            "visual": {"type":"plane","xMin":-2,"xMax":6,"yMin":-2,"yMax":10,"line":{"m":3,"b":-2},"pts":[[4,10]],"caption":"f(x) = 3x − 2, so f(4) = 10"},
+            "expl": `f(x) reads as "f of x" — the output of function f when the input is x. It is a machine: put an input in, get exactly one output out.
+<div class="example-box">
+  <strong>Question:</strong> If f(x) = 3x − 2, find f(4).
+  <div class="step-box"><span class="step-num">1</span> Replace every x with 4: f(4) = 3(4) − 2.</div>
+  <div class="step-box"><span class="step-num">2</span> Compute: 12 − 2 = 10.</div>
+  <strong>Answer:</strong> f(4) = 10. Just substitute — the notation is the instruction.
+</div>
+<div class="example-box">
+  <strong>Question:</strong> If f(x) = x² + 1, find f(f(2)).
+  <div class="step-box"><span class="step-num">1</span> Inside first: f(2) = 2² + 1 = 5.</div>
+  <div class="step-box"><span class="step-num">2</span> Now feed the output back in: f(5) = 5² + 1 = 26.</div>
+  <strong>Answer:</strong> 26. Nested functions always work inside-out — evaluate the innermost call first.
+</div>
+<div class="warning-box">On a graph, f(a) is the y-value of the point with x-coordinate a. The ACT also loves f(f(x)) (a function applied to its own output) and f(g(x)) — work from the inside out. Watch for answer choices that confuse f(x) with x itself; substitute, don't eyeball.</div>`
+          },
+{
+            "name": "Domain & Range",
+            "diff": "medium",
+            "visual": {"type":"numberLine","min":0,"max":6,"marks":[{"v":3,"filled":false}],"caption":"f(x) = 1/(x − 3): domain excludes x = 3"},
+            "expl": `<strong>Domain</strong> = all possible x-values (inputs); <strong>Range</strong> = all possible y-values (outputs). Restrictions come from only two places: division by zero and even roots of negative numbers.
+<div class="example-box">
+  <strong>Question:</strong> State the domain of f(x) = 1/(x − 3).
+  <div class="step-box"><span class="step-num">1</span> The denominator can't be zero: x − 3 ≠ 0.</div>
+  <div class="step-box"><span class="step-num">2</span> So x ≠ 3.</div>
+  <strong>Answer:</strong> All real numbers except x = 3. Restriction sources: division by zero and even roots of negatives.
+</div>
+<div class="example-box">
+  <strong>Question:</strong> State the domain of f(x) = √(x − 2).
+  <div class="step-box"><span class="step-num">1</span> The radicand can't be negative: x − 2 ≥ 0.</div>
+  <div class="step-box"><span class="step-num">2</span> So x ≥ 2.</div>
+  <strong>Answer:</strong> x ≥ 2. For even roots, set the inside ≥ 0 and solve the inequality.
+</div>
+<div class="warning-box">On graphs, read the domain left-to-right and the range bottom-to-top. Open circles exclude endpoints, closed circles include them. For √(x): domain x ≥ 0. For 1/x: domain excludes 0. When answer choices are intervals, decide the endpoint (included vs. excluded) and the direction separately.</div>`
+          },
+{
+            "name": "Function Transformations",
+            "diff": "medium",
+            "visual": {"type":"plane","xMin":-5,"xMax":5,"yMin":-5,"yMax":5,"line":{"m":1,"b":3,"dash":true},"pts":[[2,0]],"caption":"y = f(x − 2) + 3: shift right 2, up 3"},
+            "expl": `Transformations shift, stretch, and flip the parent graph. The single rule to remember: changes <em>inside</em> the function affect x and move oppositely; changes <em>outside</em> affect y and move normally.
+<div class="formula-box">y = f(x) + k → shift UP by k (k &gt; 0)<br>y = f(x − h) → shift RIGHT by h<br>y = −f(x) → reflect over the x-axis<br>y = f(−x) → reflect over the y-axis<br>y = a·f(x) → vertical stretch by a (a &gt; 1)</div>
+<div class="example-box">
+  <strong>Question:</strong> Describe the graph of y = f(x − 2) + 3 compared to y = f(x).
+  <div class="step-box"><span class="step-num">1</span> x − 2 inside: shift right 2 units (inside is always counterintuitive).</div>
+  <div class="step-box"><span class="step-num">2</span> + 3 outside: shift up 3 units.</div>
+  <strong>Answer:</strong> The graph shifts right 2 and up 3.
+</div>
+<div class="example-box">
+  <strong>Question:</strong> Describe y = −f(x) − 1 relative to y = f(x).
+  <div class="step-box"><span class="step-num">1</span> The leading − flips the graph over the x-axis.</div>
+  <div class="step-box"><span class="step-num">2</span> The − 1 outside shifts it down 1 unit.</div>
+  <strong>Answer:</strong> Reflect over the x-axis, then shift down 1. Track one test point (like a vertex) through each step.
+</div>
+<div class="warning-box">Inside the function (affecting x) moves the graph <strong>opposite</strong> to intuition: x − 2 moves right, x + 2 moves left. Outside (affecting y) moves normally: +2 up, −2 down. Absolute value flips the negative part of the graph upward. Test with a known point — the vertex of y = x² is easiest to track.</div>`
+          },
+{
+            "name": "Composition & Inverses",
+            "diff": "hard",
+            "visual": {"type":"plane","xMin":-5,"xMax":5,"yMin":-5,"yMax":5,"line":{"m":1,"b":0,"dash":true},"caption":"Inverse reflects across y = x"},
+            "expl": `<strong>Composition</strong> chains functions; an <strong>inverse</strong> undoes a function — they are exact opposites the way division undoes multiplication.
+<div class="formula-box">(f∘g)(x) = f(g(x)) — apply g first, then f<br>f⁻¹(f(x)) = x and f(f⁻¹(x)) = x</div>
+<div class="example-box">
+  <strong>Question:</strong> If f(x) = 2x + 1 and g(x) = x², find f(g(3)) and f⁻¹(x).
+  <div class="step-box"><span class="step-num">1</span> g(3) = 9.</div>
+  <div class="step-box"><span class="step-num">2</span> f(g(3)) = f(9) = 2(9) + 1 = 19.</div>
+  <div class="step-box"><span class="step-num">3</span> For the inverse: swap x and y in y = 2x + 1 → x = 2y + 1 → y = (x − 1)/2.</div>
+  <strong>Answer:</strong> f(g(3)) = 19, f⁻¹(x) = (x − 1)/2.
+</div>
+<div class="example-box">
+  <strong>Question:</strong> If f(x) = x³, find f⁻¹(27).
+  <div class="step-box"><span class="step-num">1</span> The inverse of cubing is the cube root: f⁻¹(x) = ³√x.</div>
+  <div class="step-box"><span class="step-num">2</span> f⁻¹(27) = ³√27 = 3.</div>
+  <strong>Answer:</strong> 3. Verify: f(3) = 27, and composing gives you back your input — the definition of an inverse.
+</div>
+<div class="warning-box">Work composition from the inside out. To find an inverse algebraically: swap x and y, then solve for y. The graph of an inverse is the reflection of the original across the line y = x. If an answer choice for f⁻¹(x) doesn't satisfy f(f⁻¹(x)) = x, it's wrong — always test with a simple value.</div>`
+          }
+            ]
+        },
+        {
+            "name": "Geometry",
+            "topics": [
+{
             "name": "Slope of a Line",
             "diff": "easy",
             "visual": {"type":"plane","xMin":-5,"xMax":5,"yMin":-5,"yMax":5,"line":{"m":2,"b":0},"pts":[[1,2],[4,8]],"caption":"m = (8−2)/(4−1) = 2"},
@@ -533,7 +525,7 @@
 </div>
 <div class="warning-box">Key relationships: parallel lines have <strong>equal</strong> slopes; perpendicular lines have <strong>negative reciprocal</strong> slopes (product = −1). From Ax + By = C, slope = −A/B. Vertical lines have undefined slope; horizontal lines have slope 0. Drawing a quick sketch beats memorizing sign conventions.</div>`
           },
-          {
+{
             "name": "Equations of Lines",
             "diff": "medium",
             "visual": {"type":"plane","xMin":-5,"xMax":5,"yMin":-5,"yMax":5,"line":{"m":3,"b":-1},"pts":[[2,5],[4,11]],"caption":"y = 3x − 1"},
@@ -553,7 +545,7 @@
 </div>
 <div class="warning-box">Horizontal lines are y = c (slope 0); vertical lines are x = c (undefined slope — and <strong>not a function</strong>). The ACT frequently asks you to pick the equation matching a graph: read off the y-intercept and slope visually. Two points always give one line — if the answers are lines, try each quickly.</div>`
           },
-          {
+{
             "name": "Distance & Midpoint Formulas",
             "diff": "medium",
             "visual": {"type":"plane","xMin":-2,"xMax":9,"yMin":-2,"yMax":6,"pts":[[2,5],[8,-1]],"caption":"Midpoint (5, 2), distance 6√2"},
@@ -574,7 +566,7 @@
 </div>
 <div class="warning-box">The distance formula is often disguised as a Pythagorean problem: draw the right triangle, find the legs (differences in x and y), then solve for the hypotenuse. Simplify radicals fully to match answer choices. If two distances are equal, you can often compare squared distances to avoid square roots.</div>`
           },
-          {
+{
             "name": "Circles in the Coordinate Plane",
             "diff": "medium",
             "visual": {"type":"plane","xMin":-5,"xMax":9,"yMin":-5,"yMax":5,"pts":[[3,-2],[8,-2]],"caption":"Center (3,−2), radius 5"},
@@ -595,7 +587,7 @@
 </div>
 <div class="warning-box">If given x² + y² + 6x − 4y = 12, <strong>complete the square</strong> for x and y separately to reach standard form. A tangent line touches the circle at exactly one point, and the radius to that point is perpendicular to the tangent — that right angle often hides a Pythagorean setup.</div>`
           },
-          {
+{
             "name": "Graphing Inequalities",
             "diff": "medium",
             "visual": {"type":"plane","xMin":-5,"xMax":5,"yMin":-5,"yMax":5,"line":{"m":2,"b":1,"dash":true},"shade":{"m":2,"b":1,"above":true},"caption":"y > 2x + 1, dashed line shaded above"},
@@ -615,13 +607,8 @@
   <strong>Answer:</strong> Solid line, shading below. Testing the origin is the fastest way to pick a side.
 </div>
 <div class="warning-box">For systems of inequalities, graph each one and the solution is the <strong>overlapping</strong> region. Testing the origin is the fastest way to decide which side to shade. When answer choices are graphs, check one boundary and one shading decision at a time instead of re-reading every choice.</div>`
-          }
-        ]
-      },
-      {
-        "name": "Plane Geometry",
-        "topics": [
-          {
+          },
+{
             "name": "Angles & Parallel Lines",
             "diff": "easy",
             "visual": {"type":"shape","shape":"parallelogram","labels":{"b":"4","h":"3"},"caption":"Parallel sides; same-side interior angles sum to 180°"},
@@ -640,7 +627,7 @@
 </div>
 <div class="warning-box">Vertical angles are always equal. If lines are <strong>not</strong> parallel, none of the equal-angle rules apply — the ACT will mark this with "if and only if" phrasing. A straight angle is 180°; a right angle is 90°. Label the diagram as you go — a marked figure is half the solution.</div>`
           },
-          {
+{
             "name": "Triangles",
             "diff": "medium",
             "visual": {"type":"shape","shape":"right","labels":{"a":"6","b":"8","h":"10"},"caption":"6-8-10 right triangle; area = 24"},
@@ -660,7 +647,7 @@
 </div>
 <div class="warning-box">Memorize the common Pythagorean triples — 3-4-5, 5-12-13, 8-15-17, 7-24-25 — and the special triangles 30-60-90 (x, x√3, 2x) and 45-45-90 (x, x, x√2). They save enormous time. The area formula needs a perpendicular height — in an obtuse triangle the height may fall outside the base.</div>`
           },
-          {
+{
             "name": "Similar & Congruent Triangles",
             "diff": "medium",
             "visual": {"type":"shape","shape":"triangle","labels":{"a":"3","b":"4","c":"5","A":"90°","B":"53°","C":"37°"},"caption":"Similar triangles scale by one factor"},
@@ -680,7 +667,7 @@
 </div>
 <div class="warning-box">Congruence shortcuts: SSS, SAS, ASA, AAS (and HL for right triangles). AAA proves <strong>similarity</strong> but <strong>not</strong> congruence. If a triangle inside another is stated as similar, immediately write the proportional sides ratio. Match corresponding sides by position — the small side corresponds to the small side.</div>`
           },
-          {
+{
             "name": "Quadrilaterals & Polygons",
             "diff": "medium",
             "visual": {"type":"shape","shape":"hexagon","labels":{},"caption":"Regular hexagon: each interior angle 120°"},
@@ -699,7 +686,7 @@
 </div>
 <div class="warning-box">Quadrilateral facts the ACT loves: rectangles have right angles and equal diagonals; parallelograms have opposite sides parallel and equal, opposite angles equal; a square is a rectangle, a rhombus, <em>and</em> a parallelogram. Area of a parallelogram = base × height (the perpendicular height, not the slanted side).</div>`
           },
-          {
+{
             "name": "Circles",
             "diff": "medium",
             "visual": {"type":"shape","shape":"circle","labels":{"r":"6","d":"12"},"caption":"C = 2πr, A = πr²"},
@@ -718,7 +705,7 @@
 </div>
 <div class="warning-box">A tangent line touches a circle at one point and is perpendicular to the radius at that point. An inscribed angle is half its intercepted arc; a diameter subtends a 90° inscribed angle — a favorite hidden-right-triangle setup. Keep π symbolic unless the answer choices contain decimals; the ACT usually wants exact forms.</div>`
           },
-          {
+{
             "name": "3D Geometry",
             "diff": "medium",
             "visual": {"type":"shape","shape":"prism","labels":{},"caption":"V = lwh, space diagonal d = √(l² + w² + h²)"},
@@ -736,13 +723,8 @@
   <strong>Answer:</strong> 13. Notice the hidden 3-4-5 and 5-12-13 triples — the numbers are chosen to simplify.
 </div>
 <div class="warning-box">A right circular cone and a cylinder with the same base and height have volumes in ratio 1:3. If a solid is "inscribed" in another (like a cube in a sphere), use the Pythagorean theorem in 3D: d = √(l² + w² + h²). Doubling every dimension multiplies volume by 8 (2³) — a fast check against careless arithmetic.</div>`
-          }
-        ]
-      },
-      {
-        "name": "Trigonometry",
-        "topics": [
-          {
+          },
+{
             "name": "SOH-CAH-TOA",
             "diff": "medium",
             "visual": {"type":"shape","shape":"right","labels":{"a":"3","b":"4","h":"5","angle":"θ"},"caption":"sin θ = 3/5, cos θ = 4/5, tan θ = 3/4"},
@@ -764,7 +746,7 @@
 </div>
 <div class="warning-box">Decide which ratio by what you <em>have</em> and what you <em>want</em>: opposite+hyp → sin, adjacent+hyp → cos, opposite+adjacent → tan. To find an angle, use the inverse functions (sin⁻¹, cos⁻¹, tan⁻¹). Redraw the triangle and label the known sides before writing any ratio.</div>`
           },
-          {
+{
             "name": "Reciprocal Trig Functions",
             "diff": "hard",
             "visual": {"type":"shape","shape":"right","labels":{"a":"3","b":"4","h":"5","angle":"θ"},"caption":"3-4-5: sin θ = 4/5, sec θ = 5/3"},
@@ -784,7 +766,7 @@
 </div>
 <div class="warning-box">Memorize the reciprocal pairs: csc ↔ sin, sec ↔ cos, cot ↔ tan. A common ACT move is asking for a reciprocal directly from a given ratio, or using the identity sin²θ + cos²θ = 1 to find the third ratio. Check your answer keeps the same sign as the original ratio.</div>`
           },
-          {
+{
             "name": "Unit Circle & Special Angles",
             "diff": "hard",
             "visual": {"type":"shape","shape":"circle","labels":{"r":"1"},"caption":"Unit circle: cos 120° = −1/2, sin 225° = −√2/2"},
@@ -806,7 +788,7 @@
 </div>
 <div class="warning-box">Sign rules (ASTC: All, Sine, Tangent, Cosine positive by quadrant from QI clockwise): QI all positive, QII sine positive, QIII tangent positive, QIV cosine positive. Radian conversions: 180° = π, 90° = π/2, 45° = π/4, 30° = π/6. If answers are in radians, convert before comparing.</div>`
           },
-          {
+{
             "name": "Law of Sines & Cosines",
             "diff": "hard",
             "visual": {"type":"shape","shape":"triangle","labels":{"a":"7","b":"5","c":"√39","C":"60°"},"caption":"c² = 7² + 5² − 2(7)(5)cos 60° = 39"},
@@ -829,96 +811,56 @@
 </div>
 <div class="warning-box">Use the Law of Sines when you know an angle and its opposite side (two such pairs). Use the Law of Cosines when you know two sides and the included angle, or all three sides. The ambiguous (SSA) case rarely appears on the ACT — if it does, both triangles fit. A trig formula with a 90° angle should collapse into the Pythagorean theorem — good self-check.</div>`
           }
-        ]
-      },
-      {
-        "name": "Functions",
-        "topics": [
-          {
-            "name": "Function Notation",
+            ]
+        },
+        {
+            "name": "Statistics & Probability",
+            "topics": [
+{
+            "name": "Mean, Median, Mode & Range",
             "diff": "easy",
-            "visual": {"type":"plane","xMin":-2,"xMax":6,"yMin":-2,"yMax":10,"line":{"m":3,"b":-2},"pts":[[4,10]],"caption":"f(x) = 3x − 2, so f(4) = 10"},
-            "expl": `f(x) reads as "f of x" — the output of function f when the input is x. It is a machine: put an input in, get exactly one output out.
+            "visual": {"type":"bar","labels":["3","4","4","5","8"],"values":[3,4,4,5,8],"gold":false,"caption":"Sorted data: mean 4.8, median 4, mode 4"},
+            "expl": `Measures of center summarize a data set.<br>• <strong>Mean</strong>: sum ÷ count (the average)<br>• <strong>Median</strong>: middle value after sorting (average of the two middle values when the count is even)<br>• <strong>Mode</strong>: most frequent value (there can be none, or more than one)<br>• <strong>Range</strong>: max − min — a measure of spread, not of center
 <div class="example-box">
-  <strong>Question:</strong> If f(x) = 3x − 2, find f(4).
-  <div class="step-box"><span class="step-num">1</span> Replace every x with 4: f(4) = 3(4) − 2.</div>
-  <div class="step-box"><span class="step-num">2</span> Compute: 12 − 2 = 10.</div>
-  <strong>Answer:</strong> f(4) = 10. Just substitute — the notation is the instruction.
+  <strong>Question:</strong> Find the mean, median, mode, and range of {4, 8, 3, 5, 4}.
+  <div class="step-box"><span class="step-num">1</span> Sort: 3, 4, 4, 5, 8.</div>
+  <div class="step-box"><span class="step-num">2</span> Mean = (3+4+4+5+8) ÷ 5 = 24 ÷ 5 = 4.8.</div>
+  <div class="step-box"><span class="step-num">3</span> Median = middle (3rd) value = 4.</div>
+  <div class="step-box"><span class="step-num">4</span> Mode = 4 (appears twice). Range = 8 − 3 = 5.</div>
+  <strong>Answer:</strong> Mean 4.8, median 4, mode 4, range 5.
 </div>
 <div class="example-box">
-  <strong>Question:</strong> If f(x) = x² + 1, find f(f(2)).
-  <div class="step-box"><span class="step-num">1</span> Inside first: f(2) = 2² + 1 = 5.</div>
-  <div class="step-box"><span class="step-num">2</span> Now feed the output back in: f(5) = 5² + 1 = 26.</div>
-  <strong>Answer:</strong> 26. Nested functions always work inside-out — evaluate the innermost call first.
+  <strong>Question:</strong> The mean of 5 numbers is 8. One number is removed, and the mean of the remaining four is 7. Which number was removed?
+  <div class="step-box"><span class="step-num">1</span> Total of all 5 = 5 × 8 = 40.</div>
+  <div class="step-box"><span class="step-num">2</span> Total of remaining 4 = 4 × 7 = 28.</div>
+  <div class="step-box"><span class="step-num">3</span> Removed number = 40 − 28 = 12.</div>
+  <strong>Answer:</strong> 12. Work backwards from totals — the mean × count trick reverses instantly.
 </div>
-<div class="warning-box">On a graph, f(a) is the y-value of the point with x-coordinate a. The ACT also loves f(f(x)) (a function applied to its own output) and f(g(x)) — work from the inside out. Watch for answer choices that confuse f(x) with x itself; substitute, don't eyeball.</div>`
+<div class="warning-box">An outlier pulls the <strong>mean</strong> but barely moves the <strong>median</strong>. If mean &gt; median, the data is skewed right — a favorite ACT inference question. Always sort before finding the median, and remember the mean can be a non-integer even when every data value is an integer.</div>`
           },
-          {
-            "name": "Domain & Range",
+{
+            "name": "Basic Probability",
             "diff": "medium",
-            "visual": {"type":"numberLine","min":0,"max":6,"marks":[{"v":3,"filled":false}],"caption":"f(x) = 1/(x − 3): domain excludes x = 3"},
-            "expl": `<strong>Domain</strong> = all possible x-values (inputs); <strong>Range</strong> = all possible y-values (outputs). Restrictions come from only two places: division by zero and even roots of negative numbers.
+            "visual": {"type":"bar","labels":["Not 5","5"],"values":[5,1],"gold":false,"caption":"P(not 5) = 5/6"},
+            "expl": `Probability measures how likely an outcome is — always a number between 0 and 1 (or 0% to 100%).
+<div class="formula-box">P(event) = favorable outcomes ÷ total outcomes<br>P(not A) = 1 − P(A)<br>P(A and B) = P(A) × P(B) (independent events)<br>P(A or B) = P(A) + P(B) − P(both)</div>
 <div class="example-box">
-  <strong>Question:</strong> State the domain of f(x) = 1/(x − 3).
-  <div class="step-box"><span class="step-num">1</span> The denominator can't be zero: x − 3 ≠ 0.</div>
-  <div class="step-box"><span class="step-num">2</span> So x ≠ 3.</div>
-  <strong>Answer:</strong> All real numbers except x = 3. Restriction sources: division by zero and even roots of negatives.
+  <strong>Question:</strong> Roll one fair die. What is the probability of NOT rolling a 5?
+  <div class="step-box"><span class="step-num">1</span> Total outcomes = 6.</div>
+  <div class="step-box"><span class="step-num">2</span> P(5) = 1/6.</div>
+  <div class="step-box"><span class="step-num">3</span> Complement: 1 − 1/6 = 5/6.</div>
+  <strong>Answer:</strong> 5/6. Using the complement is almost always faster than counting "not" outcomes directly.
 </div>
 <div class="example-box">
-  <strong>Question:</strong> State the domain of f(x) = √(x − 2).
-  <div class="step-box"><span class="step-num">1</span> The radicand can't be negative: x − 2 ≥ 0.</div>
-  <div class="step-box"><span class="step-num">2</span> So x ≥ 2.</div>
-  <strong>Answer:</strong> x ≥ 2. For even roots, set the inside ≥ 0 and solve the inequality.
+  <strong>Question:</strong> A spinner has 4 equal sections numbered 1–4. What is P(spinning a 2 or an even number)?
+  <div class="step-box"><span class="step-num">1</span> P(2) = 1/4 and P(even) = 2/4 (sections 2 and 4).</div>
+  <div class="step-box"><span class="step-num">2</span> The outcomes overlap (2 is both), so P(both) = 1/4.</div>
+  <div class="step-box"><span class="step-num">3</span> P(2 or even) = 1/4 + 2/4 − 1/4 = 2/4 = 1/2.</div>
+  <strong>Answer:</strong> 1/2. Favorable sections {2, 4} of 4. The "or" rule subtracts the double-counted overlap.
 </div>
-<div class="warning-box">On graphs, read the domain left-to-right and the range bottom-to-top. Open circles exclude endpoints, closed circles include them. For √(x): domain x ≥ 0. For 1/x: domain excludes 0. When answer choices are intervals, decide the endpoint (included vs. excluded) and the direction separately.</div>`
+<div class="warning-box">Watch for <strong>with vs. without replacement</strong>. Drawing a card and putting it back keeps probabilities the same; not replacing it changes both the numerator and denominator for the next draw. Convert answers to the same format — decimals vs. fractions — before comparing against the choices.</div>`
           },
-          {
-            "name": "Function Transformations",
-            "diff": "medium",
-            "visual": {"type":"plane","xMin":-5,"xMax":5,"yMin":-5,"yMax":5,"line":{"m":1,"b":3,"dash":true},"pts":[[2,0]],"caption":"y = f(x − 2) + 3: shift right 2, up 3"},
-            "expl": `Transformations shift, stretch, and flip the parent graph. The single rule to remember: changes <em>inside</em> the function affect x and move oppositely; changes <em>outside</em> affect y and move normally.
-<div class="formula-box">y = f(x) + k → shift UP by k (k &gt; 0)<br>y = f(x − h) → shift RIGHT by h<br>y = −f(x) → reflect over the x-axis<br>y = f(−x) → reflect over the y-axis<br>y = a·f(x) → vertical stretch by a (a &gt; 1)</div>
-<div class="example-box">
-  <strong>Question:</strong> Describe the graph of y = f(x − 2) + 3 compared to y = f(x).
-  <div class="step-box"><span class="step-num">1</span> x − 2 inside: shift right 2 units (inside is always counterintuitive).</div>
-  <div class="step-box"><span class="step-num">2</span> + 3 outside: shift up 3 units.</div>
-  <strong>Answer:</strong> The graph shifts right 2 and up 3.
-</div>
-<div class="example-box">
-  <strong>Question:</strong> Describe y = −f(x) − 1 relative to y = f(x).
-  <div class="step-box"><span class="step-num">1</span> The leading − flips the graph over the x-axis.</div>
-  <div class="step-box"><span class="step-num">2</span> The − 1 outside shifts it down 1 unit.</div>
-  <strong>Answer:</strong> Reflect over the x-axis, then shift down 1. Track one test point (like a vertex) through each step.
-</div>
-<div class="warning-box">Inside the function (affecting x) moves the graph <strong>opposite</strong> to intuition: x − 2 moves right, x + 2 moves left. Outside (affecting y) moves normally: +2 up, −2 down. Absolute value flips the negative part of the graph upward. Test with a known point — the vertex of y = x² is easiest to track.</div>`
-          },
-          {
-            "name": "Composition & Inverses",
-            "diff": "hard",
-            "visual": {"type":"plane","xMin":-5,"xMax":5,"yMin":-5,"yMax":5,"line":{"m":1,"b":0,"dash":true},"caption":"Inverse reflects across y = x"},
-            "expl": `<strong>Composition</strong> chains functions; an <strong>inverse</strong> undoes a function — they are exact opposites the way division undoes multiplication.
-<div class="formula-box">(f∘g)(x) = f(g(x)) — apply g first, then f<br>f⁻¹(f(x)) = x and f(f⁻¹(x)) = x</div>
-<div class="example-box">
-  <strong>Question:</strong> If f(x) = 2x + 1 and g(x) = x², find f(g(3)) and f⁻¹(x).
-  <div class="step-box"><span class="step-num">1</span> g(3) = 9.</div>
-  <div class="step-box"><span class="step-num">2</span> f(g(3)) = f(9) = 2(9) + 1 = 19.</div>
-  <div class="step-box"><span class="step-num">3</span> For the inverse: swap x and y in y = 2x + 1 → x = 2y + 1 → y = (x − 1)/2.</div>
-  <strong>Answer:</strong> f(g(3)) = 19, f⁻¹(x) = (x − 1)/2.
-</div>
-<div class="example-box">
-  <strong>Question:</strong> If f(x) = x³, find f⁻¹(27).
-  <div class="step-box"><span class="step-num">1</span> The inverse of cubing is the cube root: f⁻¹(x) = ³√x.</div>
-  <div class="step-box"><span class="step-num">2</span> f⁻¹(27) = ³√27 = 3.</div>
-  <strong>Answer:</strong> 3. Verify: f(3) = 27, and composing gives you back your input — the definition of an inverse.
-</div>
-<div class="warning-box">Work composition from the inside out. To find an inverse algebraically: swap x and y, then solve for y. The graph of an inverse is the reflection of the original across the line y = x. If an answer choice for f⁻¹(x) doesn't satisfy f(f⁻¹(x)) = x, it's wrong — always test with a simple value.</div>`
-          }
-        ]
-      },
-      {
-        "name": "Statistics & Probability",
-        "topics": [
-          {
+{
             "name": "Counting Principles",
             "diff": "medium",
             "visual": {"type":"bar","labels":["1st","2nd","3rd"],"values":[9,9,8],"gold":false,"caption":"9 × 9 × 8 = 648 codes"},
@@ -940,7 +882,7 @@
 </div>
 <div class="warning-box">Decide permutation vs. combination: does order matter? Arranging books on a shelf = permutation (AB ≠ BA). Choosing a committee = combination (AB = BA). Factorials: 5! = 5 × 4 × 3 × 2 × 1 = 120. Cancel factorials before multiplying — it keeps the numbers small and the arithmetic easy.</div>`
           },
-          {
+{
             "name": "Advanced Probability",
             "diff": "hard",
             "visual": {"type":"bar","labels":["Red","Blue"],"values":[3,2],"gold":false,"caption":"3 red, 2 blue; P(both red) = 3/10"},
@@ -961,7 +903,7 @@
 </div>
 <div class="warning-box">Mutually exclusive events: P(A and B) = 0. Independent events: P(A and B) = P(A) × P(B) with no conditional adjustment. On the ACT, "given that" (conditional) language is the cue to divide by the restricted total. Reduce final fractions to match answer choices.</div>`
           },
-          {
+{
             "name": "Expected Value",
             "diff": "hard",
             "visual": {"type":"bar","labels":["$10","$2","$0"],"values":[2.5,1,0],"gold":false,"caption":"E = 2.5 + 1 + 0 = $3.50"},
@@ -983,7 +925,7 @@
 </div>
 <div class="warning-box">Expected value can be negative or fractional — it's an average, not a possible single outcome. The ACT often frames it as a "fair game": the fair price to play equals the expected value. Double-check that all probabilities add to 1 — a missing outcome quietly shifts the answer.</div>`
           },
-          {
+{
             "name": "Scatterplots & Lines of Best Fit",
             "diff": "medium",
             "visual": {"type":"line","pts":[[10,40],[20,58],[30,80],[25,68]],"fit":{"m":2,"b":20},"xMin":10,"xMax":30,"yMin":40,"yMax":80,"xLabel":"x","yLabel":"y","caption":"Best fit: y = 2x + 20"},
@@ -1003,8 +945,106 @@
 </div>
 <div class="warning-box">Positive slope = increasing trend; negative slope = decreasing; flat = no correlation. Correlation (r) tells strength and direction, <em>not</em> causation. Don't extrapolate far beyond the data range — lines of best fit are only reliable where data exists. Read axes carefully: a slope of "3" means 3 units per 1 unit on the <em>actual</em> scale.</div>`
           }
-        ]
-      }
-    ]
+            ]
+        },
+        {
+            "name": "Integrating Essential Skills",
+            "topics": [
+{
+            "name": "Fractions, Decimals & Percentages",
+            "diff": "medium",
+            "visual": {"type":"bar","labels":["1/2","1/4","3/4","1/5"],"values":[50,25,75,20],"gold":false,"caption":"Equivalent percentages"},
+            "expl": `Fractions, decimals, and percentages are three ways of writing the same value. <strong>Percent change</strong> measures growth or shrink relative to the original amount.<br><br>Memorize these conversions to save time: 1/2 = 0.5 = 50%, 1/4 = 25%, 3/4 = 75%, 1/3 ≈ 33.3%, 2/3 ≈ 66.7%, 1/5 = 20%, 1/8 = 12.5%.
+<div class="formula-box">Percent change = (new − old) ÷ old × 100%<br>Percent of a number: p% of x = (p/100) × x<br>Increase by p% → multiply by (1 + p/100); decrease → multiply by (1 − p/100)</div>
+<div class="example-box">
+  <strong>Question:</strong> A $40 shirt is on sale for $30. What is the percent decrease?
+  <div class="step-box"><span class="step-num">1</span> Change = old − new = 40 − 30 = $10.</div>
+  <div class="step-box"><span class="step-num">2</span> Divide by the original: 10 ÷ 40 = 0.25.</div>
+  <div class="step-box"><span class="step-num">3</span> Convert to a percent: 0.25 × 100 = 25%.</div>
+  <strong>Answer:</strong> 25% decrease. Always divide by the <strong>original</strong>, not the new value.
+</div>
+<div class="example-box">
+  <strong>Question:</strong> A restaurant bill is $48. What is a 15% tip, and what is the total paid?
+  <div class="step-box"><span class="step-num">1</span> 15% of 48 = (15/100) × 48 = 7.2.</div>
+  <div class="step-box"><span class="step-num">2</span> Total = 48 + 7.2 = 55.2.</div>
+  <div class="step-box"><span class="step-num">3</span> Faster: multiply 48 × 1.15 = 55.2 in one step.</div>
+  <strong>Answer:</strong> $7.20 tip, $55.20 total. A single multiplier (1 + p/100) handles the tip and the total at once.
+</div>
+<div class="warning-box">Successive percent changes do <strong>not</strong> cancel. A 20% increase followed by a 20% decrease = 0.96× the original (−4%), not 100%. Work step-by-step on the running amount, and never add percentages across separate steps. Convert everything to decimals on your calculator to avoid fraction-entry errors.</div>`
+          },
+{
+            "name": "Ratios & Proportions",
+            "diff": "medium",
+            "visual": {"type":"bar","labels":["3","4"],"values":[3,4],"gold":false,"caption":"A 3:4 ratio"},
+            "expl": `A <strong>ratio</strong> compares two quantities (3:4). A <strong>proportion</strong> states two ratios are equal, and you solve it by <strong>cross-multiplying</strong>. Unit rates — cost per item, miles per hour — are ratios simplified so the second quantity equals 1.
+<div class="formula-box">a/b = c/d ⟺ a × d = b × c<br>Unit rate = total ÷ count</div>
+<div class="example-box">
+  <strong>Question:</strong> If 3 oranges cost $2, how much do 15 oranges cost?
+  <div class="step-box"><span class="step-num">1</span> Set up the proportion: 3/2 = 15/x.</div>
+  <div class="step-box"><span class="step-num">2</span> Cross-multiply: 3x = 15 × 2 = 30.</div>
+  <div class="step-box"><span class="step-num">3</span> Solve: x = 30 ÷ 3 = 10.</div>
+  <strong>Answer:</strong> $10. The ratio method: 15 is 5× the 3 oranges, so cost is 5 × $2 = $10.
+</div>
+<div class="example-box">
+  <strong>Question:</strong> On a map, 1 inch represents 20 miles. A trail measures 3.5 inches. How long is the trail?
+  <div class="step-box"><span class="step-num">1</span> Set up: 1/20 = 3.5/x.</div>
+  <div class="step-box"><span class="step-num">2</span> Cross-multiply: x = 3.5 × 20 = 70.</div>
+  <strong>Answer:</strong> 70 miles. For "how many times bigger" problems, find the multiplier first instead of cross-multiplying.
+</div>
+<div class="warning-box">If a ratio is boys:girls = 3:4, treat the parts as 3x and 4x. Total = 7x. A common trap is adding the ratio parts as the actual count — 3 boys and 4 girls is only correct when x = 1. Also make sure the same units appear on both sides of a proportion before you solve.</div>`
+          },
+{
+            "name": "Direct & Inverse Variation",
+            "diff": "medium",
+            "visual": {"type":"text","text":"Direct: y = kx
+Inverse: y = k/x"},
+            "expl": `Direct variation: y = kx. Inverse variation: y = k/x.<br><br>Find k from given values, then solve for unknown.<br><div class="example-box">
+  <strong>Question:</strong> If y varies directly as x, and y = 10 when x = 2, find y when x = 7.
+  <div class="step-box"><span class="step-num">1</span> 10 = k*2 -> k = 5</div>
+  <div class="step-box"><span class="step-num">2</span> y = 5*7 = 35</div>
+  <strong>Answer:</strong> 35
+</div>`},
+{
+            "name": "Rates & Work Problems",
+            "diff": "medium",
+            "visual": {"type":"text","text":"Combined rate = sum of individual rates"},
+            "expl": `Work problems: combined rate = sum of individual rates.<br><div class="example-box">
+  <strong>Question:</strong> John paints a house in 6 hrs, Sam in 4 hrs. Time together?
+  <div class="step-box"><span class="step-num">1</span> John's rate = 1/6 house/hr</div>
+  <div class="step-box"><span class="step-num">2</span> Sam's rate = 1/4 house/hr</div>
+  <div class="step-box"><span class="step-num">3</span> Combined rate = 1/6 + 1/4 = 5/12 house/hr</div>
+  <div class="step-box"><span class="step-num">4</span> Time = 1 / (5/12) = 12/5 = 2.4 hrs</div>
+  <strong>Answer:</strong> 2.4 hours
+</div>`},
+{
+            "name": "Data Analysis from Tables & Charts",
+            "diff": "medium",
+            "visual": {"type":"text","text":"Bar chart: Math 30, Science 25, English 20, History 15, Art 10"},
+            "expl": `Read data from tables/charts. Calculate percentages, totals, differences.<br><div class="example-box">
+  <strong>Question:</strong> Survey: 100 students. Math:30, Science:25, English:20, History:15, Art:10. What % chose Science?
+  <div class="step-box"><span class="step-num">1</span> Science = 25</div>
+  <div class="step-box"><span class="step-num">2</span> Total = 100</div>
+  <div class="step-box"><span class="step-num">3</span> % = (25/100)*100 = 25%</div>
+  <strong>Answer:</strong> 25%
+</div>`}
+            ]
+        },
+        {
+            "name": "Modeling",
+            "topics": [
+{
+            "name": "Interpreting Models & Graphs",
+            "diff": "hard",
+            "visual": {"type":"text","text":"Linear model: y = 2x + 5"},
+            "expl": `Interpret mathematical models in context.<br><div class="example-box">
+  <strong>Question:</strong> Phone plan: $20/month + $0.10/min. Write cost C(m) and interpret.
+  <div class="step-box"><span class="step-num">1</span> C(m) = 20 + 0.10m</div>
+  <div class="step-box"><span class="step-num">2</span> Slope = 0.10 = $0.10 per minute</div>
+  <div class="step-box"><span class="step-num">3</span> Y-intercept = 20 = $20 base fee</div>
+  <strong>Answer:</strong> C = 0.10m + 20; slope=$0.10/min, intercept=$20/month
+</div>`}
+            ]
+        }
+      ]
   };
 })();
