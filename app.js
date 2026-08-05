@@ -1711,15 +1711,19 @@ function renderScienceOptIn() {
 // ── CATEGORY GRID ─────────────
 function renderCategoryGridHTML() {
   const sec = data[currentSection];
+  if (!sec || !sec.categories) {
+    main.innerHTML = `<div class="no-results"><h3>Could not load this section</h3><p>Please refresh the page and try again.</p></div>`;
+    return '';
+  }
   let html = `
     <div class="breadcrumb">
       <button onclick="navigate('home')">← Home</button>
       <span>/</span>
-      <strong>${sec.title}</strong>
+      <strong>${sec.title || currentSection}</strong>
     </div>
     <div class="section-header">
-      <h2>${sec.title}</h2>
-      <p>${sec.desc} — Select a category below</p>
+      <h2>${sec.title || currentSection}</h2>
+      <p>${sec.desc || 'Select a category below'}</p>
     </div>
     <div class="cat-grid">
   `;
@@ -1727,7 +1731,7 @@ function renderCategoryGridHTML() {
     html += `
       <div class="cat-card" onclick="navigate('section','${currentSection}',${i})">
         <h4>${cat.name}</h4>
-        <span class="count">${cat.topics.length} topics</span>
+        <span class="count">${(cat.topics || []).length} topics</span>
       </div>
     `;
   });
@@ -1792,8 +1796,7 @@ function renderTopicListHTML() {
       `;
     });
     html += `</div>`;
-    main.innerHTML = html;
-    return;
+    return html;
   }
 
   const progress = getProgress();
@@ -1846,7 +1849,7 @@ function renderTopicListHTML() {
   }
   renderPage();
   html += '</div>';
-  main.innerHTML = html;
+  return html;
 }
 // ── TOPIC DETAIL ──────────────
 function renderTopicDetailHTML() {
