@@ -3,7 +3,7 @@
   data['english'] = {
     title: 'ACT English',
     desc: '50 questions · 35 minutes · Grammar, style & rhetoric. You read short passages and choose the best fix for each underlined phrase, so editing in context is everything.',
-    categories: 
+    categories: [
       {
         name: 'Conventions of Standard English',
         topics: [

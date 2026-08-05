@@ -1686,6 +1686,7 @@ function renderHomeHTML() {
       </div>
     </div>
   `;
+  return main.innerHTML;
 }
 // ── SCIENCE OPT-IN BLOCKER ───
 function renderScienceOptIn() {
@@ -1731,7 +1732,7 @@ function renderCategoryGridHTML() {
     `;
   });
   html += '</div>';
-  main.innerHTML = html;
+  return html;
 }
 // ── TOPIC LIST ────────────────
 function getExcerpt(html, maxLen = 130) {
@@ -1772,8 +1773,7 @@ function renderTopicListHTML() {
       `;
     });
     html += `</div>`;
-    main.innerHTML = html;
-    return;
+    return html;
   }
 
   if (currentSection === 'other links') {

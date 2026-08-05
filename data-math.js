@@ -996,8 +996,7 @@
 {
             "name": "Direct & Inverse Variation",
             "diff": "medium",
-            "visual": {"type":"text","text":"Direct: y = kx
-Inverse: y = k/x"},
+            "visual": {"type":"text","text":"Direct: y = kx\nInverse: y = k/x"},
             "expl": `Direct variation: y = kx. Inverse variation: y = k/x.<br><br>Find k from given values, then solve for unknown.<br><div class="example-box">
   <strong>Question:</strong> If y varies directly as x, and y = 10 when x = 2, find y when x = 7.
   <div class="step-box"><span class="step-num">1</span> 10 = k*2 -> k = 5</div>
