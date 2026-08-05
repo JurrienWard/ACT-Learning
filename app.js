@@ -1612,9 +1612,7 @@ function render() {
   else if (currentView === 'section') html = renderCategoryGridHTML();
   else html = renderHomeHTML();
   renderCache.set(key, html);
-  console.log('render() setting innerHTML', key, 'html length', html.length, 'has topic-list', html.includes('topic-list'));
   main.innerHTML = html;
-  console.log('render() after innerHTML topicListContainer', document.getElementById('topicListContainer') ? 'found' : 'missing');
 }
 // ── HOME ──────────────────────
 function isScienceEnabled() {
@@ -1766,7 +1764,6 @@ function renderTopicListHTML() {
   function buildPageHtml(page) {
     const start = page * PAGE_SIZE;
     const slice = topics.slice(start, start + PAGE_SIZE);
-    console.log('buildPageHtml', page, 'slice', slice.length, 'first', slice[0] && slice[0].name);
     let pageHtml = '';
     slice.forEach((t, i) => {
       const excerpt = t.expl ? getExcerpt(t.expl) : '';
@@ -1786,7 +1783,6 @@ function renderTopicListHTML() {
     });
     const hasPrev = page > 0;
     const hasNext = page < totalPages - 1;
-    console.log('buildPageHtml result', pageHtml.length);
     return pageHtml + (hasPrev || hasNext ? `
       <div class="pagination">
         ${hasPrev ? '<button type="button" class="page-btn" data-page="prev">← Previous</button>' : ''}
