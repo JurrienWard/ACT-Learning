@@ -1747,80 +1747,31 @@ function getExcerpt(html, maxLen = 130) {
 }
 
 function renderTopicListHTML() {
+  if (!data[currentSection] || !data[currentSection].categories || currentCategory == null) {
+    main.innerHTML = `<div class="no-results"><h3>Could not load this section</h3><p>Please refresh the page and try again.</p></div>`;
+    return '';
+  }
   const cat = data[currentSection].categories[currentCategory];
-  let html = `
-    <div class="breadcrumb">
-      <button onclick="navigate('home')">← Home</button>
-      <span>/</span>
-      <button onclick="navigate('section','${currentSection}')">${data[currentSection].title}</button>
-      <span>/</span>
-      <strong>${cat.name}</strong>
-    </div>
-    <div class="section-header">
-      <h2>${cat.name}</h2>
-      <p>${cat.topics.length} tests — open a test or its answer key</p>
-    </div>
-  `;
-
-  if (currentSection === 'past tests') {
-    html += `<div class="past-tests-grid">`;
-    cat.topics.forEach((t, i) => {
-      html += `
-        <div class="past-test-card" onclick="navigate('section','${currentSection}',${currentCategory},${i})">
-          <h4>${t.name}</h4>
-          <p>Full-length ACT practice material${t.answerKey ? ' · includes answer key' : ''}</p>
-          <div class="past-test-actions">
-            ${t.pdf ? `<a href="${t.pdf}" target="_blank" rel="noopener" class="yt-btn" style="background:#5c6bc0">📄 Open Test</a>` : ''}
-            ${t.answerKey ? `<a href="${t.answerKey}" target="_blank" rel="noopener" class="yt-btn" style="background:#2e7d32">✅ Answer Key</a>` : ''}
-          </div>
-        </div>
-      `;
-    });
-    html += `</div>`;
-    return html;
+  if (!cat) {
+    main.innerHTML = `<div class="no-results"><h3>Category not found</h3><p>Please go back and try again.</p></div>`;
+    return '';
   }
-
-  if (currentSection === 'other links') {
-    html += `<div class="past-tests-grid">`;
-    cat.topics.forEach((t, i) => {
-      const url = t.url || t.pdf || '#';
-      const label = url !== '#' ? '🔗 Open Link' : 'Coming soon';
-      html += `
-        <div class="past-test-card" onclick="${url !== '#' ? `window.open('${url}','_blank')` : ''}" style="${url === '#' ? 'opacity:.7;cursor:default' : ''}">
-          <h4>${t.name}</h4>
-          <p>${url !== '#' ? 'External resource' : 'Link coming soon'}</p>
-          <div class="past-test-actions">
-            ${url !== '#' ? `<a href="${url}" target="_blank" rel="noopener" class="yt-btn" style="background:#5c6bc0">${label}</a>` : ''}
-          </div>
-        </div>
-      `;
-    });
-    html += `</div>`;
-    return html;
-  }
-
-  const progress = getProgress();
-  html += `<div class="topic-list" id="topicListContainer">`;
+  const topics = cat.topics || [];
   const PAGE_SIZE = 20;
-  let pageStart = 0;
   let currentPage = 0;
-  const totalPages = Math.max(1, Math.ceil(cat.topics.length / PAGE_SIZE));
-  function renderPage() {
-    const container = document.getElementById('topicListContainer');
-    if (!container) return;
-    const start = currentPage * PAGE_SIZE;
-    const slice = cat.topics.slice(start, start + PAGE_SIZE);
+  const totalPages = Math.max(1, Math.ceil(topics.length / PAGE_SIZE));
+
+  function buildPageHtml(page) {
+    const start = page * PAGE_SIZE;
+    const slice = topics.slice(start, start + PAGE_SIZE);
     let pageHtml = '';
     slice.forEach((t, i) => {
       const excerpt = t.expl ? getExcerpt(t.expl) : '';
       const diff = t.diff ? `<span class="difficulty ${t.diff === 'easy' ? 'easy' : t.diff === 'medium' ? 'medium' : 'hard'}">${t.diff}</span>` : '';
-      const viewKey = `${currentSection}::${cat.name}::${t.name}`;
-      const viewed = progress.topicViews && progress.topicViews[viewKey];
-      const viewedBadge = viewed ? '<span class="viewed-badge">✓ Viewed</span>' : '';
       pageHtml += `
         <div class="topic-row" data-searchable="${t.name.toLowerCase()} ${cat.name.toLowerCase()} ${excerpt.toLowerCase()}" onclick="navigate('section','${currentSection}',${currentCategory},${start + i})">
           <div>
-            <span class="tname">${t.name} ${viewedBadge}</span>
+            <span class="tname">${t.name}</span>
             ${excerpt ? `<span class="tdesc">${excerpt}</span>` : ''}
           </div>
           <div class="tmeta">
@@ -1830,26 +1781,56 @@ function renderTopicListHTML() {
         </div>
       `;
     });
-    const hasPrev = currentPage > 0;
-    const hasNext = currentPage < totalPages - 1;
-    container.innerHTML = pageHtml + (hasPrev || hasNext ? `
+    const hasPrev = page > 0;
+    const hasNext = page < totalPages - 1;
+    return pageHtml + (hasPrev || hasNext ? `
       <div class="pagination">
         ${hasPrev ? '<button type="button" class="page-btn" data-page="prev">← Previous</button>' : ''}
-        <span class="page-info">Page ${currentPage + 1} of ${totalPages}</span>
+        <span class="page-info">Page ${page + 1} of ${totalPages}</span>
         ${hasNext ? '<button type="button" class="page-btn" data-page="next">Next →</button>' : ''}
       </div>
     ` : '');
+  }
+
+  let html = `
+    <div class="breadcrumb">
+      <button onclick="navigate('home')">← Home</button>
+      <span>/</span>
+      <button onclick="navigate('section','${currentSection}')">${data[currentSection].title || currentSection}</button>
+      <span>/</span>
+      <strong>${cat.name}</strong>
+    </div>
+    <div class="section-header">
+      <h2>${cat.name}</h2>
+      <p>${topics.length} topics — click any topic to start learning</p>
+    </div>
+    <div class="topic-list" id="topicListContainer">
+      ${buildPageHtml(0)}
+    </div>
+  `;
+
+  setTimeout(() => {
+    const container = document.getElementById('topicListContainer');
+    if (!container) return;
     container.querySelectorAll('.page-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         if (btn.dataset.page === 'prev' && currentPage > 0) currentPage--;
         if (btn.dataset.page === 'next' && currentPage < totalPages - 1) currentPage++;
-        renderPage();
+        container.innerHTML = buildPageHtml(currentPage);
+        bindPagination(container);
       });
     });
-  }
-  renderPage();
-  html += '</div>';
+  }, 0);
+
   return html;
+}
+
+function bindPagination(container) {
+  container.querySelectorAll('.page-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // handled inline via re-render
+    });
+  });
 }
 // ── TOPIC DETAIL ──────────────
 function renderTopicDetailHTML() {
