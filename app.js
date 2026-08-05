@@ -1612,7 +1612,9 @@ function render() {
   else if (currentView === 'section') html = renderCategoryGridHTML();
   else html = renderHomeHTML();
   renderCache.set(key, html);
+  console.log('render() setting innerHTML', key, 'html length', html.length, 'has topic-list', html.includes('topic-list'));
   main.innerHTML = html;
+  console.log('render() after innerHTML topicListContainer', document.getElementById('topicListContainer') ? 'found' : 'missing');
 }
 // ── HOME ──────────────────────
 function isScienceEnabled() {
